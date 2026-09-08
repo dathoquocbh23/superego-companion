@@ -1,0 +1,506 @@
+# ============================================================================
+# DOMAIN GRAPH — Chatbot đồng hành "Cái siêu tôi trừng phạt"
+# ----------------------------------------------------------------------------
+# 24 evidence node (bot THEO DÕI) + 18 content node (bot PHÁT NGÔN)
+# Nội dung trích từ 5 tài liệu nghiên cứu. Xem docx/02-DOMAIN-GRAPH.md.
+#
+# Luật: `body` của content node là NGUYÊN VĂN / gần nguyên văn tài liệu.
+#       `cues` chỉ là gợi ý cho bước TRÍCH — KHÔNG hiển thị cho người dùng.
+# ============================================================================
+
+version: "1.0"
+reviewed_by: null          # giai đoạn 2: tên chuyên gia + ngày duyệt
+
+nodes:
+  # ==========================================================================
+  # EVIDENCE NODE (24) — bot theo dõi confidence + source, KHÔNG bao giờ nói tên
+  # ==========================================================================
+
+  # --- 2.1 Manifestation — Biểu hiện (10) = 10 câu thang Likert -------------
+  - id: m-tu-trach
+    type: manifestation
+    label: "Tự trách khi mắc lỗi"
+    likert_item: 1
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["tự trách", "tại mình hết", "lỗi của mình", "mình dở quá", "do mình", "mình ngu thật"]
+
+  - id: m-kho-tha-thu
+    type: manifestation
+    label: "Khó tha thứ cho bản thân"
+    likert_item: 2
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["không tha thứ được", "cứ ám ảnh mãi", "chuyện nhỏ mà nghĩ hoài", "không bỏ qua được cho mình", "sai một lần là nhớ mãi"]
+
+  - id: m-chua-du-tot
+    type: manifestation
+    label: "Cảm thấy chưa đủ tốt"
+    likert_item: 3
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["chưa đủ tốt", "cố mấy cũng vậy", "học mãi mà vẫn thế", "học thêm mãi mà vẫn", "vẫn chưa ăn thua", "làm hoài không tới đâu",
+            "mình thua kém", "mình không bằng", "mình không xứng", "mình chẳng bằng ai",
+            "thua crush", "thua bạn", "thua người ta", "không bằng người ta",
+            # thêm 08/09/2026 — cách nói thật của học sinh, cue cũ bỏ lọt hết:
+            # "Mình không làm được như mình muốn" khớp 0 node, overlay đứng yên
+            # 5 lượt trong khi câu đó gần đúng phát biểu Likert số 3.
+            "không làm được như mình muốn", "không được như mình muốn",
+            "không như mình mong", "chưa được như mình muốn",
+            "làm không được tốt", "làm bài không tốt", "chưa làm tốt"]
+
+  - id: m-tieu-chuan-cao
+    type: manifestation
+    label: "Đặt tiêu chuẩn rất cao"
+    likert_item: 4
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["ít nhất phải", "phải được 9", "phải top", "dưới mức đó là không chấp nhận", "phải nhất lớp"]
+
+  - id: m-co-loi-ky-vong
+    type: manifestation
+    late_stage: true
+    label: "Có lỗi khi không đáp ứng kỳ vọng"
+    likert_item: 5
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["có lỗi với ba mẹ", "làm mọi người thất vọng", "phụ lòng", "ba mẹ tốn tiền", "không xứng với kỳ vọng"]
+
+  - id: m-dang-bi-trach-phat
+    type: manifestation
+    late_stage: true
+    label: "Nghĩ mình đáng bị trách phạt"
+    likert_item: 6
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["đáng bị vậy", "đáng đời", "mình xứng đáng bị", "phải bị phạt mới đúng", "mình không đáng được"]
+
+  - id: m-phai-hoan-hao
+    type: manifestation
+    label: "Cảm thấy cần phải hoàn hảo"
+    likert_item: 7
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["phải hoàn hảo", "không được sai", "không được phép lỗi", "mọi thứ phải chỉn chu", "sai một chút là hỏng"]
+
+  - id: m-xau-ho-khuyet-diem
+    type: manifestation
+    late_stage: true
+    label: "Xấu hổ vì khuyết điểm"
+    likert_item: 8
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["xấu hổ vì", "nhục", "sợ người ta thấy mình kém", "ngại vì mình dở", "mắc cỡ với bản thân"]
+
+  - id: m-hiem-hai-long
+    type: manifestation
+    label: "Hiếm khi hài lòng với mình"
+    likert_item: 9
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["không bao giờ thấy đủ", "làm xong vẫn thấy chưa ổn", "chẳng khi nào vừa ý", "lúc nào cũng thấy thiếu"]
+
+  - id: m-chi-nho-loi-sai
+    type: manifestation
+    label: "Chỉ nhớ lỗi sai"
+    likert_item: 10
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["chỉ nhớ chỗ mình làm sai", "cái tốt thì quên", "lúc nào cũng soi lỗi của mình", "nhớ mỗi lần mình dở"]
+
+  # --- 2.2 Trigger — Bối cảnh kích hoạt (4) --------------------------------
+  - id: t-diem-so
+    type: trigger
+    label: "Kết quả học tập / điểm số"
+    source_doc: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx"
+    cues: ["điểm", "bài kiểm tra", "thi được", "6.5", "điểm kém", "bài thi", "kết quả học"]
+
+  - id: t-ky-vong-gia-dinh
+    type: trigger
+    label: "Kỳ vọng từ gia đình"
+    source_doc: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx"
+    cues: ["ba mẹ muốn", "gia đình mong", "bố mẹ kỳ vọng", "nhà đặt áp lực", "ba mẹ cho đi học thêm"]
+
+  - id: t-so-sanh-ban-be
+    type: trigger
+    label: "So sánh với bạn bè"
+    source_doc: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx"
+    cues: ["đứa nào cũng", "bạn bè giỏi hơn", "con nhà người ta", "so với tụi nó", "lớp mình ai cũng",
+            "thua kém bạn", "không bằng bạn", "kém hơn bạn", "so với bạn", "thua đứa"]
+
+  - id: t-thi-cu-tuong-lai
+    type: trigger
+    label: "Thi cử / định hướng tương lai"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["thi đại học", "kỳ thi", "tương lai", "chọn ngành", "sắp thi", "trượt thì"]
+
+  # --- 2.2b Trigger ĐỜI SỐNG (4) — thêm 07/09/2026 --------------------------
+  #     Vì sao thêm: graph cũ chỉ phủ bối cảnh HỌC TẬP. Học sinh nói "thất
+  #     tình", "cãi nhau với bạn" thì bước TRÍCH trả về RỖNG → overlay rỗng →
+  #     gate kẹt ở CLARIFY vĩnh viễn, bot hỏi vòng vo không có đích.
+  #     Đây là node BỐI CẢNH, KHÔNG khẳng định siêu tôi trừng phạt. Chỉ duy
+  #     nhất cạnh t-quan-he -> m-chua-du-tot mới dẫn vào lõi, và chỉ khi học
+  #     sinh tự nói ra ý "tại mình chưa đủ tốt".
+  - id: t-quan-he
+    type: trigger
+    label: "Chuyện tình cảm"
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["thất tình", "chia tay", "người yêu", "bị từ chối", "tỏ tình", "hết thương",
+            "bồ cũ", "crush của mình", "người ta không thích", "bị đá", "chuyện tình cảm"]
+
+  - id: t-ban-be
+    type: trigger
+    label: "Mâu thuẫn bạn bè"
+    source_doc: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+    cues: ["cãi nhau với bạn", "nghỉ chơi", "bị tẩy chay", "bạn bè xa lánh", "bị nói xấu",
+            "giận nhau", "hết chơi với", "bị cô lập", "không ai chơi với", "chuyện với bạn bè"]
+
+  - id: t-gia-dinh
+    type: trigger
+    label: "Chuyện trong gia đình"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["ba mẹ cãi nhau", "gia đình lục đục", "ba mẹ ly hôn", "bị la", "bị mắng",
+            "không khí trong nhà", "chuyện gia đình", "ba mẹ suốt ngày"]
+
+  - id: t-mat-mat
+    type: trigger
+    label: "Mất mát người thân / điều quan trọng"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["mất người thân", "qua đời", "ông bà mất", "đám tang", "bà mình mất",
+            "ông mình mất", "thú cưng mất", "vừa mất"]
+
+  # --- 2.3 Affect — Trạng thái cảm xúc (5) --------------------------------
+  - id: a-toi-loi
+    type: affect
+    label: "Cảm giác tội lỗi quá mức"
+    note: "Triệu chứng WHO"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["thấy có lỗi", "cắn rứt", "áy náy", "tội lỗi", "mình có lỗi"]
+
+  - id: a-xau-ho
+    type: affect
+    label: "Xấu hổ"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["xấu hổ", "nhục nhã", "mắc cỡ", "muốn độn thổ", "ngại không dám nhìn ai",
+            "mất mặt", "ê mặt", "quê với", "xấu hổ với", "không dám nhìn mặt"]
+
+  - id: a-gia-tri-thap
+    type: affect
+    label: "Cảm nhận bản thân có giá trị thấp"
+    note: "Triệu chứng WHO"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["mình tệ thật", "mình kém cỏi", "mình vô dụng", "mình chẳng ra gì", "mình không có giá trị"]
+
+  - id: a-lo-lang
+    type: affect
+    label: "Lo lắng / căng thẳng kéo dài"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["lo quá", "căng thẳng", "bồn chồn", "suy nghĩ hoài không thôi", "lo tới mất ngủ", "áp lực"]
+
+  - id: a-vo-vong
+    type: affect
+    label: "Cảm giác vô vọng"
+    risk_adjacent: true          # ⚠️ ép BRIDGE khi CONFIRMED (docx/02 §5)
+    note: "Triệu chứng trầm cảm theo WHO — risk-adjacent"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["vô vọng", "chẳng còn hy vọng", "mãi mãi vậy thôi", "không lối thoát", "chẳng thay đổi được gì"]
+
+  # --- 2.3b Affect CƠ BẢN (3) — thêm 07/09/2026 ----------------------------
+  #     Graph cũ có 5 affect nhưng TẤT CẢ đều là cảm xúc tự-đánh-giá (tội lỗi,
+  #     xấu hổ, giá trị thấp...). Không có nỗi buồn thường. Câu "Mình đang rất
+  #     buồn" khớp ĐÚNG 0 node — xem turns.jsonl 07/09/2026.
+  #     3 node này KHÔNG nằm trong cycle-tu-phe-phan: lõi vòng lặp giữ nguyên.
+  - id: a-buon
+    type: affect
+    label: "Buồn / trống rỗng"
+    note: "Triệu chứng WHO — khí sắc trầm"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["rất buồn", "buồn quá", "buồn lắm", "đang buồn", "thấy buồn", "buồn ghê",
+            "trống rỗng", "tủi thân", "muốn khóc", "khóc hoài", "hụt hẫng", "chán nản",
+            "chả thiết gì", "không còn thấy vui"]
+
+  - id: a-co-don
+    type: affect
+    label: "Cô đơn / thấy không ai hiểu"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["cô đơn", "một mình", "không ai hiểu", "lạc lõng", "chẳng ai quan tâm",
+            "không biết nói với ai", "không có ai để", "thấy lạc lõng"]
+
+  - id: a-tuc-gian
+    type: affect
+    label: "Tức giận / ấm ức"
+    source_doc: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+    cues: ["ấm ức", "tức quá", "tức lắm", "bực mình", "bực quá", "ức chế",
+            "không cam tâm", "giận lắm", "cay cú"]
+
+  # --- 2.4 Impact — Ảnh hưởng chức năng (5) ------------------------------
+  - id: i-kho-tap-trung
+    type: impact
+    label: "Khó tập trung"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["không tập trung được", "học không vô", "đầu óc lơ mơ", "đọc mãi không hiểu", "mất tập trung"]
+
+  - id: i-roi-loan-giac-ngu
+    type: impact
+    label: "Khó ngủ / rối loạn giấc ngủ"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["mất ngủ", "thức tới 2h", "trằn trọc", "ngủ không được", "sáng dậy mệt", "khó ngủ"]
+
+  - id: i-ne-tranh
+    type: impact
+    label: "Né tránh bài tập, kiểm tra, cơ hội mới"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["bỏ bài không làm", "trốn kiểm tra", "không dám thử", "cứ để đó", "lảng tránh", "không đụng tới"]
+
+  - id: i-mat-dong-luc
+    type: impact
+    label: "Mất động lực học tập"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["chẳng muốn học", "mất động lực", "không thiết học nữa", "học để làm gì", "chán chả buồn làm gì"]
+
+  - id: i-thu-minh
+    type: impact
+    label: "Thu mình, cô lập"
+    source_doc: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+    cues: ["không muốn gặp ai", "ở lì trong phòng", "tránh bạn bè", "một mình cho xong", "không nói chuyện với ai"]
+
+  # ==========================================================================
+  # CONTENT NODE (18) — bot phát ngôn qua văn bản duyệt sẵn
+  # ==========================================================================
+
+  # --- 3.1 Concept — Khái niệm (4) -------------------------------------
+  - id: c-id-ego-superego
+    type: concept
+    label: "Id – Ego – Superego"
+    content_ref: "content/concepts.yaml#id-ego-superego"
+
+  - id: c-lanh-manh-vs-trung-phat
+    type: concept
+    label: "Siêu tôi lành mạnh vs trừng phạt"
+    content_ref: "content/concepts.yaml#lanh-manh-vs-trung-phat"
+
+  - id: c-vong-lap-tu-phe-phan
+    type: concept
+    label: "Vòng lặp tự phê phán"
+    content_ref: "content/concepts.yaml#vong-lap-tu-phe-phan"
+
+  - id: c-khong-phai-chan-doan
+    type: concept
+    label: "Không phải chẩn đoán, không dán nhãn"
+    content_ref: "content/concepts.yaml#khong-phai-chan-doan"
+
+  # --- 3.2 Coping — Kỹ năng ứng phó (6) ------------------------------
+  - id: k-nhan-dien-tu-phe-phan
+    type: coping
+    label: "Nhận diện hành vi tự cản trở"
+    content_ref: "content/coping.yaml#nhan-dien-tu-phe-phan"
+
+  - id: k-tu-tran-an
+    type: coping
+    label: "Lòng trắc ẩn với bản thân"
+    content_ref: "content/coping.yaml#tu-tran-an"
+
+  - id: k-growth-mindset
+    type: coping
+    label: "Thay đổi tư duy về thất bại"
+    content_ref: "content/coping.yaml#growth-mindset"
+
+  - id: k-chia-nho-muc-tieu
+    type: coping
+    label: "Xây tự tin từ những bước nhỏ"
+    content_ref: "content/coping.yaml#chia-nho-muc-tieu"
+
+  - id: k-chanh-niem
+    type: coping
+    label: "Chánh niệm / hít thở sâu"
+    content_ref: "content/coping.yaml#chanh-niem"
+
+  - id: k-ghi-nhan-tich-cuc
+    type: coping
+    label: "Ghi nhận điều tích cực"
+    content_ref: "content/coping.yaml#ghi-nhan-tich-cuc"
+
+  # --- 3.3 RiskFlag — Cờ cảnh báo (3) -------------------------------
+  - id: r-keo-dai
+    type: riskflag
+    label: "Kéo dài ≥ 2 tuần"
+    content_ref: "content/resources.yaml#_riskflag_keo_dai"
+    trigger_condition: "Người dùng nhắc mốc thời gian ≥ 2 tuần"
+
+  - id: r-suy-giam-chuc-nang
+    type: riskflag
+    label: "Suy giảm chức năng"
+    content_ref: "content/resources.yaml#_riskflag_suy_giam"
+    trigger_condition: "≥ 2 node Impact có evidence ≥ ngưỡng"
+
+  - id: r-y-nghi-tu-hai
+    type: riskflag
+    label: "Ý nghĩ tự hại"
+    content_ref: "content/resources.yaml#_riskflag_tu_hai"
+    trigger_condition: "Lớp an toàn tất định bắt được (xem docx/04)"
+
+  # --- 3.4 Resource — Nguồn hỗ trợ (5) -----------------------------
+  - id: s-gvcn
+    type: resource
+    resource_kind: truong-hoc
+    label: "Giáo viên chủ nhiệm"
+    content_ref: "content/resources.yaml#gvcn"
+
+  - id: s-tu-van-hoc-duong
+    type: resource
+    resource_kind: truong-hoc
+    label: "Phòng tư vấn tâm lý học đường"
+    content_ref: "content/resources.yaml#tu-van-hoc-duong"
+
+  - id: s-ba-me
+    type: resource
+    resource_kind: gia-dinh
+    label: "Ba mẹ (kèm kịch bản mở lời)"
+    content_ref: "content/resources.yaml#ba-me"
+
+  - id: s-hotline
+    type: resource
+    resource_kind: chuyen-mon
+    label: "Hotline sơ cứu tâm lý 0832000202"
+    content_ref: "content/resources.yaml#hotline"
+
+  - id: s-phong-kham
+    type: resource
+    resource_kind: chuyen-mon
+    label: "Danh bạ phòng khám / bệnh viện TP.HCM"
+    content_ref: "content/resources.yaml#phong-kham"
+
+# ============================================================================
+# CẠNH (edges)
+# ============================================================================
+edges:
+  # --- triggers: Trigger --> Manifestation --------------------------------
+  - {from: m-tieu-chuan-cao, to: t-diem-so, type: triggers}   # tiêu chuẩn cao → dễ "không đạt"
+  - {from: t-diem-so, to: m-tu-trach, type: triggers}
+  - {from: t-diem-so, to: m-dang-bi-trach-phat, type: triggers}
+  - {from: t-diem-so, to: m-chi-nho-loi-sai, type: triggers}
+  - {from: t-ky-vong-gia-dinh, to: m-co-loi-ky-vong, type: triggers}
+  - {from: t-ky-vong-gia-dinh, to: m-phai-hoan-hao, type: triggers}
+  - {from: t-so-sanh-ban-be, to: m-chua-du-tot, type: triggers}
+  - {from: t-so-sanh-ban-be, to: m-hiem-hai-long, type: triggers}
+  - {from: t-thi-cu-tuong-lai, to: m-tieu-chuan-cao, type: triggers}
+  - {from: t-thi-cu-tuong-lai, to: m-phai-hoan-hao, type: triggers}
+
+  # --- produces: Manifestation --> Affect --------------------------------
+  - {from: m-tu-trach, to: a-toi-loi, type: produces}
+  - {from: m-tu-trach, to: a-xau-ho, type: produces}
+  - {from: m-dang-bi-trach-phat, to: a-toi-loi, type: produces}
+  - {from: m-co-loi-ky-vong, to: a-toi-loi, type: produces}
+  - {from: m-xau-ho-khuyet-diem, to: a-xau-ho, type: produces}
+  - {from: m-chua-du-tot, to: a-gia-tri-thap, type: produces}
+  - {from: m-hiem-hai-long, to: a-gia-tri-thap, type: produces}
+  - {from: m-chi-nho-loi-sai, to: a-gia-tri-thap, type: produces}
+  - {from: m-phai-hoan-hao, to: a-lo-lang, type: produces}
+  - {from: m-tieu-chuan-cao, to: a-lo-lang, type: produces}
+
+  # --- produces: Affect --> Affect (chuỗi trong vòng lặp) ---------------
+  - {from: a-toi-loi, to: a-gia-tri-thap, type: produces}
+  - {from: a-xau-ho, to: a-gia-tri-thap, type: produces}
+  - {from: a-gia-tri-thap, to: a-lo-lang, type: produces}
+  - {from: a-gia-tri-thap, to: a-vo-vong, type: produces}
+
+  # --- (MỚI 07/09/2026) tầng đời sống -> affect cơ bản --------------------
+  - {from: t-quan-he,  to: a-buon,        type: produces}
+  - {from: t-quan-he,  to: a-co-don,      type: produces}
+  - {from: t-quan-he,  to: m-chua-du-tot, type: triggers}   # CẦU NỐI DUY NHẤT vào lõi siêu tôi
+  - {from: t-ban-be,   to: a-co-don,      type: produces}
+  - {from: t-ban-be,   to: a-tuc-gian,    type: produces}
+  - {from: t-gia-dinh, to: a-buon,        type: produces}
+  - {from: t-gia-dinh, to: a-lo-lang,     type: produces}
+  - {from: t-mat-mat,  to: a-buon,        type: produces}
+  - {from: t-mat-mat,  to: a-co-don,      type: produces}
+
+  # --- (MỚI) affect cơ bản -> impact --------------------------------------
+  - {from: a-buon,     to: i-mat-dong-luc,      type: impairs}
+  - {from: a-buon,     to: i-roi-loan-giac-ngu, type: impairs}
+  - {from: a-buon,     to: i-kho-tap-trung,     type: impairs}
+  - {from: a-co-don,   to: i-thu-minh,          type: impairs}
+  - {from: a-tuc-gian, to: i-kho-tap-trung,     type: impairs}
+
+  # --- (MỚI) affect cơ bản -> affect lõi ----------------------------------
+  #     Hai cạnh này CÓ CHỦ ĐÍCH thưa. Buồn KHÔNG mặc nhiên là siêu tôi trừng
+  #     phạt; chỉ khi nó kéo dài tới vô vọng, hoặc khi cơn giận quay vào trong
+  #     thành tội lỗi, thì mới chạm lõi.
+  - {from: a-tuc-gian, to: a-toi-loi, type: produces}
+  - {from: a-buon,     to: a-vo-vong, type: produces}
+
+  # --- impairs: Affect --> Impact -------------------------------------
+  - {from: a-lo-lang, to: i-kho-tap-trung, type: impairs}
+  - {from: a-lo-lang, to: i-roi-loan-giac-ngu, type: impairs}
+  - {from: a-gia-tri-thap, to: i-mat-dong-luc, type: impairs}
+  - {from: a-gia-tri-thap, to: i-thu-minh, type: impairs}
+  - {from: a-xau-ho, to: i-ne-tranh, type: impairs}
+  - {from: a-toi-loi, to: i-ne-tranh, type: impairs}
+  - {from: a-vo-vong, to: i-mat-dong-luc, type: impairs}
+
+  # --- reinforces: Impact --> Manifestation + cạnh đóng vòng lặp -------
+  - {from: a-lo-lang, to: m-phai-hoan-hao, type: reinforces}   # cạnh đóng vòng lặp (docx/02 §7)
+  - {from: m-phai-hoan-hao, to: m-tu-trach, type: reinforces}  # quay về đầu
+  - {from: i-ne-tranh, to: m-dang-bi-trach-phat, type: reinforces}
+  - {from: i-mat-dong-luc, to: m-chua-du-tot, type: reinforces}
+  - {from: i-kho-tap-trung, to: m-tu-trach, type: reinforces}
+
+  # --- explained_by: Manifestation --> Concept ------------------------
+  - {from: m-tu-trach, to: c-lanh-manh-vs-trung-phat, type: explained_by}
+  - {from: m-kho-tha-thu, to: c-lanh-manh-vs-trung-phat, type: explained_by}
+  - {from: m-tieu-chuan-cao, to: c-lanh-manh-vs-trung-phat, type: explained_by}
+  - {from: m-phai-hoan-hao, to: c-id-ego-superego, type: explained_by}
+  - {from: m-dang-bi-trach-phat, to: c-vong-lap-tu-phe-phan, type: explained_by}
+  - {from: m-chua-du-tot, to: c-khong-phai-chan-doan, type: explained_by}
+
+  # --- addressed_by: POLICY EDGE (8) — thứ giết "sáo rỗng" -----------
+  #     Luật chọn: priority cao nhất thắng; hoà → node có confidence cao hơn.
+  - {from: m-tu-trach, to: k-tu-tran-an, type: addressed_by, priority: 30, condition: null}
+  - {from: m-kho-tha-thu, to: k-tu-tran-an, type: addressed_by, priority: 28, condition: null}
+  - {from: i-ne-tranh, to: k-chia-nho-muc-tieu, type: addressed_by, priority: 25,
+     condition: {any_of: [m-dang-bi-trach-phat, a-xau-ho]}}
+  - {from: a-lo-lang, to: k-chanh-niem, type: addressed_by, priority: 22,
+     condition: {all_of: [i-roi-loan-giac-ngu]}}
+  - {from: m-tieu-chuan-cao, to: k-growth-mindset, type: addressed_by, priority: 20, condition: null}
+  - {from: m-phai-hoan-hao, to: k-growth-mindset, type: addressed_by, priority: 20, condition: null}
+  - {from: m-chi-nho-loi-sai, to: k-ghi-nhan-tich-cuc, type: addressed_by, priority: 18, condition: null}
+  - {from: m-hiem-hai-long, to: k-ghi-nhan-tich-cuc, type: addressed_by, priority: 16, condition: null}
+  # Nhánh xấu hổ / giá trị bản thân thấp — trước đây KHÔNG có addressed_by nào nên
+  # mọi hội thoại đi theo đường này đều rơi về default_coping (nhận diện tự cản trở),
+  # lệch hẳn với điều người dùng vừa nói. Lòng trắc ẩn với bản thân mới là cặp đúng.
+  - {from: a-gia-tri-thap, to: k-tu-tran-an, type: addressed_by, priority: 26, condition: null}
+  - {from: a-xau-ho, to: k-tu-tran-an, type: addressed_by, priority: 24, condition: null}
+  - {from: m-chua-du-tot, to: k-tu-tran-an, type: addressed_by, priority: 19, condition: null}
+
+  # (MỚI 07/09/2026) Nhánh đời sống. Thiếu 2 cạnh này thì mọi hội thoại về
+  # buồn / tức giận rơi về default_coping = "nhận diện hành vi tự cản trở" —
+  # đúng kiểu sáo rỗng lạc đề mà cả thiết kế đang cố tránh.
+  # a-co-don CỐ Ý không có coping: cô đơn cần NGƯỜI THẬT, không cần thẻ mẹo.
+  # Nó đi đường escalates_to -> s-tu-van-hoc-duong ở dưới.
+  - {from: a-buon,     to: k-tu-tran-an, type: addressed_by, priority: 21, condition: null}
+  - {from: a-tuc-gian, to: k-chanh-niem, type: addressed_by, priority: 17, condition: null}
+
+  # --- escalates_to: Impact / RiskFlag --> Resource -----------------
+  - {from: r-suy-giam-chuc-nang, to: s-ba-me, type: escalates_to}
+  - {from: r-suy-giam-chuc-nang, to: s-tu-van-hoc-duong, type: escalates_to}
+  - {from: r-keo-dai, to: s-gvcn, type: escalates_to}
+  - {from: r-keo-dai, to: s-tu-van-hoc-duong, type: escalates_to}
+  - {from: r-y-nghi-tu-hai, to: s-hotline, type: escalates_to}
+  - {from: i-thu-minh, to: s-gvcn, type: escalates_to}
+  - {from: a-vo-vong, to: s-ba-me, type: escalates_to}
+  - {from: a-co-don, to: s-tu-van-hoc-duong, type: escalates_to}   # (MỚI) cô đơn cần người thật
+
+# ============================================================================
+# VÒNG LẶP — khai báo tường minh để cycles.py không phải tự dò
+# ============================================================================
+cycles:
+  - id: cycle-tu-phe-phan
+    label: "Vòng lặp tự phê phán"
+    nodes:
+      - m-tieu-chuan-cao
+      - t-diem-so
+      - m-tu-trach
+      - a-toi-loi
+      - a-gia-tri-thap
+      - a-lo-lang
+      - m-phai-hoan-hao
+    min_nodes_to_activate: 4    # ≥4 node có evidence (conf ≥ 0.60) → dựng INSIGHT_CARD
+
+# ============================================================================
+# CẤU HÌNH BRIDGE — resource mặc định khi bắc cầu (docx/03 §5)
+# ============================================================================
+bridge:
+  default_resource: s-ba-me           # có sẵn kịch bản mở lời
+  fallback_resources: [s-tu-van-hoc-duong, s-gvcn]
+  # coping mặc định khi không policy edge nào khớp
+default_coping: k-nhan-dien-tu-phe-phan

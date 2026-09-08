@@ -1,0 +1,105 @@
+# ============================================================================
+# CONTENT — Nguồn hỗ trợ (Resource) + văn bản riskflag.
+# Nguồn: KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 6 + danh bạ cuối tài liệu.
+# Luật: kịch bản mở lời với ba mẹ là NGUYÊN VĂN tài liệu.
+# ============================================================================
+
+gvcn:
+  type: "ba-me"          # để 15_BRIDGE.md biết đây KHÔNG phải ba mẹ → không nhắc "gợi ý mở lời"
+  resource_kind: "truong-hoc"
+  title: "Giáo viên chủ nhiệm"
+  body: |
+    Đây thường là người dễ tiếp cận nhất ở trường. Bạn có thể nói rằng mình
+    đang cảm thấy quá áp lực, tự trách bản thân hoặc lo lắng kéo dài và muốn
+    được hỗ trợ. Bạn không cần phải biết chính xác mình đang gặp vấn đề gì mới
+    được tìm kiếm sự giúp đỡ.
+  opener: "\"Dạo này em cảm thấy không ổn và em muốn có người lắng nghe.\""
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 6"
+
+tu-van-hoc-duong:
+  type: "khac"
+  resource_kind: "truong-hoc"
+  title: "Phòng tư vấn tâm lý học đường"
+  body: |
+    Nếu trường có phòng hoặc bộ phận tư vấn tâm lý, đây là nơi phù hợp để bạn
+    chia sẻ những vấn đề về cảm xúc, lo âu, áp lực học tập hoặc các mối quan hệ.
+  opener: "\"Em muốn đặt một buổi nói chuyện, dạo này em thấy khá căng thẳng.\""
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 6"
+
+ba-me:
+  type: "ba-me"
+  resource_kind: "gia-dinh"
+  title: "Nếu bạn muốn nói với ba mẹ"
+  body: |
+    Bạn không cần phải giải thích ngay về "cái Siêu tôi trừng phạt" hay dùng
+    các thuật ngữ tâm lý. Hãy bắt đầu bằng những gì bạn đang cảm thấy và nó
+    ảnh hưởng đến bạn ra sao. Bạn có thể nói:
+
+    "Dạo này con cảm thấy mình tự trách bản thân rất nhiều. Những lỗi nhỏ
+    cũng khiến con suy nghĩ mãi và con thường cảm thấy mình chưa đủ tốt.
+    Điều này đang làm con khá căng thẳng và ảnh hưởng đến việc học / ngủ của
+    con. Con muốn kể cho ba mẹ nghe và mong ba mẹ giúp con tìm người có
+    chuyên môn để nói chuyện."
+
+    Nếu khó nói trực tiếp, bạn có thể nhắn tin hoặc viết thư cho ba mẹ trước.
+    Nếu ba mẹ chưa hiểu ngay, bạn có thể giải thích: "Con không nói là con
+    chắc chắn mắc một bệnh nào cả. Con chỉ cảm thấy những suy nghĩ và cảm xúc
+    này đang ảnh hưởng đến con, nên con muốn được giúp đỡ."
+
+    Ở trường bạn cũng có thể tìm: giáo viên chủ nhiệm · phòng tư vấn tâm lý ·
+    một thầy cô bạn thấy tin tưởng.
+  opener: null            # kịch bản đã nằm trong body
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 6"
+
+hotline:
+  type: "khac"
+  resource_kind: "khan-cap"
+  title: "Hotline sơ cứu tâm lý"
+  phone: "0832000202"
+  body: |
+    Nếu bạn đang trong tình trạng khẩn cấp, gọi ngay Hotline sơ cứu tâm lý
+    0832000202 để được hỗ trợ. Hoặc tìm đến các cơ sở tâm lý, bệnh viện để
+    được thăm khám và chia sẻ nhiều hơn.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+
+phong-kham:
+  type: "khac"
+  resource_kind: "chuyen-mon"
+  title: "Một số nơi tại TP.HCM"
+  body: |
+    Văn phòng / trung tâm tâm lý:
+    • Văn phòng tâm lý Tí Tách — 190/18 Xóm Đất, P.10, Q.11
+    • Viện tâm lý Việt Pháp — Landmark 81, 720A Điện Biên Phủ, P. Thạnh Mỹ Tây
+    • Việt tâm lý Sunnycare — Landmark Plus, 208 Nguyễn Hữu Cảnh, Bình Thạnh
+    • Saigon Psychub — Vinhomes Golden River, P. Bến Nghé, Q.1
+    • Trung tâm tham vấn & trị liệu tâm lý Lumos — 2A/4B Nguyễn Thị Minh Khai, Đa Kao, Q.1
+    • Trung tâm Nghiên cứu & Ứng dụng Tâm lý CPAR — ĐH KHXH&NV, Linh Trung, Thủ Đức
+
+    Bệnh viện:
+    • Bệnh viện Tâm thần TP.HCM — 766 Võ Văn Kiệt, P.1, Q.5
+    • Bệnh viện Đại học Y Dược TP.HCM — 215 Hồng Bàng, P.11, Q.5
+    • Khoa Tâm lý lâm sàng, Bệnh viện FV — 6 Nguyễn Lương Bằng, Phú Mỹ Hưng, Q.7
+    • Bệnh viện Lê Văn Thịnh — 130 Lê Văn Thịnh, Bình Trưng Tây, TP. Thủ Đức
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — danh bạ"
+
+# --- Văn bản riskflag (LLM viết 1 câu dẫn, phần còn lại tĩnh) ---------------
+_riskflag_keo_dai:
+  title: "Chuyện này đã kéo dài một thời gian"
+  body: |
+    Khi những suy nghĩ tự trách, lo âu hoặc buồn bã kéo dài và ảnh hưởng đến
+    học tập, giấc ngủ, các mối quan hệ hoặc sinh hoạt, đó là lúc tìm kiếm sự
+    hỗ trợ trở nên phù hợp.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 5"
+
+_riskflag_suy_giam:
+  title: "Điều này đang ảnh hưởng đến sinh hoạt của bạn"
+  body: |
+    "Mình nghĩ chuyện này hơi quá sức để bạn phải tự giải quyết một mình."
+    Nói với người thật không phải là dấu hiệu yếu đuối hay "làm quá vấn đề".
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 6"
+
+_riskflag_tu_hai:
+  title: "Cần hỗ trợ ngay"
+  body: |
+    Xử lý bởi lớp an toàn tất định — trả CRISIS_CARD. Xem data/crisis_card.md.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx"

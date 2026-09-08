@@ -1,0 +1,64 @@
+# ============================================================================
+# CONTENT — Kỹ năng ứng phó (Coping). Trích NGUYÊN VĂN / gần nguyên văn.
+# Nguồn: CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx
+# Luật: mỗi lượt bot đưa ĐÚNG MỘT kỹ năng, chọn theo policy edge. KHÔNG dump danh sách.
+# ============================================================================
+
+nhan-dien-tu-phe-phan:
+  title: "Nhận diện những gì đang âm thầm cản trở bạn"
+  body: |
+    Bước đầu tiên để thay đổi là bạn phải nhận ra mình đang làm gì để tự
+    cản trở bản thân. Biểu hiện phổ biến: sự trì hoãn, tự chỉ trích gay gắt,
+    hoặc thường xuyên gây khó khăn cho chính mình khi thành công đang đến gần.
+  action: "Hãy dành thời gian quan sát xem khi nào bạn bắt đầu \"rút lui\" hoặc gây khó khăn cho chính mình."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 1 (Self-sabotage)"
+
+tu-tran-an:
+  title: "Thử đối xử với mình như với một người bạn"
+  body: |
+    Sự tự trách móc chỉ làm trầm trọng thêm tình trạng tự hủy hoại. Thay vì
+    trừng phạt bản thân vì đã làm hỏng việc, hãy đối xử với chính mình như
+    cách bạn đối xử với một người bạn thân. Thay thế những lời chỉ trích nội
+    tâm bằng sự thấu hiểu. Thừa nhận rằng con người ai cũng có lúc sai lầm và
+    bạn có quyền được bắt đầu lại.
+  action: "Lần tới khi bạn định tự trách, thử hỏi: nếu bạn thân gặp đúng chuyện này, mình sẽ nói gì với bạn ấy?"
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 3 (Self-sabotage)"
+
+growth-mindset:
+  title: "Thử nhìn thất bại theo một cách khác"
+  body: |
+    Nhiều người tự hủy hoại vì họ coi thất bại là bằng chứng cho sự kém cỏi
+    của bản thân. Hãy coi thất bại là một nguồn dữ liệu, một bài học để điều
+    chỉnh hướng đi. Thay vì nói "Tôi không làm được," hãy nói "Tôi chưa làm
+    được điều này theo cách này, tôi cần thử cách khác."
+  action: "Lần tới khi định nói \"mình không làm được\", thử đổi thành \"mình chưa làm được theo cách này\"."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 4 (Self-sabotage)"
+
+chia-nho-muc-tieu:
+  title: "Xây tự tin từ những bước rất nhỏ"
+  body: |
+    Tự hủy hoại thường xảy ra khi chúng ta cảm thấy quá tải trước những mục
+    tiêu khổng lồ. Hãy chia nhỏ mục tiêu thành những việc cực kỳ đơn giản mà
+    bạn chắc chắn có thể hoàn thành. Mỗi chiến thắng nhỏ sẽ tích lũy "bằng
+    chứng" cho bộ não thấy rằng bạn có năng lực.
+  action: "Chọn một việc nhỏ tới mức bạn chắc chắn làm xong trong 10 phút, và chỉ làm đúng việc đó."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 5 (Self-sabotage)"
+
+chanh-niem:
+  title: "Một khoảng lặng giữa cảm xúc và hành động"
+  body: |
+    Chánh niệm giúp bạn tạo ra một khoảng trống giữa xung động và hành động
+    thực tế. Khi bạn nhận ra cảm giác lo lắng đang thôi thúc mình, hãy chỉ
+    quan sát cảm giác đó mà không làm theo nó. Tập trung vào hơi thở và giữ
+    mình ở hiện tại — điều này giúp hệ thần kinh dịu lại.
+  action: "Hít không khí vào sâu trong bụng qua mũi, thở ra từ từ qua miệng, đều đặn theo nhịp đếm 1–5, trong khoảng 5 phút."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 6 (Self-sabotage) + mục 6.3 (Xả stress)"
+
+ghi-nhan-tich-cuc:
+  title: "Ghi lại 3 điều tốt mỗi ngày"
+  body: |
+    Tìm kiếm và ghi nhận những điều tích cực xung quanh mình. Vào cuối ngày,
+    bạn thử viết ra 3 chuyện tốt đã diễn ra trong ngày. Việc này sẽ tạo cho
+    bạn cảm giác vui sướng, tự hào và sống tích cực hơn.
+  action: "Tối nay, trước khi ngủ, viết ra 3 chuyện tốt đã diễn ra trong ngày — nhỏ cũng được."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 1 (Hướng dẫn xả stress)"

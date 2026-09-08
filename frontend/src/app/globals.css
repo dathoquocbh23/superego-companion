@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* Mobile-first. Font nội dung chat ≥ 15px. Tương phản WCAG AA. */
+:root {
+  /* nền trang — dải tím nhạt, app "nổi" trên đó như một tấm thẻ */
+  --page: #e8e3f4;
+  --shell: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f7f5fb;
+  --sidebar: #fbfafd;
+
+  --text: #16151a;
+  --muted: #6f6a7d;
+  --border: #eae7f2;
+  --border-strong: #ded9ec;
+
+  --accent: #7c5cff;
+  --accent-2: #a78bfa;
+  --accent-soft: #f2eeff;
+  --accent-ink: #4c3aad;
+
+  /* nút chính (tương đương nút đen trong bản thiết kế) */
+  --ink: #17161c;
+  --ink-hover: #2a2833;
+
+  --amber: #f59e0b;
+  --amber-bg: #fffbeb;
+  --amber-ink: #b45309;
+  --rose: #e11d48;
+  --rose-bg: #fff1f2;
+  --rose-ink: #be123c;
+
+  --radius-shell: 26px;
+  --shadow-shell: 0 24px 60px -20px rgb(60 40 110 / 0.28), 0 2px 8px rgb(60 40 110 / 0.06);
+  --shadow-card: 0 1px 2px rgb(30 20 60 / 0.04), 0 8px 24px -12px rgb(60 40 110 / 0.18);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Nền: gradient nền + 2 quầng sáng mềm ở góc. Cố định để không trôi khi cuộn. */
+body {
+  background-color: var(--page);
+  background-image:
+    radial-gradient(60rem 40rem at 12% -10%, rgb(255 255 255 / 0.85), transparent 60%),
+    radial-gradient(45rem 35rem at 105% 15%, rgb(196 181 253 / 0.55), transparent 65%),
+    radial-gradient(50rem 40rem at 50% 115%, rgb(233 213 255 / 0.6), transparent 60%),
+    linear-gradient(155deg, #ded6f2 0%, #ece6f6 45%, #f3ecf7 100%);
+  background-attachment: fixed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+}
+
+/* Thanh cuộn mảnh — hợp với khung bo tròn, không cắt vào bố cục */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Chữ chào có dải màu — chỉ dùng cho 1 dòng lớn, không dùng cho nội dung đọc lâu */
+.text-gradient {
+  background: linear-gradient(95deg, var(--accent-2), #c4b5fd 45%, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Quầng cầu ở màn hình chào */
+.orb {
+  background:
+    radial-gradient(circle at 34% 30%, rgb(255 255 255 / 0.95), transparent 45%),
+    radial-gradient(circle at 62% 68%, rgb(124 92 255 / 0.95), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgb(167 139 250 / 0.9), rgb(196 181 253 / 0.55) 60%, transparent 72%);
+  filter: blur(6px);
+  animation: orb-breathe 7s ease-in-out infinite;
+}
+
+@keyframes orb-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 0.35s ease-out both;
+}
+
+/* Tôn trọng prefers-reduced-motion — tắt animation streaming */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.dot-typing span {
+  animation: blink 1.4s infinite both;
+}
+.dot-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}

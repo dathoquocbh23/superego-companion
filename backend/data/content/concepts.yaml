@@ -1,0 +1,95 @@
+# ============================================================================
+# CONTENT — Khái niệm (Concept). Trích NGUYÊN VĂN / gần nguyên văn tài liệu.
+# Không diễn giải lại. Mỗi mục ghi rõ nguồn.
+# Nguồn: HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx · KHI NÀO CẦN TÌM HỖ TRỢ.docx
+# ============================================================================
+
+id-ego-superego:
+  title: "Ba cách phản ứng bên trong mỗi người"
+  body: |
+    Theo Sigmund Freud, tâm lý con người có thể được nhìn nhận thông qua ba
+    thành tố: Id, Ego và Superego. Có thể hiểu đơn giản đây là ba cách phản
+    ứng khác nhau bên trong mỗi người khi chúng ta đứng trước một tình huống.
+
+    Id → "Mình muốn!" — những mong muốn, nhu cầu và cảm xúc bản năng.
+    Ego → "Mình có thể làm gì?" — nhìn vào thực tế và cân nhắc trước khi hành động.
+    Superego → "Mình nên / phải làm gì?" — những quy tắc, giá trị, chuẩn mực
+    và kỳ vọng mà chúng ta dần hình thành trong quá trình lớn lên.
+
+    Ví dụ: Ngày mai có bài kiểm tra nhưng hôm nay bạn rất muốn chơi game.
+    Id: "Chơi một chút đi, học sau cũng được!" → Ego: "Mình có thể học trước
+    một tiếng rồi chơi sau." → Superego: "Mình phải học thật tốt. Không được
+    lãng phí thời gian!"
+
+    Superego không phải lúc nào cũng tiêu cực. Vấn đề có thể xuất hiện khi
+    những tiêu chuẩn và yêu cầu dành cho bản thân trở nên quá khắt khe.
+  steer: |
+    Ba tiếng nói bên trong: Id "mình muốn", Ego "mình có thể làm gì", Superego
+    "mình phải làm gì". Khi người dùng nói bằng giọng PHẢI / NÊN / ĐÁNG LẼ, đó
+    là Superego đang cầm mic. Hỏi vào chính chỗ đó: tiêu chuẩn ấy ở đâu ra, ai
+    đặt nó. Đừng gọi tên Id/Ego/Superego ra trước mặt người dùng.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 2"
+
+lanh-manh-vs-trung-phat:
+  title: "Siêu tôi lành mạnh và Siêu tôi trừng phạt khác nhau ở đâu"
+  body: |
+    Đây là điểm quan trọng nhất để nhận diện. Không phải cứ tự phê bình hay
+    đặt mục tiêu cao là có Cái siêu tôi trừng phạt — điều cần chú ý là mức độ
+    cứng nhắc, kéo dài và mang tính tự trừng phạt trong cách một người đánh
+    giá chính mình.
+
+    Cái siêu tôi lành mạnh — Cái siêu tôi trừng phạt
+    • Đặt ra tiêu chuẩn thực tế — Đặt tiêu chuẩn quá cao hoặc cứng nhắc
+    • Nhận ra sai lầm để sửa chữa — Tập trung vào việc tự trách vì sai lầm
+    • Có thể chấp nhận thất bại — Khó chấp nhận thất bại
+    • Khuyến khích bản thân tiến bộ — Khiến bản thân cảm thấy chưa bao giờ đủ tốt
+    • Quan tâm đến cảm xúc của bản thân — Có xu hướng phớt lờ hoặc dồn nén cảm xúc
+    • Có thể tha thứ cho sai sót — Khó tha thứ cho chính mình
+    • Thất bại → học hỏi và điều chỉnh — Thất bại → xấu hổ, tự phê bình và hạ thấp bản thân
+    • "Mình làm chưa tốt, lần sau mình sẽ cải thiện." — "Mình làm chưa tốt vì mình không đủ giỏi."
+  steer: |
+    Khác biệt KHÔNG nằm ở chuyện có tiêu chuẩn cao hay không, mà ở chỗ sai lầm
+    dẫn tới đâu: SỬA CHỮA (lành mạnh) hay TRỪNG PHẠT BẢN THÂN (trừng phạt).
+    Đối chiếu: "mình làm chưa tốt, lần sau cải thiện" — "mình làm chưa tốt VÌ
+    mình không đủ giỏi". Nghe xem người dùng đang ở vế nào, rồi hỏi cho rõ vế
+    đó. Đừng đọc ra hai vế này như bảng so sánh.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 5"
+
+vong-lap-tu-phe-phan:
+  title: "Khi tự phê phán chuyển thành một vòng lặp khó thoát"
+  body: |
+    Tiêu chuẩn quá khắt khe
+     → Không đạt tiêu chuẩn
+     → Tự phê phán
+     → Tội lỗi / xấu hổ
+     → Cảm thấy bản thân kém giá trị
+     → Căng thẳng
+     → Càng cố gắng hoàn hảo
+     → Lại tự phê phán
+
+    Khi một người không còn tự mình phá vỡ được vòng lặp này, đó là lúc tìm
+    kiếm sự hỗ trợ trở nên phù hợp.
+  steer: |
+    Vòng lặp: tiêu chuẩn khắt khe -> không đạt -> tự trách -> tự tin giảm ->
+    càng dễ không đạt. Người đang ở trong vòng KHÔNG thấy vòng; họ chỉ thấy
+    lỗi của mình lặp đi lặp lại và tin đó là bằng chứng về con người mình.
+    Việc của bot là cho họ thấy TRÌNH TỰ, bằng chính lời họ đã nói ra.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 5"
+
+khong-phai-chan-doan:
+  title: "Đây không phải một chẩn đoán"
+  body: |
+    "Cái siêu tôi trừng phạt" là một khái niệm lý thuyết trong phân tâm học,
+    không nên trình bày như một chẩn đoán / bệnh độc lập. Vì vậy nên nói
+    "khi có biểu hiện của Siêu tôi trừng phạt", thay vì "khi mắc bệnh".
+
+    Những biểu hiện tự trách, đặt tiêu chuẩn cao hay khó chấp nhận sai sót
+    là những đặc điểm có thể xuất hiện ở các mức độ khác nhau. Việc nhận diện
+    chúng giúp mỗi người hiểu rõ hơn về cách mình đang phản ứng với sai lầm
+    và áp lực — không phải để gắn nhãn hay đánh giá một người.
+  steer: |
+    "Siêu tôi trừng phạt" là một CÁCH MÔ TẢ, không phải chẩn đoán y khoa; không
+    ai "bị" nó cả. Khi người dùng hỏi "mình có bị gì không", nói thật rằng đây
+    không phải chỗ chẩn đoán, rồi quay về đúng điều họ đang trải qua. Không
+    trấn an kiểu "không sao đâu" — đó là gạt đi, không phải trả lời.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 7 · NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx — lưu ý cuối"

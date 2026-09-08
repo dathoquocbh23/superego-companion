@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+*.egg-info/
+
+# ⚠️ Log chứa metadata phiên — KHÔNG commit (xem docx/08 §6)
+data/turns.jsonl
+data/*.jsonl

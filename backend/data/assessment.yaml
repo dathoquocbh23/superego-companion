@@ -1,0 +1,108 @@
+# ============================================================================
+# BÀI TỰ ĐÁNH GIÁ — 10 câu Likert + 4 mức kết quả.
+# Nguồn: NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx (nguyên văn thang đo + diễn giải).
+# Kết quả LUÔN nối tiếp sang chat — không bao giờ là màn hình cuối.
+# ============================================================================
+
+version: "1.0"
+
+disclaimer: >
+  Bài đánh giá này được xây dựng nhằm giúp bạn nhận diện những đặc điểm liên
+  quan đến Cái siêu tôi trừng phạt, không phải công cụ chẩn đoán tâm lý. Kết
+  quả phản ánh câu trả lời của bạn tại thời điểm thực hiện và không thay thế
+  cho đánh giá của chuyên gia.
+
+scale:
+  - {value: 1, label: "Hoàn toàn không"}
+  - {value: 2, label: "Không đúng lắm"}
+  - {value: 3, label: "Khó xác định"}
+  - {value: 4, label: "Khá đúng"}
+  - {value: 5, label: "Hoàn toàn đúng"}
+
+items:
+  - {id: 1,  node_id: m-tu-trach,          text: "Tôi thường tự trách bản thân khi mắc lỗi."}
+  - {id: 2,  node_id: m-kho-tha-thu,       text: "Tôi khó tha thứ cho bản thân dù chỉ là sai sót nhỏ."}
+  - {id: 3,  node_id: m-chua-du-tot,       text: "Tôi cảm thấy mình chưa đủ tốt dù đã cố gắng."}
+  - {id: 4,  node_id: m-tieu-chuan-cao,    text: "Tôi luôn đặt ra tiêu chuẩn rất cao cho bản thân."}
+  - {id: 5,  node_id: m-co-loi-ky-vong,    text: "Tôi cảm thấy có lỗi khi không đáp ứng kỳ vọng của người khác."}
+  - {id: 6,  node_id: m-dang-bi-trach-phat, text: "Tôi thường nghĩ mình đáng bị trách phạt khi thất bại."}
+  - {id: 7,  node_id: m-phai-hoan-hao,     text: "Tôi cảm thấy mình cần phải hoàn hảo."}
+  - {id: 8,  node_id: m-xau-ho-khuyet-diem, text: "Tôi dễ cảm thấy xấu hổ vì những khuyết điểm của bản thân."}
+  - {id: 9,  node_id: m-hiem-hai-long,     text: "Tôi hiếm khi hài lòng với chính mình."}
+  - {id: 10, node_id: m-chi-nho-loi-sai,   text: "Tôi thường chỉ nhớ đến những lỗi sai của mình hơn là những điều mình làm tốt."}
+
+# Ánh xạ band theo điểm trung bình (Tổng ÷ 10). Xem docx/06 §2.3.
+bands:
+  - id: THAP
+    label: "Mức thấp"
+    min: 1.00
+    max: 2.00
+    headline: "Bạn đang có ít biểu hiện liên quan đến Cái siêu tôi trừng phạt"
+    result_text: |
+      Bạn nhìn chung không quá khắt khe với bản thân. Khi mắc lỗi hoặc không
+      đạt được kỳ vọng, bạn vẫn có khả năng nhìn nhận sai sót và tiếp tục cố
+      gắng mà không tự trách mình quá mức.
+
+      Bạn có thể làm gì tiếp theo? Hãy duy trì cách nhìn cân bằng này. Khi mắc
+      lỗi, tiếp tục tập trung vào câu hỏi "Mình có thể học được gì từ chuyện
+      này?" thay vì chỉ tập trung vào việc "Mình đã làm sai ở đâu?"
+
+  - id: NHE
+    label: "Mức nhẹ"
+    min: 2.01
+    max: 3.00
+    headline: "Một số biểu hiện đáng chú ý đang xuất hiện"
+    result_text: |
+      Bạn đôi khi có xu hướng tự trách, đặt kỳ vọng cao hoặc cảm thấy chưa hài
+      lòng với bản thân. Tuy nhiên, những biểu hiện này chưa xuất hiện thường
+      xuyên hoặc chưa chi phối mạnh cách bạn nhìn nhận bản thân.
+
+      Bạn nên làm gì? Đây là thời điểm phù hợp để bắt đầu nhận diện cách bạn
+      nói chuyện với chính mình. Đặc biệt, hãy chú ý xem liệu việc tự phê bình
+      có giúp bạn cải thiện hay chỉ khiến bạn cảm thấy tệ hơn.
+
+  - id: DANG_CHU_Y
+    label: "Mức đáng chú ý"
+    min: 3.01
+    max: 4.00
+    headline: "Bạn đang có khá nhiều biểu hiện liên quan"
+    result_text: |
+      Bạn đang ghi nhận khá nhiều đặc điểm thường liên quan đến Cái siêu tôi
+      trừng phạt, chẳng hạn như tự phê bình, khó chấp nhận sai sót, đặt tiêu
+      chuẩn cao hoặc cảm thấy mình chưa đủ tốt dù đã cố gắng. Điều đáng chú ý
+      không chỉ là bạn đã mắc lỗi gì, mà còn là cách bạn đối xử với chính mình
+      sau khi mắc lỗi.
+
+      Bạn có thể đang trải qua một vòng lặp như: Đặt kỳ vọng cao → Không đạt
+      kỳ vọng → Tự phê bình → Cảm thấy chưa đủ tốt → Tiếp tục đặt áp lực lên
+      bản thân.
+
+      Bạn nên làm gì? Đừng vội cố gắng trở nên "hoàn hảo" hơn. Trước tiên, hãy
+      học cách nhận diện những suy nghĩ quá khắt khe với bản thân và phân biệt
+      chúng với những phản hồi thực sự giúp bạn tiến bộ.
+
+  - id: CAO
+    label: "Mức cao"
+    min: 4.01
+    max: 5.00
+    headline: "Các biểu hiện liên quan đang khá rõ"
+    result_text: |
+      Bạn đang ghi nhận nhiều biểu hiện mạnh liên quan đến Cái siêu tôi trừng
+      phạt. Bạn có thể thường xuyên tự phê bình, khó tha thứ cho những sai sót
+      của mình hoặc cảm thấy bản thân chưa bao giờ đạt đến mức "đủ tốt".
+
+      Những biểu hiện này không có nghĩa bạn "mắc" Cái siêu tôi trừng phạt hay
+      đang gặp một rối loạn tâm lý. Bài đánh giá chỉ giúp bạn nhận diện mức độ
+      của những đặc điểm này ở bản thân.
+
+      Nếu một lỗi sai nhỏ cũng khiến bạn suy nghĩ tiêu cực về bản thân, hoặc
+      những yêu cầu bạn đặt ra cho chính mình trở thành nguồn áp lực thường
+      xuyên, bạn nên dành thời gian quan sát và điều chỉnh cách mình đối xử
+      với bản thân. Nếu những cảm xúc hoặc suy nghĩ tiêu cực kéo dài, xuất
+      hiện thường xuyên hoặc ảnh hưởng rõ rệt đến học tập, sinh hoạt, các mối
+      quan hệ, bạn nên tìm đến một người lớn đáng tin cậy hoặc chuyên gia tâm
+      lý để được hỗ trợ phù hợp.
+
+# Nút LUÔN có ở màn hình kết quả
+next_actions:
+  - {label: "Nói chuyện về kết quả này", href: "/chat?from=assessment"}
