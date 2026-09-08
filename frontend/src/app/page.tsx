@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ClipboardList, MessageCircleHeart, Phone } from "lucide-react";
 
-import { AppShell, BrandMark } from "@/components/app-shell";
+import { AppShell } from "@/components/app-shell";
+import { BrandPing } from "@/components/brand-ping";
 import { AuthGate } from "@/features/auth/auth-gate";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 
@@ -11,7 +12,7 @@ export default function HomePage() {
     <AppShell>
       <header className="flex shrink-0 items-center justify-between px-4 py-3 sm:px-6">
         <div className="flex items-center gap-2.5">
-          <BrandMark className="size-8" />
+          <BrandPing className="size-8" />
           <span className="text-[15px] font-semibold tracking-tight">Đồng hành</span>
         </div>
         <Link

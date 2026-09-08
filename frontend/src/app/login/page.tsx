@@ -7,6 +7,7 @@ import { Brain, EyeOff, Sparkles, Timer } from "lucide-react";
 import { AppShell, BrandMark } from "@/components/app-shell";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { useAuth } from "@/features/auth/use-auth";
+import { pingBackend } from "@/lib/api";
 import { authConfigured, getSupabase } from "@/lib/supabase";
 
 /**
@@ -46,6 +47,12 @@ export default function LoginPage() {
   useEffect(() => {
     if (!loading && user) router.replace(dichDen());
   }, [loading, user, router]);
+
+  // Vừa mở trang đăng nhập là đánh thức backend luôn — người dùng còn đọc/gõ
+  // email thì Render đã kịp dậy trước khi họ bấm vào trò chuyện.
+  useEffect(() => {
+    pingBackend();
+  }, []);
 
   const vaoThuNgay = async () => {
     if (busy) return;
@@ -91,7 +98,11 @@ export default function LoginPage() {
         <div className="scroll-thin flex flex-1 flex-col overflow-y-auto">
           <div className="flex shrink-0 items-center justify-between px-4 py-3 sm:px-6">
             <div className="flex items-center gap-2.5 lg:invisible">
-              <BrandMark className="size-8" />
+              <BrandMark
+                className="size-8"
+                onClick={pingBackend}
+                title="Đánh thức máy chủ cho phản hồi nhanh hơn"
+              />
               <span className="text-[15px] font-semibold tracking-tight">Đồng hành</span>
             </div>
 

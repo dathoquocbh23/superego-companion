@@ -5,6 +5,24 @@ export const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:80
 
 const SESSION_KEY = "nckh_session_id";
 
+/**
+ * Đánh thức backend sớm. Render free tier cho service ngủ sau ~15 phút không có
+ * request và mất ~50s để dậy lại. Gọi cái này lúc người dùng vừa mở app hoặc
+ * bấm logo, để tới khi họ gửi tin nhắn đầu thì máy chủ đã sẵn sàng.
+ *
+ * Nuốt mọi lỗi và tự chặn gọi dồn (tối đa 1 lần / 60s): đây chỉ là cú hích cho
+ * ấm máy, không phải thao tác bắt buộc — hỏng cũng không được chặn luồng chat.
+ */
+let lastPingAt = 0;
+
+export function pingBackend(): void {
+  if (typeof window === "undefined") return;
+  const now = Date.now();
+  if (now - lastPingAt < 60_000) return;
+  lastPingAt = now;
+  void fetch(`${API_BASE}/health`, { method: "GET", cache: "no-store" }).catch(() => {});
+}
+
 /** Phiên ẩn danh — cache trong sessionStorage để 2 lối vào dùng chung. */
 export async function ensureSession(): Promise<string> {
   if (typeof window !== "undefined") {

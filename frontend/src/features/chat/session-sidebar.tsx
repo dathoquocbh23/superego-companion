@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ClipboardList, Home, PanelLeft, PanelLeftClose, Plus, Search, Trash2, X } from "lucide-react";
 
 import { BrandMark } from "@/components/app-shell";
+import { pingBackend } from "@/lib/api";
 import { AccountMenu } from "@/features/auth/account-menu";
 import { groupConversations, shortWhen, type Conversation } from "@/lib/conversations";
 
@@ -55,7 +56,11 @@ export function SessionSidebar({
   const panel = (
     <div className="flex h-full w-[264px] shrink-0 flex-col border-r border-[var(--border)] bg-[var(--sidebar)]">
       <div className="flex items-center gap-2 px-4 pt-4 pb-3">
-        <BrandMark className="size-7" />
+        <BrandMark
+          className="size-7"
+          onClick={pingBackend}
+          title="Đánh thức máy chủ cho phản hồi nhanh hơn"
+        />
         <span className="flex-1 truncate text-[15px] font-semibold tracking-tight">Đồng hành</span>
         {onToggleCollapse && (
           <button

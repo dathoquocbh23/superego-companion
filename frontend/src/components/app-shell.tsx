@@ -49,16 +49,45 @@ export function PageShell({
   );
 }
 
-/** Logo: ô bo tròn dải tím với dấu cộng — lặp lại ở sidebar, header, trang chủ. */
-export function BrandMark({ className = "size-8" }: { className?: string }) {
+/**
+ * Logo: ô bo tròn dải tím với dấu cộng — lặp lại ở sidebar, header, trang chủ.
+ *
+ * Truyền `onClick` thì logo thành nút bấm được (dùng để ping đánh thức backend);
+ * không truyền thì vẫn là hình trang trí thuần, `aria-hidden` như cũ.
+ */
+export function BrandMark({
+  className = "size-8",
+  onClick,
+  title,
+}: {
+  className?: string;
+  onClick?: () => void;
+  title?: string;
+}) {
+  const box = `grid shrink-0 place-items-center rounded-[10px] bg-[linear-gradient(135deg,var(--accent-2),var(--accent))] text-white shadow-[0_4px_12px_-4px_rgb(124_92_255/0.7)] ${className}`;
+  const glyph = (
+    <svg viewBox="0 0 24 24" fill="none" className="size-[55%]" strokeWidth={2.4} stroke="currentColor">
+      <path d="M12 6v12M6 12h12" strokeLinecap="round" />
+    </svg>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        title={title}
+        aria-label={title ?? "Đánh thức máy chủ"}
+        className={`${box} cursor-pointer transition-transform hover:scale-105 active:scale-95`}
+      >
+        {glyph}
+      </button>
+    );
+  }
+
   return (
-    <span
-      aria-hidden
-      className={`grid shrink-0 place-items-center rounded-[10px] bg-[linear-gradient(135deg,var(--accent-2),var(--accent))] text-white shadow-[0_4px_12px_-4px_rgb(124_92_255/0.7)] ${className}`}
-    >
-      <svg viewBox="0 0 24 24" fill="none" className="size-[55%]" strokeWidth={2.4} stroke="currentColor">
-        <path d="M12 6v12M6 12h12" strokeLinecap="round" />
-      </svg>
+    <span aria-hidden className={box}>
+      {glyph}
     </span>
   );
 }
