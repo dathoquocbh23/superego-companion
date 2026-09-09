@@ -152,13 +152,19 @@ khong-phai-chan-doan:
   title: "Đây không phải một chẩn đoán"
   body: |
     "Cái siêu tôi trừng phạt" là một khái niệm lý thuyết trong phân tâm học,
-    không nên trình bày như một chẩn đoán / bệnh độc lập. Vì vậy nên nói
-    "khi có biểu hiện của Siêu tôi trừng phạt", thay vì "khi mắc bệnh".
+    không nên trình bày như một chẩn đoán / bệnh độc lập. Vì vậy nên nói "khi
+    có biểu hiện của Siêu tôi trừng phạt" hoặc "khi xu hướng tự phê phán mang
+    tính trừng phạt trở nên mạnh", thay vì "khi mắc bệnh".
 
     Những biểu hiện tự trách, đặt tiêu chuẩn cao hay khó chấp nhận sai sót
     là những đặc điểm có thể xuất hiện ở các mức độ khác nhau. Việc nhận diện
     chúng giúp mỗi người hiểu rõ hơn về cách mình đang phản ứng với sai lầm
     và áp lực — không phải để gắn nhãn hay đánh giá một người.
+
+    Bài tự đánh giá cũng vậy: nó giúp bạn nhận diện những đặc điểm liên quan
+    đến Cái siêu tôi trừng phạt, không phải công cụ chẩn đoán tâm lý. Kết quả
+    phản ánh câu trả lời của bạn tại thời điểm thực hiện và không thay thế cho
+    đánh giá của chuyên gia.
   steer: |
     "Siêu tôi trừng phạt" là một CÁCH MÔ TẢ, không phải chẩn đoán y khoa; không
     ai "bị" nó cả. Khi người dùng hỏi "mình có bị gì không", nói thật rằng đây
@@ -267,10 +273,13 @@ vi-sao-dang-quan-tam:
 # ── Chủ đề 2: NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx ────────────────────────
 
 bieu-hien-thuong-gap:
-  title: "Những biểu hiện thường gặp ở học sinh"
+  title: "Nhận diện Cái siêu tôi trừng phạt ở học sinh"
   body: |
-    Một số biểu hiện thường gặp có thể là:
+    Ở học sinh, Cái siêu tôi trừng phạt có thể được nhận diện thông qua cách
+    một người nhìn nhận và đối xử với chính mình khi mắc lỗi, thất bại hoặc
+    không đạt được kỳ vọng.
 
+    Một số biểu hiện thường gặp có thể là:
     • Tự trách bản thân khi mắc lỗi, kể cả những sai sót nhỏ.
     • Đặt tiêu chuẩn quá cao và luôn cảm thấy mình cần phải làm tốt hơn.
     • Cảm thấy chưa đủ tốt dù đã cố gắng.
@@ -280,6 +289,11 @@ bieu-hien-thuong-gap:
       hoặc người khác.
     • Có xu hướng đánh giá giá trị của bản thân dựa trên thành tích và mức độ
       hoàn hảo.
+
+    Tuy nhiên, những biểu hiện trên không đồng nghĩa với việc một học sinh
+    "mắc" Cái siêu tôi trừng phạt. Đây là những đặc điểm có thể xuất hiện ở
+    các mức độ khác nhau. Việc nhận diện chúng giúp mỗi người hiểu rõ hơn về
+    cách mình đang phản ứng với sai lầm và áp lực.
   steer: |
     Đây là danh sách nguồn của 10 câu Likert — cùng nội dung, khác cách bày.
     Người đọc rất dễ tick hết vào đầu mình, nên SAU thẻ này tuyệt đối không hỏi
@@ -292,14 +306,24 @@ bieu-hien-thuong-gap:
 thang-do-likert:
   title: "Thang đo Likert là gì"
   body: |
+    Thang đo Likert là một phương pháp thường được sử dụng trong khảo sát để
+    đo lường mức độ đồng ý, mức độ thường xuyên hoặc mức độ phù hợp của một
+    người đối với một phát biểu.
+
     Trong dự án này, thang đo Likert được sử dụng với 5 mức độ, từ thấp nhất
     đến cao nhất:
-
     1 — Hoàn toàn không
     2 — Không đúng lắm
     3 — Khó xác định / đôi khi đúng, đôi khi không
     4 — Khá đúng
     5 — Hoàn toàn đúng
+
+    Người tham gia đọc từng phát biểu và chọn mức độ phù hợp nhất với bản
+    thân. Sau khi hoàn thành, điểm của các câu trả lời có thể được tổng hợp
+    hoặc tính trung bình để xác định mức độ biểu hiện của đặc điểm đang được
+    khảo sát. Điểm trung bình càng cao cho thấy người tham gia càng ghi nhận
+    nhiều biểu hiện như tự trách bản thân, đặt tiêu chuẩn cao, khó chấp nhận
+    sai sót hoặc cảm thấy mình chưa đủ tốt.
   steer: |
     Thẻ kỹ thuật, trả lời đúng một câu hỏi. Nói xong thì mời làm bài, đừng giảng
     thêm về đo lường. Và nhắc được thì nhắc: đây không phải bài kiểm tra, không
@@ -322,6 +346,10 @@ tu-phe-phan-qua-muc:
     • Sợ thất bại đến mức né tránh bài tập, kiểm tra hoặc những cơ hội mới.
     • Mất động lực học tập.
     • Khó ngủ hoặc thường xuyên cảm thấy căng thẳng vì những lỗi đã xảy ra.
+
+    Đây là điểm đặc biệt quan trọng ở học sinh THPT, bởi trầm cảm có thể ảnh
+    hưởng đến trường học, gia đình, các mối quan hệ và những hoạt động thường
+    ngày.
   steer: |
     Thẻ này trả lời câu "thế nào là QUÁ MỨC" — mốc nằm ở chỗ nó bắt đầu ăn vào
     việc học, giấc ngủ, sinh hoạt, chứ không nằm ở việc tự trách nhiều hay ít.
@@ -342,23 +370,40 @@ giup-mot-nguoi-ban:
     nữa.", bạn có thể nói:
     "Mình nhận thấy dạo này bạn thường tự trách bản thân. Nếu bạn muốn kể, mình
     sẵn sàng nghe. Mình không phán xét bạn đâu."
+    Hoặc: "Mình không nghĩ những lỗi đó khiến bạn trở thành một người tệ. Nhưng
+    mình hiểu là bạn đang rất khó chịu với chính mình."
 
     Giúp bạn ấy nhận ra vòng lặp tự phê phán, bằng cách nhẹ nhàng hỏi:
     "Chuyện gì đã xảy ra?" → "Bạn nghĩ gì về bản thân sau chuyện đó?" → "Bạn có
     đang tự trách mình nhiều hơn mức cần thiết không?" → "Nếu chuyện này xảy ra
     với một người bạn, bạn có đối xử với họ khắt khe như cách bạn đang đối xử
     với chính mình không?"
+    Cách này giúp bạn ấy quan sát tiếng nói tự phê phán, thay vì lập tức tin
+    rằng mọi lời tự trách đều là sự thật.
 
-    Khuyến khích bạn ấy tìm người lớn hoặc chuyên gia:
+    Khuyến khích bạn ấy tìm người lớn hoặc chuyên gia. Nếu những suy nghĩ tự
+    trách, lo âu hoặc buồn bã kéo dài và ảnh hưởng đến học tập, giấc ngủ, các
+    mối quan hệ hoặc sinh hoạt, bạn có thể nói:
     "Mình nghĩ chuyện này hơi quá sức để bạn phải tự giải quyết một mình. Hay
     mình cùng tìm một thầy cô mà bạn tin tưởng hoặc phòng tư vấn tâm lý của
     trường nhé?" Bạn thậm chí có thể đi cùng bạn ấy nếu bạn ấy ngại đi một mình.
 
-    Và đừng biến mình thành "người trị liệu" cho bạn:
+    Đừng biến mình thành "người trị liệu" cho bạn. Bạn có thể lắng nghe – ở bên
+    cạnh – kết nối bạn ấy với sự hỗ trợ, nhưng không cần phải chịu trách nhiệm
+    giải quyết vấn đề của bạn ấy:
     "Bạn có thể ở bên cạnh và lắng nghe người bạn của mình, nhưng bạn không cần
     phải trở thành chuyên gia tâm lý của họ. Giúp đỡ tốt nhất đôi khi đơn giản
     là ở bên, lắng nghe mà không phán xét và khuyến khích họ tìm kiếm sự hỗ trợ
     phù hợp."
+
+    Không nhất thiết phải chờ đến khi "bị trầm cảm" mới tìm hỗ trợ. Mục đích
+    của hỗ trợ tâm lý cũng có thể là giúp nhận diện và xử lý kiểu tự phê phán
+    quá mức từ sớm:
+    "Bạn không cần phải đợi đến khi mọi thứ trở nên nghiêm trọng mới tìm kiếm
+    sự giúp đỡ. Nếu tiếng nói tự phê phán xuất hiện thường xuyên, khiến bạn đau
+    khổ hoặc bắt đầu ảnh hưởng đến học tập, giấc ngủ, các mối quan hệ và cuộc
+    sống hằng ngày, hãy cân nhắc chia sẻ với một người bạn tin tưởng hoặc tìm
+    đến chuyên gia tâm lý."
   steer: |
     Thẻ DUY NHẤT trong bộ nói về người thứ ba. Hai điều cần để ý:
 
