@@ -19,7 +19,7 @@ async def test_health(client):
     assert r.status_code == 200
     body = r.json()
     assert body["evidence_nodes"] == 31
-    assert body["content_nodes"] == 26
+    assert body["content_nodes"] == 44
 
 
 @pytest.mark.asyncio

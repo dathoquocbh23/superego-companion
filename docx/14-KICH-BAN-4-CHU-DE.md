@@ -505,14 +505,229 @@ Chủ đề này **không có concept node nào** — nội dung của nó chín
 
 ---
 
-# D — CHỦ ĐỀ 3 · CHƯA VIẾT ĐƯỢC KỊCH BẢN
+# D — CHỦ ĐỀ 3 · "Ảnh hưởng đến sức khoẻ tinh thần"
 
-Chủ đề *"Ảnh hưởng đến sức khoẻ tinh thần"* có **8 node bằng chứng** nhưng **0 content
-node**. Không có gì nguyên văn để bot phát, nên không có lời thoại nào để duyệt —
-viết ra ở đây là bịa, đúng thứ file này tồn tại để chặn.
+> Viết 09/09/2026 sau khi trích 4 concept node từ `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`
+> ([13 mục 7](13-MENU-4-CHU-DE.md)). Phần 📄 là **nguyên văn `concepts.yaml`**; phần
+> 🤖 không có 📄 là chỗ LLM viết (1–2 câu dẫn).
 
-`topics.yaml` đang để `enabled: false`. Sau khi trích xong nội dung
-([13 mục 7](13-MENU-4-CHU-DE.md)), quay lại viết kịch bản C-mới theo đúng khuôn phần A.
+## Lượt 1 — bấm thẻ
+
+```
+🧑  [bấm thẻ "Ảnh hưởng đến sức khoẻ tinh thần"]
+```
+
+```
+⚙️  TOPIC       topic_id = anh-huong-suc-khoe
+⚙️  SAFETY      tier = null
+⚙️  OVERLAY     0 node
+⚙️  GATE        SUPPORT — reason: topic_opening
+⚙️  CONTENT     c-suc-khoe-va-sieu-toi  →  message_type = KNOWLEDGE_CARD
+⚙️  TÌM HIỂU    luot_tim_hieu = 1
+```
+
+```
+🤖  Chủ đề này nói về chuyện áp lực bên trong ảnh hưởng tới sức khoẻ tinh thần
+    thế nào. Bắt đầu bằng cái khung mà tài liệu mô tả nhé.
+```
+
+```
+📄  Cái siêu tôi trừng phạt liên hệ với sức khoẻ tinh thần thế nào
+
+    Điều đầu tiên cần phân biệt: WHO không nói rằng "cái Siêu tôi trừng phạt
+    gây ra trầm cảm". WHO giải thích trầm cảm là kết quả của sự tương tác
+    phức tạp giữa các yếu tố xã hội, tâm lý và sinh học.
+
+    Cách diễn đạt đúng hơn là: Cái Siêu tôi trừng phạt có thể là một cơ chế
+    tâm lý góp phần làm gia tăng tính dễ tổn thương đối với các biểu hiện
+    trầm cảm, đặc biệt thông qua tự phê phán, cảm giác tội lỗi và cảm nhận
+    bản thân có giá trị thấp.
+
+    Có thể hình dung theo một mô hình:
+    Cái Siêu tôi trừng phạt hoạt hóa
+     → Tự phê phán, tự buộc tội, cảm giác tội lỗi quá mức
+     → Cảm nhận bản thân tiêu cực + giảm giá trị bản thân
+     → Căng thẳng tâm lý kéo dài
+     → Khó thích nghi với thất bại / xung đột
+     → Tăng nguy cơ xuất hiện các triệu chứng trầm cảm
+
+    Điểm mấu chốt là học sinh không chỉ trải qua một thất bại, mà có thể diễn
+    giải thất bại đó thành một phán xét về chính bản thân mình, chẳng hạn:
+    "Mình làm bài không tốt" → "Mình kém cỏi" → "Mình luôn làm mọi thứ sai"
+    → "Mình không có giá trị."
+```
+
+```
+💬  [ Rối loạn lo âu là gì? ]   [ Trầm cảm là gì? ]
+    [ Áp lực trong đầu thành suy nghĩ về bản thân kiểu gì? ]
+    [ Dạo này mình thấy mệt lắm ]   [ — Mình chỉ đọc thôi ]
+```
+
+> 📝 **Duyệt gì ở đây:**
+> - Thẻ mở đầu KHÔNG phải danh sách triệu chứng — nó là **cơ chế** + câu phân biệt
+>   *"WHO không nói siêu tôi trừng phạt gây ra trầm cảm"*. Đây là chỗ [13 mục 6/D2](13-MENU-4-CHU-DE.md)
+>   đòi: mô tả để học sinh tự đối chiếu, không dán nhãn.
+> - Chủ đề 3 có **8 chip TÌM HIỂU**, mỗi lượt hiện 3 (xoay vòng tất định, chưa đọc
+>   lên trước): *lo âu là gì · trầm cảm là gì · áp lực thành suy nghĩ về bản thân ·
+>   vì sao có người bị có người không · mình tự làm gì được · trầm cảm chữa được
+>   không · lo âu có mấy dạng · mình có đang bị gì không*. + 1 chip bắc cầu + 1 chip
+>   thoát. Chip "lo âu có mấy dạng" (`c-cac-dang-lo-au`) thêm theo yêu cầu khách,
+>   ngược default an toàn — xem ⚠️ D-3.
+> - Chuỗi *"Mình làm bài không tốt → … → Mình không có giá trị"* nằm SẴN trong thẻ —
+>   nó là bậc thang sang bước [2], y như ví dụ chơi game ở chủ đề 1.
+> - **KHÔNG có chip** cho `c-dau-hieu-lo-au` / `c-dau-hieu-tram-cam` (danh sách
+>   triệu chứng). Hai thẻ đó chỉ lên ở **lượt 4+** qua gate SUPPORT, khi học sinh
+>   đã kể ra một biểu hiện chức năng (né tránh / mất động lực / thu mình) và node
+>   đó được CONFIRMED — xem ⚠️ D-2.
+
+---
+
+## Lượt 2 — bấm chip TÌM HIỂU
+
+```
+🧑  [bấm] Trầm cảm là gì?
+```
+
+```
+⚙️  CHIP        LEARN  →  serves = c-tram-cam-la-gi
+⚙️  SAFETY      tier = null
+⚙️  OVERLAY     0 node  — KHÔNG tính giậm chân (D3, trừ luot_tim_hieu)
+⚙️  GATE        SUPPORT — reason: topic_learn
+⚙️  TÌM HIỂU    luot_tim_hieu = 2
+```
+
+```
+🤖  Đoạn này là định nghĩa của WHO.
+```
+
+```
+📄  Trầm cảm là gì
+
+    Rối loạn trầm cảm (còn được gọi là trầm cảm) là một rối loạn tâm thần
+    phổ biến. Trầm cảm biểu hiện bằng khí sắc trầm hoặc sự mất hứng thú hay
+    mất khả năng cảm nhận niềm vui trong các hoạt động và kéo dài trong một
+    khoảng thời gian đáng kể.
+
+    Trầm cảm khác với những thay đổi tâm trạng thông thường và những cảm xúc
+    xuất hiện trong đời sống hằng ngày. Trầm cảm có thể ảnh hưởng đến mọi mặt
+    của cuộc sống, bao gồm các mối quan hệ với gia đình, bạn bè và cộng đồng.
+    Trầm cảm có thể là nguyên nhân dẫn đến hoặc làm gia tăng các vấn đề trong
+    học tập và công việc.
+
+    Trầm cảm có thể xảy ra với bất kỳ ai. Những người từng trải qua sự ngược
+    đãi, những mất mát nghiêm trọng hoặc các sự kiện gây căng thẳng khác có
+    khả năng mắc trầm cảm cao hơn.
+```
+
+```
+💬  [ Rối loạn lo âu là gì? ]
+    [ Áp lực trong đầu thành suy nghĩ về bản thân kiểu gì? ]
+    [ Dạo này mình thấy mệt lắm ]   [ — Mình chỉ đọc thôi ]
+```
+
+> 📝 Bấm 2 chip TÌM HIỂU liên tiếp (lượt 1→2) **không** làm gate bắn ORIENT — cùng
+> cơ chế D3 đã canh ở [⚠️ A-1](#-a-1--nếu-không-sửa-d3-thì-lượt-này-đã-hỏng). Thẻ đã
+> đọc (`c-suc-khoe-va-sieu-toi`) tụt xuống cuối, chip mới lên.
+
+---
+
+## Lượt 3 — bấm chip bắc cầu
+
+```
+🧑  [bấm] Dạo này mình thấy mệt lắm
+```
+
+```
+⚙️  CHIP        — (bắc cầu, KHÔNG mang tiền tố — đi qua bước trích như tin thường)
+⚙️  SAFETY      tier = null        ← "mệt" một mình KHÔNG phải cue khủng hoảng (docx/04)
+⚙️  EXTRACT     0 node  (câu quá chung, chưa khớp cue nào)
+⚙️  OVERLAY     0 node
+⚙️  GIẬM CHÂN   turn_count 3 − luot_tim_hieu 2 = 1  <  2  → KHÔNG bắn ORIENT
+⚙️  GATE        CLARIFY — reason: empty_overlay
+```
+
+```
+🤖  Kể mình nghe với — "mệt" ở đây là mệt kiểu gì? Mệt người, hay mệt trong đầu?
+```
+
+```
+💬  [ Mệt kiểu không muốn làm gì ]   [ Chuyện học ]   [ — Mình chưa muốn kể ]
+```
+
+> 📝 Từ lượt này chế độ đã đổi: hết bài giảng, quay về cỗ máy overlay/gate. Bot ngắn,
+> hỏi một câu, không kèm thẻ. Đây là bước [2] của khách — lý do ô nhập tự do không bỏ.
+
+---
+
+## Lượt 4 — học sinh kể chuyện của mình
+
+```
+🧑  Mình học kiểu gì cũng thấy chưa đủ. Điểm cao vẫn thấy mình lẽ ra phải hơn,
+    tối nào cũng nằm nghĩ lại mấy chỗ làm sai.
+```
+
+```
+⚙️  SAFETY      tier = null
+⚙️  EXTRACT     m-tieu-chuan-cao   | literal | 0.75 | "kiểu gì cũng thấy chưa đủ"
+⚙️              m-suy-nghi-lai-loi | literal | 0.70 | "nằm nghĩ lại mấy chỗ làm sai"
+⚙️  OVERLAY     2 node (SELF_REPORT: 2)
+⚙️  GATE        CLARIFY — reason: default   (chưa đủ 3 node ≥ 0.70 để REFLECT)
+⚙️  TARGET      m-chua-du-tot
+```
+
+```
+🤖  "Điểm cao vẫn thấy mình lẽ ra phải hơn" — nghe như cái mốc nó tự dời lên mỗi
+    lần bạn với tới. Lúc nằm nghĩ lại mấy chỗ sai đó, trong đầu bạn nói gì với mình?
+```
+
+```
+💬  [ Kiểu "biết vậy mà vẫn để sai" ]   [ Không thành câu, chỉ thấy khó chịu ]
+    [ Không hẳn vậy đâu ]   [ — Mình chưa muốn nói thêm ]
+```
+
+> 📝 Bot dùng lại **nguyên văn chữ học sinh**, đúng một câu hỏi, không thẻ, không lời
+> khuyên. Chip 3 là chip bác bỏ tiền đề. Lý thuyết ở lượt 1 giờ đọc như nói về chính
+> chuyện họ vừa kể — không phải bài giảng.
+
+> ### ⚠️ D-1 — chuỗi "điểm thấp → khiến bố mẹ thất vọng → …" trong thẻ là VÍ DỤ CÓ NGUỒN
+>
+> Thẻ `c-vong-lap-tram-cam` chứa ví dụ leo thang cụ thể. Đây **không** vi phạm luật
+> "không vignette soạn sẵn" ở [13 mục 7](13-MENU-4-CHU-DE.md): ví dụ này nằm nguyên
+> văn trong docx, có nguồn. Nhưng bot **không được kể nó thay học sinh** — chỉ dùng
+> để hỏi *"bạn có dừng ở bước nào giống vậy không"*. Kể thay = mớm.
+
+> ### ⚠️ D-2 — thẻ triệu chứng chỉ lên khi IMPACT đã CONFIRMED, không sớm hơn
+>
+> `c-dau-hieu-lo-au` / `c-dau-hieu-tram-cam` (danh sách triệu chứng WHO) **không có
+> chip**. Đường duy nhất tới chúng: học sinh kể ra một biểu hiện chức năng → matcher
+> bắt `i-ne-tranh` / `i-mat-dong-luc` / `i-thu-minh` → REFLECT → học sinh xác nhận
+> (CONFIRMED) → gate SUPPORT phát thẻ triệu chứng qua cạnh `explained_by`.
+>
+> Tức là **sớm nhất lượt 5–6**, và chỉ khi hệ thống đã có bằng chứng thật — đúng
+> tinh thần [13 §12](13-MENU-4-CHU-DE.md). Bấm 3 chip TÌM HIỂU liên tiếp KHÔNG bao
+> giờ ra được hai thẻ này.
+>
+> Khi thẻ lên: bot lấy ĐÚNG biểu hiện học sinh vừa nói, đối chiếu một dòng trong
+> thẻ, KHÔNG đếm "bạn có mấy cái", KHÔNG nói "vậy là bạn bị". Nếu học sinh nhận
+> nhiều dòng → chuyển hướng sang chủ đề 4.
+
+> ### ⚠️ D-3 — chip "Lo âu có mấy dạng?" (`c-cac-dang-lo-au`) — ngược default
+>
+> Thêm 09/09 theo yêu cầu khách (hỏi 3 lần), **biết là ngược [13 §12](13-MENU-4-CHU-DE.md)
+> + [03 §7 luật 3]**. Thẻ liệt kê 4 dạng lo âu của NIMH (GAD · hoảng sợ · lo âu
+> xã hội · ám ảnh sợ).
+>
+> Khi thẻ này hiện, bot BẮT BUỘC:
+> - KHÔNG hỏi "bạn thấy mình thuộc dạng nào".
+> - Học sinh tự nhận ("chắc mình bị lo âu xã hội") → KHÔNG xác nhận, trả lời theo
+>   `c-khong-phai-chan-doan`: gọi tên một dạng là việc của người có chuyên môn.
+> - Đóng khung: điểm chung của cả 4 dạng là sợ / lo **quá mức và kéo dài** — đó là
+>   thứ đáng để ý, không phải nhãn.
+> - Chip `c-khong-phai-chan-doan` đứng ngay sau chip này trong `topics.yaml` (có
+>   test canh), nên thường hiện cùng lượt.
+>
+> Duyệt: nếu chạy thử thấy học sinh vẫn tự soi → gỡ chip, giữ node tới qua
+> explained_by như hai thẻ `c-dau-hieu-*`.
 
 ---
 
@@ -566,8 +781,15 @@ Người duyệt tick từng dòng. Dòng nào không tick được thì ghi lý
 - [ ] **C lượt 2** — thẻ nguồn hỗ trợ ra `BRIDGE_CARD` và **không** set
       `bridge_offered` (⚠️ C-1).
 - [ ] **C lượt 3** — bot không nài, không cãi lại lời phản đối.
-- [ ] **D** — chủ đề 3 **không hiện** trên màn chào chừng nào chưa trích xong nội dung.
-- [ ] **E** — chạy thử ở **cả 4** chủ đề, mỗi chủ đề ít nhất 1 câu khủng hoảng. Bổ
-      sung vào `tests/test_safety_crisis.py`.
+- [ ] **D lượt 1** — thẻ mở đầu là **cơ chế + câu "WHO không nói… gây ra trầm cảm"**,
+      KHÔNG phải danh sách triệu chứng. Bot không nói người dùng "đang / có nguy cơ
+      trầm cảm".
+- [ ] **D** — đối chiếu 4 node chủ đề 3 với `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`: đúng
+      nguyên văn, và 4 thứ CỐ Ý bỏ (triệu chứng, số liệu tử vong, bản dịch tiếng Anh,
+      câu "nghiên cứu của bạn") đúng là nên bỏ — xem [13 mục 7](13-MENU-4-CHU-DE.md).
+- [ ] **D lượt 4 / ⚠️ D-1** — bot dùng ví dụ "điểm thấp → …" trong thẻ để HỎI, không
+      kể thay học sinh.
+- [ ] **E** — chạy thử ở **cả 4** chủ đề (chủ đề 3 nay đã bật), mỗi chủ đề ít nhất 1
+      câu khủng hoảng. Bổ sung vào `tests/test_safety_crisis.py`.
 - [ ] Không lượt nào trong cả 4 kịch bản có câu tâm lý **do mô hình tự viết**. Mọi
       nội dung chuyên môn đều truy được về một node.

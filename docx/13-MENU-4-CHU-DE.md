@@ -79,24 +79,38 @@ mà khách gọi là "phân tích":
 |---|---|---|---|---|
 | 1 | Hiểu về cái siêu tôi | `SƠ LƯỢC VỀ _SIÊU TÔI TRỪNG PHẠT_` → `HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx` | 3 trigger | **7** — phủ hết mục 2·3·4·5·6·7 của docx |
 | 2 | Nhận diện trong đời sống học sinh | `NHẬN DIỆN…` → cùng tên | 12 (gồm đúng 10 câu Likert) | **2** — `c-bieu-hien-thuong-gap`, `c-thang-do-likert`; cộng bài Likert + 2 thẻ mượn từ docx siêu tôi |
-| 3 | Ảnh hưởng đến sức khoẻ tinh thần | `ẢNH HƯỞNG…` → `RỐI LOẠN LO ÂU & TRẦM CẢM.docx` | 8 | **0** ❌ **TRỐNG HOÀN TOÀN** |
-| 4 | Khi nào nên tìm hỗ trợ | `KHI NÀO NÊN TÌM HỖ TRỢ` → `KHI NÀO CẦN TÌM HỖ TRỢ.docx` + `CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx` | 8 | **14** — 3 concept + 5 resource + 6 coping |
+| 3 | Ảnh hưởng đến sức khoẻ tinh thần | `ẢNH HƯỞNG…` → `RỐI LOẠN LO ÂU & TRẦM CẢM.docx` | 8 | **4** — `c-suc-khoe-va-sieu-toi` (opening) · `c-lo-au-la-gi` · `c-tram-cam-la-gi` · `c-vong-lap-tram-cam`; chip 4 mượn `c-khong-phai-chan-doan` (✅ trích 09/09) |
+| 4 | Khi nào nên tìm hỗ trợ | `KHI NÀO NÊN TÌM HỖ TRỢ` → `KHI NÀO CẦN TÌM HỖ TRỢ.docx` + `CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx` | 8 | **17** — 3 concept + 5 resource + 9 coping *(đợt 4: +3 coping)* |
 
 > **Lưu ý kỹ thuật:** 24 node bằng chứng có field `source_doc` nên lọc theo chủ đề
-> được ngay. **26 content node thì KHÔNG có `source_doc`** — nguồn nằm trong
+> được ngay. **30 content node thì KHÔNG có `source_doc`** — nguồn nằm trong
 > `content/*.yaml` ở field `source`. Vì vậy `topics.yaml` phải liệt kê content node
 > theo id **một cách tường minh**, không suy ra tự động được.
 
-### Chủ đề 3 là đường găng
+### Chủ đề 3 — đã trích nội dung 09/09/2026
 
-Bấm vào chủ đề 3 hiện tại thì bot **không có một chữ nguyên văn nào để phát**, và
-mô hình sẽ lấp bằng nội dung tự chế — đúng thứ luật nguyên văn dựng ra để chặn.
+Trước 09/09 bấm vào chủ đề 3 thì bot **không có một chữ nguyên văn nào để phát**;
+`topics.yaml` để `enabled: false` — thà giấu một ô còn hơn bày ra để bấm vào rồi
+bot bịa.
 
-Không phải thiếu vật liệu: `RỐI LOẠN LO ÂU & TRẦM CẢM.docx` là docx **lớn nhất**
-(~37.3k ký tự ≈ 12.4k token). Chỉ là chưa ai trích thành node.
+Ngày 09/09/2026 đã trích **4 concept node** từ `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`
+(xem [mục 7](#7-việc-cần-người-không-phải-code)), chủ đề 3 **đã bật**. Điểm cần
+người duyệt nắm khi đối chiếu với docx gốc:
 
-Trước khi trích xong → để `enabled: false` trong `topics.yaml`. **Thà giấu một ô
-còn hơn bày ra để bấm vào rồi bot bịa.**
+- Docx viết dạng **literature review cho bài nghiên cứu**, không phải copy cho học
+  sinh. Chỉ 4 đoạn nói được với học sinh được trích. **ĐÃ BỎ:** các danh sách
+  triệu chứng (xem [mục 12](#12-xoay-chip-tìm-hiểu--và-vì-sao-không-random) — không
+  bày nút cho học sinh bấm đọc triệu chứng rồi tự soi), số liệu tử vong – tự sát
+  (chính người soạn docx đã tự lược), bản dịch tiếng Anh, các câu xưng "nghiên cứu
+  của bạn".
+- **Hai chỗ cắt câu giữa dòng** ở thẻ `c-suc-khoe-va-sieu-toi`, ghi trong comment
+  đầu block `concepts.yaml`: bỏ "Trong đoạn bạn gửi," và "Vì vậy, với nghiên cứu
+  của bạn,". Không đổi nghĩa, nhưng người duyệt cần biết đó là cắt chủ ý.
+- Thẻ mở đầu là **cơ chế + câu phân biệt "WHO không nói siêu tôi trừng phạt gây
+  ra trầm cảm"**, đúng tinh thần [mục 6/D2](#d2--để-học-sinh-hiểu-mình-đang-bị-gì-đụng-luật-cấm-chẩn-đoán--quan-trọng-nhất):
+  mô tả để học sinh tự đối chiếu, không dán nhãn.
+- Chip 4 "Vậy mình có đang bị gì không?" dùng lại `c-khong-phai-chan-doan` như chủ
+  đề 1 và 2 — câu này phải được trả lời bằng tài liệu, nói rằng không ai "bị" gì cả.
 
 ---
 
@@ -319,9 +333,13 @@ môn độc lập"* — chưa thuê chuyên gia là sự thật hội đồng s�
 
 Nhân đó sửa một claim sai trong bản cũ: *"nội dung tổng hợp từ WHO/NIMH/APA"* →
 *"nội dung trích nguyên văn từ tài liệu nghiên cứu"*. Corpus **có** trích (WHO ×8,
-NIMH ×10, APA ×2) nhưng gần như toàn bộ nằm trong `RỐI LOẠN LO ÂU & TRẦM CẢM.docx` —
-tức chủ đề 3, tài liệu **chưa có content node nào**. Câu cũ đang bảo chứng cho thứ
-bot chưa nói được.
+NIMH ×10, APA ×2) nhưng gần như toàn bộ nằm trong `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`.
+
+> **Cập nhật 09/09/2026:** chủ đề 3 nay đã có 4 content node trích từ đúng docx đó
+> (WHO "Tổng quan" + "Khái quát", NIMH "Lo âu là gì?"). Câu disclaimer thu gọn
+> *"trích nguyên văn từ tài liệu nghiên cứu"* vẫn giữ nguyên — nó đúng cho cả 4 chủ
+> đề. Không quay lại câu "tổng hợp từ WHO/NIMH/APA": bot phát **một số đoạn** WHO/NIMH
+> đã được người của nhóm chọn, không phải "tổng hợp" toàn bộ ba nguồn.
 
 Ngoài ra `source_docs` là **ưu tiên, không phải bộ lọc cứng**: học sinh gõ chuyện
 ngoài chủ đề thì overlay và gate vẫn làm việc bình thường. Chủ đề là cửa vào, không
@@ -329,25 +347,137 @@ phải nhà tù.
 
 ---
 
-## 7. Việc cần NGƯỜI, không phải code
+## 7. Chủ đề 3 — đã trích nội dung (09/09/2026)
 
-**Trích 2–3 concept node từ `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`** vào
-`content/concepts.yaml` + thêm node vào `domain_graph.yaml`, rồi điền `opening` và
-`learn_chips` cho chủ đề 3 trong `topics.yaml`, bật `enabled: true`.
+> Nhóm xác nhận **đã soạn nội dung chủ đề 3 vào `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`**
+> và yêu cầu trích thẳng từ docx đó. Trước đây mục này ghi "việc cần NGƯỜI" — nay
+> nội dung đã có người viết, việc còn lại là **chép nguyên văn**, không diễn giải.
 
-Việc này **phải do người trong nhóm đọc docx và chọn đoạn nguyên văn**. Để AI trích
-là biến nó thành diễn giải — đúng thứ luật nguyên văn dựng ra để chặn, và cũng là
-thứ hội đồng sẽ hỏi.
+Đã làm theo công thức [mục 11](#11-thêm-một-mục-lý-thuyết-mới--công-thức-4-bước):
 
-Ràng buộc đã đo, khỏi đo lại:
-- Toàn corpus **không đủ tình huống cụ thể**. Cả docx chủ đề 1 chỉ có **ĐÚNG MỘT** ví
-  dụ (chuyện muốn chơi game trước bài kiểm tra), lặp 3 lần để dựng dần
-  Id→Ego→Superego, và nó đã nằm sẵn trong `c-id-ego-superego`.
-  → **"Tình huống cụ thể" phải là tình huống CỦA NGƯỜI DÙNG**, không phải vignette
-  soạn sẵn. Vignette soạn mới = nội dung tâm lý không ai duyệt.
-- Từ **"lương tâm" xuất hiện 0 lần** trong cả 5 docx → chip FAQ phải sinh từ danh
-  sách node có thật, không viết tay theo cảm hứng. (App tham chiếu có chip
-  *"Nó khác gì với 'lương tâm'?"* — bấm vào là bot buộc phải bịa.)
+| Node | Nguồn trong docx | Vai |
+|---|---|---|
+| `c-suc-khoe-va-sieu-toi` | "Tác động… đến vấn đề trầm cảm" mục 1 + đoạn phân biệt với WHO | `opening` — cơ chế + "không phải nhân–quả" |
+| `c-lo-au-la-gi` | NIMH "Lo âu là gì?" + WHO "Khái quát" | chip |
+| `c-tram-cam-la-gi` | WHO "Tổng quan" | chip |
+| `c-vong-lap-tram-cam` | "Tác động… đến vấn đề trầm cảm" mục 2 + mục 3 | chip |
+| `c-tram-cam-yeu-to-phong-ngua` | WHO "Các yếu tố góp phần và phòng ngừa" | chip *(đợt 2)* |
+| `c-tram-cam-tu-cham-soc` | WHO "Tự chăm sóc" | chip *(đợt 2)* |
+| `c-tram-cam-dieu-tri` | WHO "Chẩn đoán và điều trị" (lược tên thuốc) | chip *(đợt 2)* |
+| `c-cac-dang-lo-au` | NIMH "Các dạng rối loạn lo âu" (bản 4 dạng) | chip *(đợt 3 — xem cảnh báo dưới)* |
+| `c-khong-phai-chan-doan` | (đã có sẵn, mượn chéo) | chip |
+| `c-dau-hieu-lo-au` | WHO "Triệu chứng và biểu hiện" (rối loạn lo âu) | **KHÔNG chip** — tới qua `explained_by` từ `i-ne-tranh` |
+| `c-dau-hieu-tram-cam` | WHO "Các triệu chứng và biểu hiện" (lược phân loại) | **KHÔNG chip** — tới qua `explained_by` từ `i-mat-dong-luc` · `i-thu-minh` |
+
+Content node: **26 → 44** (chủ đề 3: +4 +5 +1 +5 · chủ đề 4: +3). `topics.yaml`
+chủ đề 3 đã bật. `pytest` 279 xanh.
+
+**Đợt 5 (09/09) — QUÉT TRỌN `RỐI LOẠN LO ÂU & TRẦM CẢM.docx` (yêu cầu khách).**
+Sau 5–6 vòng "sao lại thiếu / sao lại cắt", chốt lại nguyên tắc (đã lưu memory
+`nckh-trich-nguyen-van-khong-tu-cat`): **chép nguyên văn, đủ mục, giữ đúng tiêu
+đề** — chỉ cắt quảng cáo / tên cơ sở y tế / "cho nghiên cứu của bạn" / bản dịch
+tiếng Anh / tên thuốc. Rủi ro "tự soi" xử bằng CÁCH HIỂN THỊ (thẻ không-chip),
+không bằng cắt nội dung.
+
+Khôi phục các chỗ đã cắt: `c-lo-au-la-gi` (+triệu chứng đi kèm) · `c-tram-cam-la-gi`
+(+"Những thông tin chính" + dịch tễ + rào cản) · `c-cac-dang-lo-au` (bảng **7 dòng**
+WHO, không phải 4) · `c-tram-cam-yeu-to-phong-ngua` (+sức khỏe thể chất, +can thiệp
+cha mẹ) · `c-tram-cam-dieu-tri` (+tác dụng phụ, +lưỡng cực) · `c-dau-hieu-tram-cam`
+(+phân loại nhẹ/vừa/nặng, đơn cực/tái diễn/lưỡng cực). Đồng bộ `k-nhan-dien-tu-phe-phan`
++ `k-tu-tran-an` về nguyên văn.
+
+5 node mới: `c-lo-au-tong-quan` (điểm chính + tỷ lệ + rào cản + NIMH "tại sao nghiên
+cứu") · `c-lo-au-yeu-to-phong-ngua` (yếu tố + phòng ngừa + NIMH yếu tố môi trường /
+chuyển tiếp) · `c-lo-au-dieu-tri` (CBT) · `c-tram-cam-nguyen-nhan` (di truyền / não
+bộ / hormone / lối sống — 1 thẻ dài) · `c-sieu-toi-phan-tam` (APA "superego sadism",
+Blatt "introjective depression"). Chủ đề 3 chip **8 → 13**.
+
+**Vẫn để ngoài (đúng nguyên tắc):** bản dịch tiếng Anh, dòng "Nguồn: <tên báo>",
+tên thuốc (SSRI/SNRI/MAOI/TCA/fluoxetine…), số liệu tự sát, và các đoạn "Liên hệ
+với đề tài / nghiên cứu của bạn" / "Trích dẫn học thuật cho Literature Review" /
+"Câu có thể dùng trong bài nghiên cứu".
+
+**Đợt 4 (09/09) — chủ đề 4, yêu cầu khách:** thêm chip cho 2 mục lớn của
+`CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx`:
+- `k-ngung-tu-huy-hoai` ← phần "Cách giúp con người ngừng tự hủy hoại bản thân".
+  **Sửa sau feedback customer:** (1) giữ nguyên từ **"tự hủy hoại bản thân"** —
+  bản đầu mình làm nhẹ thành "tự cản trở bản thân", customer không đồng ý (docx
+  định nghĩa rõ Self-sabotage ngay dưới tiêu đề nên không cần tránh); (2) thẻ giờ
+  liệt kê **đủ 6 chiến lược** nguyên văn, không phải 3. Chiến lược 4·5·6 vẫn còn
+  node riêng (`k-growth-mindset` · `k-chia-nho-muc-tieu` · `k-chanh-niem`) để gate
+  phát một-lần-một-cái; thẻ tổng quan này là đường "xem trọn cách tiếp cận".
+- `k-nguyen-nhan-goc-re` ← chiến lược 2 (trước đó chưa trích) — chip riêng vì
+  khách nêu đích danh "Tìm hiểu nguyên nhân gốc rễ".
+- `k-xa-stress-nhanh` ← "Hướng dẫn cách xả stress hiệu quả, giúp giảm bớt triệu
+  chứng nhanh chóng". **Sửa sau feedback customer:** giữ nguyên tiêu đề docx (bản
+  đầu mình bỏ chữ "hiệu quả", đổi thành "Vài cách xả stress nhanh"), và trích
+  **đủ 18 mục** nguyên văn (bản đầu chỉ lấy 6). Chỉ lược **tên bệnh viện + đoạn
+  quảng cáo BVĐK Tâm Anh TP.HCM** ở cuối docx (test canh "Tâm Anh"/"Bệnh viện"
+  không lọt vào body).
+
+Chủ đề 4 chip: **5 → 8**.
+
+> **Còn tồn:** hai node `k-nhan-dien-tu-phe-phan` (chiến lược 1) và `k-tu-tran-an`
+> (chiến lược 3) đứng riêng từ trước có bản trích **rút gọn** ("việc học" thay vì
+> "sự nghiệp", lược "lạm dụng chất kích thích"). Thẻ tổng quan `k-ngung-tu-huy-hoai`
+> đã dùng bản nguyên văn. Nếu customer muốn đồng bộ, cập nhật 2 node kia theo.
+
+> ### ⚠️ Đợt 3 (09/09) — `c-cac-dang-lo-au` thêm theo yêu cầu khách, NGƯỢC default
+>
+> Khách hỏi 3 lần vì sao "Các dạng rối loạn lo âu" không có, và chốt: *"các dạng
+> đó là mục lý thuyết mà"*. Đã thêm thành chip, **biết là ngược [03 §7 luật 3]**
+> (không bày danh sách hạng mục để học sinh tự soi) và ngược tiền lệ [§12](#12-xoay-chip-tìm-hiểu--và-vì-sao-không-random).
+>
+> Ba lớp giảm rủi ro, để hội đồng thấy đây là quyết định có cân nhắc chứ không
+> phải sơ suất:
+> 1. Trích **bản 4 dạng của NIMH** (GAD · hoảng sợ · lo âu xã hội · ám ảnh sợ),
+>    KHÔNG lấy bảng 7 dòng của WHO (có thêm câm chọn lọc, lo âu chia ly — càng
+>    hiếm càng dễ hiểu sai).
+> 2. `steer` cứng: bot **cấm** hỏi "bạn thuộc dạng nào", cấm xác nhận khi học sinh
+>    tự nhận, phải đóng khung "điểm chung của cả 4 là sợ/lo quá mức và kéo dài".
+> 3. Trong `topics.yaml`, chip này đặt **ngay trước** `c-khong-phai-chan-doan` —
+>    đọc "các dạng" xong thấy chip phủ nhận chẩn đoán ngay bên cạnh. Có test canh
+>    thứ tự này (`test_chip_cac_dang_lo_au_co_va_di_kem_chip_chan_doan`).
+>
+> Nếu buổi chạy thử thấy học sinh vẫn tự soi bất chấp 3 lớp trên → gỡ chip này,
+> giữ node để tới qua explained_by như `c-dau-hieu-*`.
+
+**Đợt 2 (09/09, sau khi khách hỏi "sao không thấy mấy mục lớn"):** thêm 3 chip
+khái niệm an toàn + 2 thẻ triệu chứng KHÔNG-chip. Hai thẻ `c-dau-hieu-*` chỉ lên
+qua gate SUPPORT khi một node IMPACT (né tránh / mất động lực / thu mình) đã
+CONFIRMED — "khi học sinh nói cụ thể thì lý thuyết tự lên", không phải nút bấm.
+Cạnh `explained_by` CỐ Ý chỉ móc từ node IMPACT, không từ affect lõi (`a-lo-lang`,
+`a-buon` nằm trong vòng lặp siêu tôi, dùng chung mọi chủ đề — §11).
+
+**Vẫn KHÔNG trích:** "Tại sao / Cách NIMH nghiên cứu rối loạn lo âu" — meta về
+nghị trình của một cơ quan nghiên cứu, chủ đề ngoài lứa tuổi (mang thai, sau sinh,
+Addison…); số liệu tử vong – tự sát; bản dịch tiếng Anh; tên thuốc.
+("Các dạng rối loạn lo âu" ban đầu cũng trong danh sách này — đã chuyển thành chip
+ở đợt 3, xem cảnh báo trên.)
+
+**Bốn thứ trong docx CỐ Ý không trích** — người duyệt cần biết để không tưởng là bỏ sót:
+- **Danh sách triệu chứng** (lo âu: tim đập nhanh, đổ mồ hôi, mất ngủ… / trầm cảm:
+  thay đổi thèm ăn, vô vọng…). Lý do: [mục 12](#12-xoay-chip-tìm-hiểu--và-vì-sao-không-random)
+  — bày nút cho học sinh bấm đọc triệu chứng rồi tự soi là "gợi ý mang tính mớm".
+  Cùng luật đã áp cho mục 3–4 của docx tìm hỗ trợ.
+- **Số liệu tử vong / tự sát ở nhóm 15–29 tuổi.** Chính người soạn docx đã tự lược
+  (`[Phần tiếp theo… mình không tái hiện chi tiết này]`).
+- **Bản dịch tiếng Anh** xen kẽ trong phần "Trầm cảm" (nguồn Science News / Victoria
+  University…).
+- **Các câu xưng "nghiên cứu của bạn" / "đoạn bạn gửi" / "Gợi ý trích dẫn cho
+  Literature Review"** — văn bản của bài nghiên cứu, không phải nội dung nói với học
+  sinh (cùng lý do mục 1 "Giới thiệu đề tài" của docx siêu tôi không trích).
+
+**Hai chỗ cắt câu giữa dòng** (ghi trong comment `concepts.yaml`, để người duyệt đối
+chiếu docx): ở `c-suc-khoe-va-sieu-toi` bỏ `"Trong đoạn bạn gửi,"` và
+`"Vì vậy, với nghiên cứu của bạn,"`. Không đổi nghĩa câu.
+
+Ràng buộc cũ vẫn giữ:
+- **"Tình huống cụ thể" là tình huống CỦA NGƯỜI DÙNG**, không phải vignette soạn sẵn.
+  Docx chủ đề 3 có ví dụ "điểm thấp → khiến bố mẹ thất vọng → …" nằm trong
+  `c-vong-lap-tram-cam` — đó là ví dụ MINH HOẠ CƠ CHẾ có nguồn, không phải vignette
+  bịa; bot dùng nó để hỏi người dùng dừng ở bước nào, không kể thay họ.
+- Từ **"lương tâm" xuất hiện 0 lần** trong cả 5 docx → chip sinh từ node có thật.
 
 ---
 
@@ -409,19 +539,19 @@ là cửa; từ lượt 2 vẫn là hội thoại của họ, và lý thuyết �
 | 6 | `phrases.py` + `chips.py` + `quick_reply.py` — chip `CHIP_LEARN` (`"◦ "`) | ✅ 09/09 |
 | 7 | Frontend: 4 thẻ + giữ composer + giữ hotline | ✅ 09/09 |
 | 8 | Gộp bài Likert vào chủ đề 2 (`?topic=` xuyên suốt) | ✅ 09/09 |
-| 9 | **Người:** trích nội dung chủ đề 3 → bật `enabled: true` | ⏸ **hoãn có chủ ý** |
+| 9 | Trích nội dung chủ đề 3 → bật `enabled` | ✅ 09/09 — xem [mục 7](#7-chủ-đề-3--đã-trích-nội-dung-09092026) |
 
-**Kiểm chứng 09/09:** `pytest` 264 xanh (thêm `tests/test_topics.py`, 22 test bám đúng
-A-1 / B-2 / C-1 của [14](14-KICH-BAN-4-CHU-DE.md)) · `npm run build` sạch · chạy thật 4
-lượt qua TestClient khớp kịch bản A và E.
+**Kiểm chứng 09/09:** `pytest` **276 xanh** (thêm 2 test chủ đề 3:
+`test_mo_chu_de_3_phat_the_co_che`, `test_chip_tim_hieu_chu_de_3_phat_dung_node`;
+`test_ca_4_chu_de_deu_bat_va_co_noi_dung` thay cho test cũ canh `enabled: false`) ·
+`npm run build` sạch · chạy thật qua TestClient khớp kịch bản A và E.
 
-> **Việc 9 hoãn theo quyết định 09/09:** làm tốt 3 chủ đề đang bật trước, đưa khách
-> xác nhận. Khách gật rồi mới nhờ họ soạn nội dung chủ đề 3. Lý do đúng: nội dung
-> tâm lý phải do người của nhóm trích nguyên văn, mà nhờ soạn trước khi chốt hình
-> dạng sản phẩm thì nhiều khả năng phải soạn lại.
->
-> Trong lúc đó `enabled: false` giữ chủ đề 3 **không hiện** trên màn chào —
-> `GET /api/topics` chỉ trả chủ đề đang bật, nên không có đường nào bấm vào được.
+> **Việc 9 — mở lại 09/09 sau khi nhóm xác nhận đã soạn xong nội dung chủ đề 3 vào
+> docx.** Quyết định hoãn trước đó ("làm tốt 3 chủ đề trước, khách gật rồi mới soạn
+> chủ đề 3") đã được chính nhóm gỡ: nội dung có người viết trong
+> `RỐI LOẠN LO ÂU & TRẦM CẢM.docx`, yêu cầu trích thẳng. Việc còn lại là chép nguyên
+> văn — 4 đoạn nói được với học sinh; phần literature-review / triệu chứng / số liệu
+> tử vong bỏ lại, lý do ghi ở [mục 7](#7-chủ-đề-3--đã-trích-nội-dung-09092026).
 
 ---
 

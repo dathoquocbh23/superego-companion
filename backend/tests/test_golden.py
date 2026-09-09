@@ -112,7 +112,7 @@ async def test_2_vong_lap_cau_toan_den_insight_roi_toi_coping_dung():
     l3 = await _mot_luot(sid, "✓ Đúng vậy")
     assert l3["gate"] == "SUPPORT"
     assert l3["message_type"] == "COPING_CARD"
-    assert l3["card"]["title"] == "Thử đối xử với mình như với một người bạn", (
+    assert l3["card"]["title"] == "Thực hành lòng trắc ẩn với bản thân", (
         "phải chọn k-tu-tran-an (priority 30 qua m-tu-trach) — sai policy edge "
         "là rơi về default_coping hoặc một coping ưu tiên thấp hơn, sai với "
         "chính điều người dùng vừa nói"

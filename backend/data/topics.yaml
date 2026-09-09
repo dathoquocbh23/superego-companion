@@ -121,20 +121,54 @@ topics:
     source_docs:
       - "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
 
-    # ⚠️ CHƯA DÙNG ĐƯỢC — chủ đề này có 8 node bằng chứng (bot THEO DÕI) nhưng
-    # 0 content node (bot PHÁT NGÔN). Bấm vào là bot không có gì nguyên văn để
-    # nói, và mô hình sẽ lấp bằng nội dung tự chế.
+    # Trích nội dung 09/09/2026 (docx/13 §7). Đợt 5: quét TRỌN
+    # RỐI LOẠN LO ÂU & TRẦM CẢM.docx theo yêu cầu khách — 13 concept node phủ
+    # gần hết docx (định nghĩa, dịch tễ, rào cản, yếu tố, phòng ngừa, điều trị,
+    # nguyên nhân, cơ chế siêu tôi, góc phân tâm học). Chỉ bỏ: bản dịch tiếng
+    # Anh, tên thuốc cụ thể, số liệu tự sát, các câu "cho nghiên cứu của bạn".
     #
-    # Không phải thiếu vật liệu: RỐI LOẠN LO ÂU & TRẦM CẢM.docx là docx LỚN
-    # NHẤT trong bộ (~37k ký tự, ~12.4k token). Chỉ là chưa ai trích.
+    # Thẻ mở đầu là CƠ CHẾ + phân biệt "không phải nhân – quả". Chip
+    # c-khong-phai-chan-doan để CUỐI danh sách (mượn như chủ đề 1, 2).
+    opening: c-suc-khoe-va-sieu-toi
+
+    # 13 chip, mỗi lượt hiện 3 — xoay vòng tất định (chưa đọc lên trước).
     #
-    # Phải làm trước demo 30/09: trích 2–3 concept node từ docx đó vào
-    # content/concepts.yaml, thêm node vào domain_graph.yaml, rồi điền
-    # `opening` + `learn_chips` ở đây. Trước khi làm xong, để enabled: false —
-    # thà giấu một ô còn hơn bày một ô bấm vào là bot bịa.
-    enabled: false
-    opening: null
-    learn_chips: []
+    # ⚠️ `c-dau-hieu-lo-au` / `c-dau-hieu-tram-cam` (danh sách triệu chứng) VẪN
+    # KHÔNG có chip — tới qua gate SUPPORT khi node bằng chứng đã CONFIRMED
+    # (cạnh explained_by trong domain_graph.yaml). docx/13 §12: rủi ro "tự soi"
+    # xử bằng cách hiển thị, không bằng cắt nội dung.
+    # `c-cac-dang-lo-au` LÀ chip (khách yêu cầu, ngược default) — có steer cứng.
+    learn_chips:
+      - text: "Rối loạn lo âu là gì?"
+        serves: c-lo-au-la-gi
+      - text: "Trầm cảm là gì?"
+        serves: c-tram-cam-la-gi
+      - text: "Áp lực trong đầu thành suy nghĩ về bản thân kiểu gì?"
+        serves: c-vong-lap-tram-cam
+      - text: "Vì sao có người bị, có người không?"
+        serves: c-tram-cam-yeu-to-phong-ngua
+      - text: "Mình có thể tự làm gì cho bản thân?"
+        serves: c-tram-cam-tu-cham-soc
+      - text: "Trầm cảm có chữa được không?"
+        serves: c-tram-cam-dieu-tri
+      # Đợt 5 (09/09) — quét trọn docx theo yêu cầu khách.
+      - text: "Rối loạn lo âu phổ biến thế nào?"
+        serves: c-lo-au-tong-quan
+      - text: "Vì sao có người bị rối loạn lo âu?"
+        serves: c-lo-au-yeu-to-phong-ngua
+      - text: "Rối loạn lo âu có chữa được không?"
+        serves: c-lo-au-dieu-tri
+      - text: "Trầm cảm do đâu mà có?"
+        serves: c-tram-cam-nguyen-nhan
+      - text: "Phân tâm học nói gì về siêu tôi trừng phạt?"
+        serves: c-sieu-toi-phan-tam
+      # Đặt NGAY TRƯỚC chip "mình có bị gì không" cố ý: hai chip đi cặp — đọc
+      # "các dạng" xong thấy chip phủ nhận chẩn đoán ngay bên cạnh.
+      - text: "Lo âu có mấy dạng?"
+        serves: c-cac-dang-lo-au
+      - text: "Vậy mình có đang bị gì không?"
+        serves: c-khong-phai-chan-doan
+
     bridge_chip: "Dạo này mình thấy mệt lắm"
 
   # ==========================================================================
@@ -146,19 +180,32 @@ topics:
       - "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
       - "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx"
 
-    # Chủ đề giàu nội dung nhất: 3 concept + 5 resource + 6 coping = 14 node.
-    # 5 chip phủ ba hướng khác nhau: khi nào là quá mức · tự làm gì · nói với ai.
+    # Chủ đề giàu nội dung nhất: 3 concept + 5 resource + 9 coping.
+    # 7 chip phủ bốn hướng: khi nào là quá mức · ngừng tự cản trở · xả stress ·
+    # nói với ai.
     #
     # ⚠️ CỐ Ý KHÔNG có chip cho mục 3 ("dấu hiệu giống triệu chứng trầm cảm") và
     # mục 4 ("biểu hiện lo âu kéo dài") của docx. Bày một nút mời học sinh đọc
     # danh sách triệu chứng rồi tự soi là đúng cạm bẫy "gợi ý mang tính mớm" mà
     # docx/03 §7 luật 3 cấm. Nội dung đó vẫn tới được — nhưng qua gate BRIDGE,
     # tức là khi hệ thống ĐÃ có bằng chứng, chứ không phải vì họ tò mò bấm thử.
+    #
+    # 09/09/2026 (yêu cầu khách): thêm 2 chip cho 2 mục lớn của CÁC CÁCH KHẮC
+    # PHỤC TẠI NHÀ.docx. `k-ngung-tu-huy-hoai` gộp chiến lược 1·2·3 vào một thẻ
+    # ("show hết" — khách để mình chọn). Chiến lược 4·5·6 vẫn tới một-lần-một-cái
+    # qua policy edge như cũ, không thành chip (giữ luật "KHÔNG dump danh sách"
+    # của coping.yaml).
     opening: c-vong-lap-tu-phe-phan
 
     learn_chips:
       - text: "Thế nào là quá mức?"
         serves: c-tu-phe-phan-qua-muc
+      - text: "Làm sao ngừng tự hủy hoại bản thân?"
+        serves: k-ngung-tu-huy-hoai
+      - text: "Vì sao mình cứ tự phá như vậy?"
+        serves: k-nguyen-nhan-goc-re
+      - text: "Cách xả stress hiệu quả?"
+        serves: k-xa-stress-nhanh
       - text: "Mình có thể tự làm gì ở nhà không?"
         serves: k-tu-tran-an
       - text: "Nói với thầy cô thì nói thế nào?"

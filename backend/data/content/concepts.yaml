@@ -335,3 +335,557 @@ giup-mot-nguoi-ban:
     Hai, câu cuối là hàng rào cho chính người đang hỏi: họ không phải chịu trách
     nhiệm chữa cho bạn mình. Đừng bỏ ý đó khi dẫn dắt.
   source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — phần giúp một người bạn"
+
+# ============================================================================
+# Trích 09/09/2026 — chủ đề 3 "Ảnh hưởng đến sức khoẻ tinh thần".
+# Nguồn: RỐI LOẠN LO ÂU & TRẦM CẢM.docx (docx lớn nhất bộ, WHO / NIMH / APA).
+#
+# Đợt 5 (09/09): quét TRỌN docx theo yêu cầu khách — chép nguyên văn, đủ mục.
+# CHỈ cắt: bản dịch tiếng Anh song song · dòng "Nguồn: <tên báo>" · tên thuốc
+# cụ thể (SSRI, fluoxetine, SNRI…) · số liệu tử vong – tự sát (người soạn đã
+# tự lược) · các câu xưng "cho nghiên cứu của bạn" / "Trích dẫn học thuật cho
+# Literature Review" / "Câu có thể dùng trong bài nghiên cứu".
+#
+# Danh sách triệu chứng (`dau-hieu-*`) VẪN trích đầy đủ nhưng KHÔNG làm chip —
+# chỉ tới qua gate SUPPORT khi có bằng chứng (docx/13 §12). Rủi ro "tự soi"
+# xử bằng CÁCH HIỂN THỊ, không bằng cắt nội dung.
+#
+# Hai chỗ cắt câu giữa dòng ở suc-khoe-va-sieu-toi: bỏ "Trong đoạn bạn gửi,"
+# và "Vì vậy, với nghiên cứu của bạn," — đều thuộc diện "cho nghiên cứu".
+# ============================================================================
+
+lo-au-la-gi:
+  title: "Rối loạn lo âu là gì"
+  body: |
+    Cảm giác lo âu là một phần bình thường của cuộc sống. Nhiều người thường lo
+    lắng về sức khỏe, tài chính, học tập, công việc hoặc gia đình.
+
+    Tuy nhiên, rối loạn lo âu không đơn thuần là những lo lắng hoặc nỗi sợ hãi
+    thoáng qua. Đối với người mắc rối loạn lo âu:
+    • Lo âu không tự biến mất.
+    • Xuất hiện trong nhiều tình huống khác nhau.
+    • Có xu hướng trở nên nghiêm trọng hơn theo thời gian.
+
+    Lo âu là cảm xúc mà ai cũng có thể trải qua trong một số tình huống. Nhưng ở
+    người mắc rối loạn lo âu, cảm giác sợ hãi và lo lắng thường quá mức, kéo dài
+    và khó kiểm soát. Các triệu chứng này thường đi kèm với: căng thẳng cơ thể,
+    triệu chứng hành vi, triệu chứng nhận thức, khó tập trung, khó ra quyết
+    định, bồn chồn, dễ cáu gắt. Nếu không được điều trị, rối loạn lo âu có thể
+    kéo dài nhiều tháng hoặc nhiều năm và ảnh hưởng nghiêm trọng đến học tập,
+    công việc, gia đình và các mối quan hệ xã hội.
+  steer: |
+    Thẻ định nghĩa, ghép từ hai nguồn của docx: đoạn NIMH "Lo âu là gì?" và
+    đoạn WHO "Khái quát". Ý cần giữ lại: ai cũng lo âu — cái khác là ở người
+    mắc rối loạn thì nó QUÁ MỨC, KÉO DÀI, KHÔNG TỰ HẾT.
+
+    Sau thẻ, KHÔNG hỏi "bạn thấy mình có dấu hiệu nào không". Hỏi vào chuyện
+    thật họ đang lo, bằng chữ của họ.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — NIMH \"Lo âu là gì?\" + WHO \"Khái quát\""
+
+tram-cam-la-gi:
+  title: "Trầm cảm là gì"
+  body: |
+    Những thông tin chính:
+    • Trầm cảm là một rối loạn tâm thần phổ biến.
+    • Trên toàn cầu, ước tính có 5,7% người trưởng thành mắc trầm cảm.
+    • Phụ nữ bị ảnh hưởng bởi trầm cảm nhiều hơn nam giới.
+    • Trầm cảm có thể dẫn đến những hậu quả rất nghiêm trọng.
+    • Có các phương pháp điều trị hiệu quả đối với trầm cảm nhẹ, vừa và nặng.
+
+    Rối loạn trầm cảm (còn được gọi là trầm cảm) là một rối loạn tâm thần phổ
+    biến. Trầm cảm biểu hiện bằng khí sắc trầm hoặc sự mất hứng thú hay mất khả
+    năng cảm nhận niềm vui trong các hoạt động và kéo dài trong một khoảng thời
+    gian đáng kể.
+
+    Trầm cảm khác với những thay đổi tâm trạng thông thường và những cảm xúc
+    xuất hiện trong đời sống hằng ngày. Trầm cảm có thể ảnh hưởng đến mọi mặt
+    của cuộc sống, bao gồm các mối quan hệ với gia đình, bạn bè và cộng đồng.
+    Trầm cảm có thể là nguyên nhân dẫn đến hoặc làm gia tăng các vấn đề trong
+    học tập và công việc.
+
+    Trầm cảm có thể xảy ra với bất kỳ ai. Những người từng trải qua sự ngược
+    đãi, những mất mát nghiêm trọng hoặc các sự kiện gây căng thẳng khác có khả
+    năng mắc trầm cảm cao hơn. Phụ nữ có khả năng mắc trầm cảm cao hơn nam giới.
+
+    Ước tính 4% dân số trải qua trầm cảm, trong đó có 5,7% người trưởng thành
+    (4,6% ở nam giới và 6,9% ở nữ giới), và 5,9% người trưởng thành từ 70 tuổi
+    trở lên. Khoảng 332 triệu người trên thế giới mắc trầm cảm. Trầm cảm phổ
+    biến ở phụ nữ cao hơn khoảng 1,5 lần so với nam giới. Trên toàn thế giới,
+    hơn 10% phụ nữ mang thai và phụ nữ vừa sinh con trải qua trầm cảm.
+
+    Ở các quốc gia có thu nhập cao, chỉ khoảng một phần ba số người mắc trầm
+    cảm được tiếp cận điều trị sức khỏe tâm thần. Những rào cản đối với việc
+    chăm sóc hiệu quả bao gồm thiếu đầu tư cho chăm sóc sức khỏe tâm thần,
+    thiếu nhân viên y tế được đào tạo và sự kỳ thị xã hội liên quan đến các
+    rối loạn tâm thần.
+  steer: |
+    Thẻ định nghĩa, nguyên văn "Những thông tin chính" + "Tổng quan" của WHO.
+    Hai ý phải giữ: (1) trầm cảm KHÁC với buồn hay tâm trạng lên xuống thường
+    ngày — nó kéo dài và ăn vào mọi mặt cuộc sống; (2) nó xảy ra với bất kỳ ai,
+    không phải lỗi hay sự yếu đuối của người mắc.
+
+    Thẻ dài, có nhiều số liệu — đọc lướt phần số, dừng ở hai ý trên. KHÔNG hỏi
+    "bạn có bao nhiêu biểu hiện". Nếu người dùng nói họ thấy giống mình, đó là
+    lúc nhắc tới việc nói với một người thật — nhẹ, không doạ.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Những thông tin chính\" + \"Tổng quan\""
+
+suc-khoe-va-sieu-toi:
+  title: "Cái siêu tôi trừng phạt liên hệ với sức khoẻ tinh thần thế nào"
+  body: |
+    Điều đầu tiên cần phân biệt: WHO không nói rằng "cái Siêu tôi trừng phạt
+    gây ra trầm cảm". WHO giải thích trầm cảm là kết quả của sự tương tác phức
+    tạp giữa các yếu tố xã hội, tâm lý và sinh học.
+
+    Cách diễn đạt đúng hơn là: Cái Siêu tôi trừng phạt có thể là một cơ chế tâm
+    lý góp phần làm gia tăng tính dễ tổn thương đối với các biểu hiện trầm cảm,
+    đặc biệt thông qua tự phê phán, cảm giác tội lỗi và cảm nhận bản thân có
+    giá trị thấp.
+
+    Có thể hình dung theo một mô hình:
+    Cái Siêu tôi trừng phạt hoạt hóa
+     → Tự phê phán, tự buộc tội, cảm giác tội lỗi quá mức
+     → Cảm nhận bản thân tiêu cực + giảm giá trị bản thân
+     → Căng thẳng tâm lý kéo dài
+     → Khó thích nghi với thất bại / xung đột
+     → Tăng nguy cơ xuất hiện các triệu chứng trầm cảm
+
+    Điểm mấu chốt là học sinh không chỉ trải qua một thất bại, mà có thể diễn
+    giải thất bại đó thành một phán xét về chính bản thân mình, chẳng hạn:
+    "Mình làm bài không tốt" → "Mình kém cỏi" → "Mình luôn làm mọi thứ sai" →
+    "Mình không có giá trị."
+  steer: |
+    Thẻ MỞ ĐẦU của chủ đề 3. Nó phải làm hai việc cùng lúc: nói rõ đây KHÔNG
+    phải quan hệ nhân – quả ("siêu tôi trừng phạt → bệnh trầm cảm"), và cho
+    thấy CƠ CHẾ góp phần: tự phê phán kéo dài → giá trị bản thân giảm → căng
+    thẳng → dễ tổn thương hơn.
+
+    Câu chốt (chuỗi "Mình làm bài không tốt → … → Mình không có giá trị") là
+    chỗ bắc cầu sang chuyện của họ: nếu họ từng nghĩ theo kiểu leo thang như
+    vậy, hỏi vào đúng bước đó — bằng chữ của họ. KHÔNG nói người dùng "đang
+    trầm cảm" hay "có nguy cơ trầm cảm" — đó là chẩn đoán, luật 1 của persona
+    cấm. Mô tả cơ chế, để họ tự đối chiếu.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — \"Tác động… đến vấn đề trầm cảm\" mục 1 + đoạn phân biệt với WHO"
+
+vong-lap-tram-cam:
+  title: "Vì sao học sinh THPT dễ chịu ảnh hưởng"
+  body: |
+    Ở học sinh THPT, có nhiều nguồn áp lực cùng lúc: thành tích học tập, kỳ
+    vọng của gia đình, quan hệ bạn bè, định hướng tương lai và những xung đột
+    xã hội.
+
+    Nếu Siêu tôi trừng phạt hoạt động mạnh, những áp lực này có thể không chỉ
+    được cảm nhận như "một vấn đề cần giải quyết", mà trở thành cơ sở để tự
+    phán xét và trừng phạt bản thân về mặt tâm lý.
+
+    Ví dụ:
+    Điểm thấp
+     → "Mình đã khiến bố mẹ thất vọng."
+     → "Mình là đứa không đủ năng lực."
+     → cảm giác tội lỗi + xấu hổ
+     → suy nghĩ tiêu cực lặp lại
+     → mất động lực, thu mình, giảm hứng thú
+     → nguy cơ triệu chứng trầm cảm tăng lên.
+
+    Những sự kiện gây căng thẳng khiến một người khó đối phó có thể làm tăng
+    nguy cơ xuất hiện trầm cảm. Vì vậy căng thẳng là một mắt xích đáng chú ý:
+    sự hoạt hóa của cái Siêu tôi trừng phạt có thể làm gia tăng mức độ tự phê
+    phán và cảm giác tội lỗi, từ đó làm tăng căng thẳng tâm lý và góp phần làm
+    gia tăng nguy cơ xuất hiện các biểu hiện trầm cảm.
+  steer: |
+    Thẻ này trả lời "vì sao lại là học sinh THPT" và cho một ví dụ leo thang
+    rất cụ thể (điểm thấp → "khiến bố mẹ thất vọng" → "không đủ năng lực" → …).
+    Nếu người dùng đã kể một chuyện có hình dạng giống vậy, dùng ĐÚNG ví dụ
+    này để hỏi họ dừng ở bước nào, nghĩ gì ở bước đó — bằng lời họ.
+
+    "Căng thẳng là mắt xích" là ý để giữ: không phải điểm số hay sự kiện tự nó
+    gây ra, mà là cách tự phê phán biến nó thành căng thẳng kéo dài. KHÔNG dán
+    nhãn, KHÔNG kết luận "vậy là bạn đang trong vòng lặp trầm cảm".
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — \"Tác động… đến vấn đề trầm cảm\" mục 2 + mục 3"
+
+# ── Chủ đề 3, đợt 2 (09/09/2026) — thêm 5 mục theo yêu cầu khách ────────────
+# Ba mục ĐẦU là CHIP (khái niệm an toàn). Hai mục SAU (dau-hieu-*) KHÔNG phải
+# chip — chỉ tới được qua gate SUPPORT khi một node bằng chứng đã CONFIRMED
+# (cạnh explained_by ở domain_graph.yaml). docx/13 §12: không bày nút mời học
+# sinh bấm đọc danh sách triệu chứng rồi tự soi.
+#
+# Mục "Các dạng rối loạn lo âu" (GAD / hoảng sợ / lo âu xã hội / ám ảnh sợ…)
+# và "Tại sao / Cách NIMH nghiên cứu" CỐ Ý KHÔNG trích — phân loại chẩn đoán +
+# meta về cơ quan nghiên cứu, không phải "hiểu để hiểu mình". Xem docx/13 §7.
+#
+# Chỗ cắt câu / lược, ghi để người duyệt đối chiếu docx:
+#   • tram-cam-yeu-to-phong-ngua: lược đoạn bệnh đồng mắc thể chất (tim mạch,
+#     ung thư, tiểu đường) và đoạn "can thiệp cho cha mẹ / người lớn tuổi".
+#   • tram-cam-dieu-tri: lược tên thuốc (SSRI, fluoxetine) và đoạn tác dụng phụ
+#     / rối loạn lưỡng cực. Giữ đúng ý "thuốc không phải đầu tay ở thanh thiếu niên".
+#   • dau-hieu-tram-cam: lược phân loại nhẹ/vừa/nặng và đơn cực/tái diễn/lưỡng cực.
+
+tram-cam-yeu-to-phong-ngua:
+  title: "Vì sao có người bị trầm cảm, có người không"
+  body: |
+    Trầm cảm là kết quả của sự tương tác phức tạp giữa các yếu tố xã hội, tâm
+    lý và sinh học. Những người từng trải qua các sự kiện bất lợi trong cuộc
+    sống (thất nghiệp, mất người thân, các sự kiện gây sang chấn) có khả năng
+    mắc trầm cảm cao hơn.
+
+    Đến lượt mình, trầm cảm có thể dẫn đến nhiều căng thẳng và suy giảm chức
+    năng hơn, làm tình trạng cuộc sống của người mắc trở nên khó khăn hơn và
+    từ đó làm trầm cảm trở nên nghiêm trọng hơn.
+
+    Trầm cảm có mối liên hệ chặt chẽ với sức khỏe thể chất và chịu ảnh hưởng
+    bởi sức khỏe thể chất. Nhiều yếu tố ảnh hưởng đến trầm cảm (chẳng hạn như
+    ít hoạt động thể chất hoặc sử dụng rượu có hại) cũng là những yếu tố nguy
+    cơ đã được biết đến của các bệnh như bệnh tim mạch, ung thư, tiểu đường và
+    các bệnh về hô hấp. Ngược lại, những người mắc các bệnh này cũng có thể
+    trải qua trầm cảm do những khó khăn liên quan đến việc kiểm soát tình
+    trạng bệnh.
+
+    Các chương trình phòng ngừa đã được chứng minh là có thể làm giảm trầm
+    cảm. Những phương pháp hiệu quả trong cộng đồng để phòng ngừa trầm cảm bao
+    gồm các chương trình tại trường học nhằm tăng cường khả năng ứng phó tích
+    cực ở trẻ em và thanh thiếu niên. Các can thiệp dành cho cha mẹ có con gặp
+    vấn đề về hành vi có thể làm giảm các triệu chứng trầm cảm ở cha mẹ và cải
+    thiện kết quả ở trẻ. Các chương trình tập thể dục dành cho người lớn tuổi
+    cũng có thể có hiệu quả trong phòng ngừa trầm cảm.
+  steer: |
+    Ý cốt lõi để giữ: KHÔNG có một nguyên nhân duy nhất — nhiều yếu tố tương
+    tác. Đây là hàng rào chống bẫy chẩn đoán: nếu người dùng hỏi "vậy do em
+    yếu đuối à", câu trả lời nằm ngay trong thẻ — do tương tác nhiều yếu tố,
+    không phải do lỗi hay sự yếu đuối của một người.
+
+    KHÔNG dùng thẻ này để nói người dùng "có yếu tố nguy cơ" hay "dễ bị trầm
+    cảm". Nó nói về hiện tượng nói chung, không phải về họ.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Các yếu tố góp phần và phòng ngừa\""
+
+tram-cam-tu-cham-soc:
+  title: "Mình có thể tự làm gì cho bản thân"
+  body: |
+    Tự chăm sóc có thể đóng một vai trò quan trọng trong việc kiểm soát các
+    triệu chứng trầm cảm và thúc đẩy sức khỏe tổng thể.
+
+    Một số điều có thể thực hiện:
+    • Cố gắng tiếp tục thực hiện những hoạt động mà trước đây bạn từng yêu thích.
+    • Duy trì kết nối với bạn bè và gia đình.
+    • Tập thể dục thường xuyên, ngay cả khi chỉ là đi bộ trong thời gian ngắn.
+    • Duy trì thói quen ăn uống và ngủ nghỉ đều đặn nhất có thể.
+    • Tránh hoặc hạn chế rượu và không sử dụng các chất bất hợp pháp vì chúng
+      có thể khiến trầm cảm trở nên nghiêm trọng hơn.
+    • Nói chuyện với một người mà bạn tin tưởng về cảm xúc của mình.
+    • Tìm kiếm sự giúp đỡ từ nhân viên y tế.
+  steer: |
+    Danh sách tự chăm sóc của WHO cho trầm cảm. Trùng một phần với chủ đề 4 —
+    khác ở chỗ đây là list nguyên văn cho trầm cảm, không phải kỹ năng ứng phó
+    với tự phê phán.
+
+    Đừng đọc cả 7 gạch đầu dòng như một đơn thuốc. Nếu người dùng vừa kể một
+    chuyện cụ thể (mất ngủ, không gặp ai…), chỉ lấy ĐÚNG một dòng liên quan
+    rồi hỏi họ thấy dòng đó có làm được không. Hai dòng cuối (nói với người tin
+    tưởng · tìm nhân viên y tế) là chỗ nối sang chủ đề 4 khi cần.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Tự chăm sóc\""
+
+tram-cam-dieu-tri:
+  title: "Trầm cảm có chữa được không"
+  body: |
+    Có những phương pháp điều trị hiệu quả đối với trầm cảm. Các phương pháp
+    này bao gồm điều trị tâm lý và thuốc. Nếu có các triệu chứng của trầm cảm,
+    cần tìm kiếm sự chăm sóc từ nhân viên y tế.
+
+    Các phương pháp điều trị tâm lý là phương pháp điều trị đầu tiên đối với
+    trầm cảm. Chúng có thể được kết hợp với thuốc chống trầm cảm trong trường
+    hợp trầm cảm vừa và nặng. Thuốc chống trầm cảm không cần thiết đối với
+    trầm cảm nhẹ.
+
+    Các phương pháp điều trị tâm lý có thể giúp con người học được những cách
+    mới để suy nghĩ, ứng phó hoặc tương tác với người khác. Chúng có thể bao
+    gồm trị liệu trò chuyện với chuyên gia và với các nhà trị liệu không
+    chuyên được giám sát; có thể thực hiện trực tiếp hoặc trực tuyến; và cũng
+    có thể được tiếp cận thông qua tài liệu tự trợ giúp, website và ứng dụng.
+    Các phương pháp điều trị tâm lý hiệu quả đối với trầm cảm bao gồm: hoạt
+    hóa hành vi, liệu pháp nhận thức – hành vi, liệu pháp tâm lý giữa các cá
+    nhân, liệu pháp giải quyết vấn đề.
+
+    Nhân viên y tế cần lưu ý đến những tác dụng không mong muốn có thể xảy ra
+    của thuốc chống trầm cảm, khả năng cung cấp từng phương pháp can thiệp
+    cũng như sở thích của từng cá nhân. Việc sử dụng thuốc chống trầm cảm cần
+    được cân nhắc đặc biệt ở trẻ em và thanh thiếu niên; thuốc không phải là
+    lựa chọn điều trị đầu tay ở thanh thiếu niên và cần được sử dụng hết sức
+    thận trọng. Các loại thuốc và phương pháp điều trị khác nhau được sử dụng
+    đối với rối loạn lưỡng cực.
+  steer: |
+    Thẻ này để trả lời đúng câu "trầm cảm có chữa được không" — câu trả lời là
+    CÓ, và bước đầu là trị liệu tâm lý + tìm nhân viên y tế, không phải thuốc.
+
+    KHÔNG kê thuốc, KHÔNG bàn liều. KHÔNG nói người dùng "nên đi điều trị" —
+    họ chưa được chẩn đoán gì cả. Nếu họ hỏi vì lo cho mình, chuyển hướng sang
+    chủ đề 4 ("khi nào nên tìm hỗ trợ") thay vì phán họ cần điều trị.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Chẩn đoán và điều trị\" (chỉ lược tên thuốc cụ thể: SSRI, fluoxetine)"
+
+cac-dang-lo-au:
+  title: "Lo âu có nhiều dạng khác nhau"
+  body: |
+    Rối loạn lo âu bao gồm nhiều dạng khác nhau:
+
+    • Rối loạn lo âu lan tỏa (Generalized Anxiety Disorder – GAD): lo lắng kéo
+      dài và quá mức về nhiều khía cạnh trong cuộc sống hằng ngày.
+    • Rối loạn hoảng sợ (Panic Disorder): xuất hiện các cơn hoảng loạn đột ngột
+      kèm theo cảm giác sợ hãi dữ dội, và sợ chúng tái phát.
+    • Rối loạn lo âu xã hội (Social Anxiety Disorder): sợ hãi bị đánh giá, từ
+      chối hoặc làm bản thân xấu hổ trong các tình huống xã hội.
+    • Các rối loạn ám ảnh sợ đặc hiệu (Phobia-related Disorders): nỗi sợ hãi
+      mạnh mẽ và không hợp lý đối với một đối tượng hoặc tình huống cụ thể.
+    • Sợ khoảng trống (Agoraphobia): sợ những nơi khó thoát hoặc khó được giúp đỡ.
+    • Lo âu chia ly: lo lắng quá mức khi xa người gắn bó.
+    • Câm chọn lọc: không thể nói trong một số bối cảnh xã hội dù vẫn nói bình
+      thường ở nơi khác.
+  steer: |
+    ⚠️ Thẻ NHẠY của chủ đề 3. Thêm 09/09/2026 theo yêu cầu khách, ngược với
+    default an toàn (docx/03 §7 luật 3 — không bày danh sách hạng mục để học
+    sinh tự soi).
+
+    Vì vậy khi thẻ này hiện ra, bot BẮT BUỘC:
+    • KHÔNG hỏi "bạn thấy mình thuộc dạng nào".
+    • KHÔNG nói / gợi ý người dùng "có" hay "bị" bất kỳ dạng nào.
+    • Nếu người dùng tự nhận ("chắc mình bị lo âu xã hội"), KHÔNG xác nhận —
+      trả lời theo tinh thần c-khong-phai-chan-doan: đây là các khái niệm để
+      hiểu sự đa dạng, việc gọi tên một dạng cụ thể là của người có chuyên môn.
+    • Đóng khung: điểm CHUNG của mọi dạng là nỗi sợ / lo quá mức và kéo dài —
+      đó mới là thứ đáng để ý, không phải nhãn nào.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO (bảng \"Các dạng rối loạn lo âu\") + NIMH (bản mô tả 4 dạng)"
+
+dau-hieu-lo-au:
+  title: "Rối loạn lo âu biểu hiện ra sao"
+  body: |
+    Người mắc rối loạn lo âu thường trải qua nỗi sợ hoặc lo lắng quá mức đối với:
+    • Một tình huống cụ thể (ví dụ: giao tiếp xã hội, thuyết trình, thi cử).
+    • Hoặc nhiều tình huống thường ngày (trong rối loạn lo âu lan tỏa).
+
+    Các triệu chứng khác có thể bao gồm:
+    • Khó tập trung hoặc ra quyết định.
+    • Dễ cáu gắt, căng thẳng, bồn chồn.
+    • Buồn nôn hoặc khó chịu vùng bụng.
+    • Tim đập nhanh.
+    • Đổ mồ hôi, run tay chân.
+    • Mất ngủ.
+    • Cảm giác sắp xảy ra điều tồi tệ.
+
+    Nếu không được điều trị, rối loạn lo âu có thể kéo dài nhiều tháng hoặc
+    nhiều năm và ảnh hưởng đến học tập, công việc, gia đình và các mối quan hệ
+    xã hội.
+  steer: |
+    ⚠️ Thẻ này KHÔNG có chip trỏ tới. Nó chỉ lên khi người dùng ĐÃ kể ra một
+    biểu hiện (né tránh, mất ngủ vì lo…) và node đó được CONFIRMED — tức hệ
+    thống đã có bằng chứng, không phải học sinh tò mò bấm.
+
+    TUYỆT ĐỐI không đọc cả danh sách rồi hỏi "bạn thấy mình có mấy cái". Lấy
+    ĐÚNG cái họ vừa nói, đối chiếu với một dòng trong thẻ, rồi hỏi tiếp về
+    chuyện đó. Nếu họ nhận nhiều dòng, đó là lúc nhắc tới việc nói với một
+    người thật (chủ đề 4) — nhẹ, không doạ, KHÔNG nói họ "bị rối loạn lo âu".
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Triệu chứng và biểu hiện\" (rối loạn lo âu)"
+
+dau-hieu-tram-cam:
+  title: "Trầm cảm biểu hiện ra sao"
+  body: |
+    Trong một giai đoạn trầm cảm, một người trải qua khí sắc trầm (cảm thấy
+    buồn, dễ cáu gắt hoặc trống rỗng). Họ cũng có thể mất hứng thú hoặc mất
+    khả năng cảm nhận niềm vui trong các hoạt động.
+
+    Một giai đoạn trầm cảm khác với những dao động tâm trạng thông thường. Các
+    biểu hiện này xuất hiện trong phần lớn thời gian của ngày, gần như mỗi
+    ngày, và kéo dài ít nhất hai tuần.
+
+    Các triệu chứng khác có thể bao gồm:
+    • Khó tập trung.
+    • Cảm giác tội lỗi quá mức hoặc cảm nhận bản thân có giá trị thấp.
+    • Cảm giác vô vọng về tương lai.
+    • Rối loạn giấc ngủ.
+    • Thay đổi cảm giác thèm ăn hoặc cân nặng.
+    • Cảm thấy vô cùng mệt mỏi hoặc thiếu năng lượng.
+
+    Trầm cảm có thể gây ra những khó khăn trong mọi mặt của cuộc sống, bao gồm
+    trong cộng đồng, gia đình, công việc và trường học.
+
+    Một giai đoạn trầm cảm có thể được phân loại là nhẹ, vừa hoặc nặng, tùy
+    thuộc vào số lượng và mức độ nghiêm trọng của các triệu chứng cũng như mức
+    độ chúng ảnh hưởng đến khả năng hoạt động của cá nhân.
+
+    Có nhiều dạng biểu hiện của các giai đoạn trầm cảm, bao gồm:
+    • Rối loạn trầm cảm đơn cực một giai đoạn: người đó trải qua giai đoạn
+      trầm cảm đầu tiên và duy nhất.
+    • Rối loạn trầm cảm tái diễn: người đó có tiền sử ít nhất hai giai đoạn
+      trầm cảm.
+    • Rối loạn lưỡng cực: các giai đoạn trầm cảm xen kẽ với những giai đoạn có
+      các triệu chứng hưng cảm, bao gồm trạng thái hưng phấn hoặc dễ cáu gắt,
+      gia tăng hoạt động hoặc năng lượng và các triệu chứng khác.
+  steer: |
+    ⚠️ Thẻ này KHÔNG có chip trỏ tới. Chỉ lên qua gate SUPPORT khi một node
+    bằng chứng đã CONFIRMED (mất động lực, thu mình, rối loạn giấc ngủ…).
+
+    "Kéo dài ít nhất hai tuần" và "gần như mỗi ngày" là hai chỗ quan trọng —
+    nó phân biệt một giai đoạn trầm cảm với chuyện buồn vài hôm. Nhắc được thì
+    nhắc, nhưng KHÔNG dùng nó để kết luận người dùng "đã đủ hai tuần nên là
+    trầm cảm". Không đếm triệu chứng, không chẩn đoán. Dùng để gọi tên đúng
+    cái họ vừa kể, rồi hỏi tiếp — và nếu nặng, hướng sang chủ đề 4.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Các triệu chứng và biểu hiện\""
+
+# ── Chủ đề 3, đợt 5 (09/09/2026) — quét trọn docx theo yêu cầu khách ───────
+# Trích thêm các mục còn lại của RỐI LOẠN LO ÂU & TRẦM CẢM.docx. Chỉ cắt: bản
+# dịch tiếng Anh song song · dòng "Nguồn: <tên báo>" · tên thuốc cụ thể · số
+# liệu tử vong/tự sát · các câu xưng "cho nghiên cứu của bạn" / "Trích dẫn
+# học thuật" / "Câu có thể dùng trong bài nghiên cứu".
+
+lo-au-tong-quan:
+  title: "Rối loạn lo âu phổ biến thế nào"
+  body: |
+    Những điểm chính:
+    • Rối loạn lo âu là nhóm rối loạn tâm thần phổ biến nhất trên thế giới,
+      với khoảng 359 triệu người mắc vào năm 2021.
+    • Nữ giới bị ảnh hưởng nhiều hơn nam giới.
+    • Các triệu chứng lo âu thường khởi phát từ thời thơ ấu hoặc tuổi vị thành niên.
+    • Hiện nay đã có nhiều phương pháp điều trị hiệu quả cao cho rối loạn lo âu.
+    • Tuy nhiên, chỉ khoảng 1/4 số người mắc được tiếp cận điều trị.
+
+    Khoảng 4,4% dân số thế giới đang trải qua một dạng rối loạn lo âu. Vào năm
+    2021, có khoảng 359 triệu người mắc, khiến đây trở thành nhóm rối loạn tâm
+    thần phổ biến nhất hiện nay.
+
+    Khoảng 1/3 thanh thiếu niên và người trưởng thành tại Hoa Kỳ sẽ trải qua
+    ít nhất một rối loạn lo âu trong suốt cuộc đời. Các triệu chứng lo âu có
+    thể ảnh hưởng đáng kể đến cuộc sống thường ngày, kết quả học tập, hiệu
+    suất làm việc và các mối quan hệ xã hội. Trong những trường hợp nghiêm
+    trọng, người bệnh có thể cảm thấy sợ hãi dữ dội trong các tình huống thông
+    thường, né tránh giao tiếp xã hội, hoặc từ chối rời khỏi nhà.
+
+    Mặc dù có nhiều phương pháp điều trị hiệu quả, chỉ khoảng 27,6% người cần
+    hỗ trợ thực sự nhận được điều trị. Các rào cản chính bao gồm: thiếu nhận
+    thức rằng đây là tình trạng có thể điều trị; thiếu đầu tư cho dịch vụ sức
+    khỏe tinh thần; thiếu nhân lực chuyên môn; kỳ thị xã hội đối với các vấn
+    đề tâm lý.
+  steer: |
+    Thẻ số liệu + rào cản. Hai ý để lại sau khi đọc: (1) lo âu rất phổ biến —
+    người dùng KHÔNG đơn độc, KHÔNG có gì đáng xấu hổ; (2) đa số người mắc
+    không được hỗ trợ, phần vì kỳ thị — nên tìm hỗ trợ là việc bình thường.
+
+    Đọc lướt phần số. KHÔNG dùng "1/3 thanh thiếu niên" để nói người dùng "có
+    khả năng cao bị". Nói về hiện tượng chung, không về họ.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Những điểm chính\" / \"Tỷ lệ mắc\" / \"Các rào cản điều trị\" + NIMH \"Tại sao NIMH nghiên cứu rối loạn lo âu\""
+
+lo-au-yeu-to-phong-ngua:
+  title: "Vì sao có người bị rối loạn lo âu"
+  body: |
+    Rối loạn lo âu hình thành từ sự tương tác phức tạp giữa các yếu tố sinh
+    học, tâm lý và xã hội. Nguy cơ tăng cao ở những người từng trải qua: bạo
+    hành; mất mát lớn; trải nghiệm bất lợi kéo dài.
+
+    Các yếu tố môi trường được quan tâm gồm môi trường gia đình, các trải
+    nghiệm thời thơ ấu và các yếu tố xã hội — chúng có thể làm tăng hoặc giảm
+    nguy cơ ở trẻ em, thanh thiếu niên và người trưởng thành. Một số giai đoạn
+    chuyển tiếp có nguy cơ cao xuất hiện lo âu, chẳng hạn như chuyển tiếp từ
+    trung học lên đại học. Ảnh hưởng của mạng xã hội đối với sức khỏe tinh
+    thần của thanh thiếu niên cũng là một chủ đề được nghiên cứu rộng rãi. Lo
+    âu cũng thường chồng lấp với các vấn đề tâm lý khác như trầm cảm và rối
+    loạn ăn uống.
+
+    Các biện pháp phòng ngừa hiệu quả bao gồm: giáo dục cha mẹ; chương trình
+    kỹ năng cảm xúc – xã hội trong trường học; rèn luyện khả năng ứng phó tích
+    cực; tập thể dục thường xuyên.
+  steer: |
+    Cùng thông điệp với thẻ trầm cảm tương ứng: KHÔNG một nguyên nhân duy
+    nhất, nhiều yếu tố tương tác. "Chuyển tiếp từ trung học lên đại học" và
+    "mạng xã hội" là hai chỗ gần với học sinh — nếu người dùng vừa nhắc tới,
+    dùng đúng chỗ đó. KHÔNG nói người dùng "có yếu tố nguy cơ".
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Các yếu tố góp phần gây lo âu\" / \"Phòng ngừa\" + NIMH \"Các yếu tố môi trường\" / \"Các giai đoạn chuyển tiếp\""
+
+lo-au-dieu-tri:
+  title: "Rối loạn lo âu có chữa được không"
+  body: |
+    Điều trị hiệu quả nhất hiện nay là liệu pháp tâm lý, đặc biệt là Liệu
+    pháp Nhận thức – Hành vi (CBT). Các kỹ thuật quan trọng gồm:
+    • Nhận diện và thay đổi suy nghĩ tiêu cực.
+    • Đối diện dần với nỗi sợ.
+    • Kỹ năng thư giãn.
+    • Chánh niệm (mindfulness).
+  steer: |
+    Câu trả lời là CÓ, và bước đầu là liệu pháp tâm lý (CBT), không phải
+    thuốc. Bốn kỹ thuật ở đây là để HIỂU trị liệu gồm những gì, KHÔNG phải để
+    người dùng tự làm CBT một mình. Nếu họ hỏi vì lo cho mình, chuyển sang chủ
+    đề 4. KHÔNG kê thuốc.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — WHO \"Điều trị\" (rối loạn lo âu; lược tên thuốc)"
+
+tram-cam-nguyen-nhan:
+  title: "Trầm cảm do đâu mà có"
+  body: |
+    Trầm cảm không có một nguyên nhân đơn lẻ. Có nhiều yếu tố góp phần làm
+    tăng nguy cơ một người sẽ xuất hiện bệnh lý này, bao gồm: gen di truyền;
+    tương tác hóa học trong não; một số bệnh lý y khoa nhất định; sử dụng
+    chất; căng thẳng; dinh dưỡng kém. Không một nguyên nhân đơn lẻ nào có thể
+    độc lập gây trầm cảm — di truyền có thể làm tăng nguy cơ, còn môi trường
+    tác động vào và xác định mức độ nguy cơ.
+
+    Tiền sử gia đình và di truyền. Nếu có người trong gia đình mắc trầm cảm
+    hoặc một rối loạn khí sắc khác, bạn dễ xuất hiện các triệu chứng trầm cảm
+    hơn. Ước tính trầm cảm bị tác động khoảng 40% từ di truyền; có cha mẹ hoặc
+    ông bà mắc trầm cảm làm tăng nguy cơ gấp hai lần.
+
+    Não bộ và cơ thể. Một nguyên nhân sinh học tiềm ẩn là mất cân bằng các
+    chất dẫn truyền thần kinh liên quan đến điều tiết tâm trạng (như dopamine,
+    serotonin, norepinephrine). Cách giải thích này thường được nhắc tới nhưng
+    vẫn chưa được kiểm chứng đầy đủ và nhiều chuyên gia cho rằng nó chưa thể
+    hiện bức tranh đầy đủ. Bạn cũng dễ xuất hiện triệu chứng trầm cảm hơn nếu
+    có một bệnh lý mãn tính, rối loạn giấc ngủ hoặc bệnh lý tuyến giáp; tỷ lệ
+    trầm cảm cũng cao hơn ở người bị đau mãn tính, tiểu đường, bệnh đa xơ cứng
+    và ung thư.
+
+    Hormone. Phụ nữ mắc trầm cảm điển hình cao hơn khoảng hai lần so với nam
+    giới, và người ta tin rằng yếu tố hormone có thể góp phần. Phụ nữ đặc biệt
+    dễ mắc trong những giai đoạn hormone biến động như quanh kỳ kinh, mang
+    thai, sinh con và tiền mãn kinh.
+
+    Lối sống. Đây là nhóm yếu tố con người có nhiều quyền kiểm soát hơn:
+    • Nhịp sinh học: một dạng trầm cảm theo mùa được cho là do rối loạn nhịp
+      sinh học khi ngày mùa đông ngắn, ít ánh sáng. Trị liệu ánh sáng, ra
+      ngoài trời nhiều hơn, ăn lành mạnh và tập thể dục có thể giúp ích.
+    • Dinh dưỡng: thiếu hụt vitamin và khoáng chất, chế độ ăn nhiều đường, và
+      chế độ ăn thiếu acid béo omega-3 đều có liên đới với trầm cảm.
+    • Căng thẳng: các sự kiện gây căng thẳng vượt quá khả năng ứng phó có thể
+      là một nguyên nhân; nồng độ cortisol cao khi căng thẳng có thể ảnh hưởng
+      lên serotonin.
+    • Đau buồn và mất mát: sau khi mất người thân, người ở lại thường khó ngủ,
+      chán ăn, mất hứng thú — là phản ứng bình thường; nhưng khi các triệu
+      chứng ngày càng nặng, nỗi đau buồn có thể biến thành trầm cảm.
+    • Sử dụng chất: ma túy và rượu có thể góp phần gây rối loạn trầm cảm; một
+      số thuốc kê toa cũng có liên đới, nên trao đổi với bác sĩ nếu bạn cảm
+      thấy trầm cảm.
+  steer: |
+    Thẻ DÀI, liệt kê nhiều nhóm nguyên nhân. Mục đích DUY NHẤT: cho thấy trầm
+    cảm là kết quả của NHIỀU yếu tố, KHÔNG phải lỗi hay sự yếu đuối của người
+    mắc. Đây là hàng rào chống tự trách.
+
+    KHÔNG đọc cả thẻ như một bài giảng. Nếu người dùng vừa nhắc tới một yếu tố
+    (mất ngủ, mất người thân, ăn uống thất thường…), chỉ lấy đúng đoạn đó, rồi
+    quay về chuyện của họ. KHÔNG nói người dùng "có mấy yếu tố nguy cơ rồi".
+    KHÔNG bàn thuốc.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — \"Nguyên nhân gây trầm cảm phổ biến\" (lược bản dịch tiếng Anh, dòng \"Nguồn: …\", tên thuốc cụ thể)"
+
+sieu-toi-phan-tam:
+  title: "Góc nhìn phân tâm học về siêu tôi trừng phạt"
+  body: |
+    APA định nghĩa superego là thành phần đạo đức của nhân cách, đại diện cho
+    các chuẩn mực của cha mẹ và xã hội; nó góp phần hình thành các tiêu chuẩn
+    cá nhân về đúng – sai và tiếp tục phát triển trong thời thơ ấu, vị thành
+    niên và trưởng thành. Đặc biệt, APA định nghĩa "superego sadism" là khía
+    cạnh hung hăng, cứng nhắc và trừng phạt của Siêu tôi.
+
+    Nghiên cứu tâm lý phân tâm học mô tả "sự tự phê phán vô thức mang tính
+    trừng phạt" và liên hệ nó với những trạng thái cảm xúc đau khổ như tội
+    lỗi, xấu hổ, nhục nhã và trầm cảm. Nghiên cứu của Sidney Blatt về các kiểu
+    trầm cảm phân biệt một dạng "trầm cảm mang tính hướng nội / tự phê phán",
+    trong đó cảm giác thua kém bản thân gắn với một Siêu tôi khắc nghiệt và
+    trừng phạt.
+  steer: |
+    Thẻ này bổ sung nền lý thuyết cho thẻ mở đầu: không chỉ WHO, mà cả phân
+    tâm học cũng nối siêu tôi khắc nghiệt với tự phê phán và trầm cảm.
+
+    Thuật ngữ ("superego sadism", "introjective depression") là để bot HIỂU,
+    KHÔNG phải để nói với người dùng. Với họ, vẫn là: "một tiêu chuẩn nội tâm
+    quá khắt khe có thể khiến người ta tự phê phán tới mức đau khổ". KHÔNG dán
+    nhãn.
+  source: "RỐI LOẠN LO ÂU & TRẦM CẢM.docx — \"Và nghiên cứu tâm lý phân tâm học cũng ủng hộ mối liên hệ này\" (lược tên tạp chí)"

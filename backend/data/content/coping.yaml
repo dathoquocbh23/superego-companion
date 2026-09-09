@@ -5,54 +5,250 @@
 # ============================================================================
 
 nhan-dien-tu-phe-phan:
-  title: "Nhận diện những gì đang âm thầm cản trở bạn"
+  title: "Nhận diện các hành vi tự hủy hoại"
   body: |
-    Bước đầu tiên để thay đổi là bạn phải nhận ra mình đang làm gì để tự
-    cản trở bản thân. Biểu hiện phổ biến: sự trì hoãn, tự chỉ trích gay gắt,
-    hoặc thường xuyên gây khó khăn cho chính mình khi thành công đang đến gần.
-  action: "Hãy dành thời gian quan sát xem khi nào bạn bắt đầu \"rút lui\" hoặc gây khó khăn cho chính mình."
+    Bước đầu tiên để thay đổi là bạn phải nhận ra mình đang làm gì để tự cản
+    trở bản thân. Biểu hiện phổ biến: sự trì hoãn (procrastination), tự chỉ
+    trích gay gắt, lạm dụng chất kích thích, hoặc thường xuyên chọn những mối
+    quan hệ độc hại.
+  action: "Hãy dành thời gian quan sát xem khi nào bạn bắt đầu \"rút lui\" hoặc gây khó khăn cho chính mình khi thành công đang đến gần."
   source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 1 (Self-sabotage)"
 
 tu-tran-an:
-  title: "Thử đối xử với mình như với một người bạn"
+  title: "Thực hành lòng trắc ẩn với bản thân"
   body: |
     Sự tự trách móc chỉ làm trầm trọng thêm tình trạng tự hủy hoại. Thay vì
     trừng phạt bản thân vì đã làm hỏng việc, hãy đối xử với chính mình như
     cách bạn đối xử với một người bạn thân. Thay thế những lời chỉ trích nội
     tâm bằng sự thấu hiểu. Thừa nhận rằng con người ai cũng có lúc sai lầm và
-    bạn có quyền được bắt đầu lại.
+    bạn có quyền được bắt đầu lại. Lòng trắc ẩn không phải là sự nuông chiều,
+    mà là sự chấp nhận thực tế để có sức mạnh thay đổi.
   action: "Lần tới khi bạn định tự trách, thử hỏi: nếu bạn thân gặp đúng chuyện này, mình sẽ nói gì với bạn ấy?"
   source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 3 (Self-sabotage)"
 
 growth-mindset:
-  title: "Thử nhìn thất bại theo một cách khác"
+  title: "Thay đổi tư duy về sự thất bại"
   body: |
     Nhiều người tự hủy hoại vì họ coi thất bại là bằng chứng cho sự kém cỏi
     của bản thân. Hãy coi thất bại là một nguồn dữ liệu, một bài học để điều
-    chỉnh hướng đi. Thay vì nói "Tôi không làm được," hãy nói "Tôi chưa làm
-    được điều này theo cách này, tôi cần thử cách khác."
+    chỉnh hướng đi. Thực hành "Tư duy phát triển" (Growth Mindset): thay vì
+    nói "Tôi không làm được," hãy nói "Tôi chưa làm được điều này theo cách
+    này, tôi cần thử cách khác."
   action: "Lần tới khi định nói \"mình không làm được\", thử đổi thành \"mình chưa làm được theo cách này\"."
   source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 4 (Self-sabotage)"
 
 chia-nho-muc-tieu:
-  title: "Xây tự tin từ những bước rất nhỏ"
+  title: "Xây dựng sự tự tin từ những bước nhỏ"
   body: |
     Tự hủy hoại thường xảy ra khi chúng ta cảm thấy quá tải trước những mục
     tiêu khổng lồ. Hãy chia nhỏ mục tiêu thành những việc cực kỳ đơn giản mà
     bạn chắc chắn có thể hoàn thành. Mỗi chiến thắng nhỏ sẽ tích lũy "bằng
-    chứng" cho bộ não thấy rằng bạn có năng lực.
+    chứng" cho bộ não thấy rằng bạn có năng lực, từ đó làm giảm nhu cầu phải
+    tự hủy hoại để trốn tránh áp lực.
   action: "Chọn một việc nhỏ tới mức bạn chắc chắn làm xong trong 10 phút, và chỉ làm đúng việc đó."
   source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 5 (Self-sabotage)"
 
 chanh-niem:
-  title: "Một khoảng lặng giữa cảm xúc và hành động"
+  title: "Thực hành Chánh niệm (Mindfulness)"
   body: |
-    Chánh niệm giúp bạn tạo ra một khoảng trống giữa xung động và hành động
-    thực tế. Khi bạn nhận ra cảm giác lo lắng đang thôi thúc mình, hãy chỉ
-    quan sát cảm giác đó mà không làm theo nó. Tập trung vào hơi thở và giữ
-    mình ở hiện tại — điều này giúp hệ thần kinh dịu lại.
+    Chánh niệm giúp bạn tạo ra một khoảng trống giữa xung động tự hủy hoại và
+    hành động thực tế. Khi bạn nhận ra cảm giác lo lắng đang thôi thúc mình
+    bỏ cuộc, hãy chỉ quan sát cảm giác đó mà không làm theo nó. Tập trung vào
+    hơi thở và giữ mình ở hiện tại. Điều này giúp hệ thần kinh dịu lại, cho
+    phép phần não logic tiếp quản và đưa ra quyết định sáng suốt hơn.
   action: "Hít không khí vào sâu trong bụng qua mũi, thở ra từ từ qua miệng, đều đặn theo nhịp đếm 1–5, trong khoảng 5 phút."
   source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 6 (Self-sabotage) + mục 6.3 (Xả stress)"
+
+nguyen-nhan-goc-re:
+  title: "Nguyên nhân gốc rễ — cái \"tại sao\""
+  body: |
+    Tự hủy hoại thường không tự dưng mà có; nó thường là một cơ chế phòng vệ
+    được hình thành từ quá khứ. Có thể bạn sợ thất bại, hoặc nghịch lý thay,
+    bạn sợ cả sự thành công (vì nó đi kèm với trách nhiệm mới). Đôi khi, nó
+    bắt nguồn từ lòng tự trọng thấp — cảm giác rằng bạn không xứng đáng với
+    những điều tốt đẹp.
+  action: "Hãy tự hỏi: \"Hành vi này đang bảo vệ mình khỏi nỗi sợ nào?\""
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — mục 2 (Self-sabotage)"
+
+ngung-tu-huy-hoai:
+  title: "Cách ngừng tự hủy hoại bản thân"
+  body: |
+    Nhận diện và thay đổi những hành vi đang âm thầm ngăn cản bạn đạt được
+    mục tiêu và hạnh phúc.
+
+    Tự hủy hoại bản thân (Self-sabotage) là khi chúng ta có những hành động
+    hoặc suy nghĩ đi ngược lại với lợi ích lâu dài và những mục tiêu quan
+    trọng của chính mình. Nó giống như việc bạn nhấn ga nhưng đồng thời lại
+    đạp phanh. Dù thường diễn ra trong vô thức, hành vi này có thể gây ra
+    những hậu quả nghiêm trọng cho sự nghiệp, mối quan hệ và sức khỏe tinh
+    thần. Dưới đây là 6 chiến lược giúp bạn phá vỡ vòng lặp này:
+
+    1. Nhận diện các hành vi tự hủy hoại.
+    Bước đầu tiên để thay đổi là bạn phải nhận ra mình đang làm gì để tự cản
+    trở bản thân. Biểu hiện phổ biến: sự trì hoãn (procrastination), tự chỉ
+    trích gay gắt, lạm dụng chất kích thích, hoặc thường xuyên chọn những mối
+    quan hệ độc hại. Hãy dành thời gian quan sát xem khi nào bạn bắt đầu "rút
+    lui" hoặc gây khó khăn cho chính mình khi thành công đang đến gần.
+
+    2. Tìm hiểu nguyên nhân gốc rễ (Cái "Tại sao").
+    Tự hủy hoại thường không tự dưng mà có; nó thường là một cơ chế phòng vệ
+    được hình thành từ quá khứ. Có thể bạn sợ thất bại, hoặc nghịch lý thay,
+    bạn sợ cả sự thành công (vì nó đi kèm với trách nhiệm mới). Đôi khi, nó
+    bắt nguồn từ lòng tự trọng thấp — cảm giác rằng bạn không xứng đáng với
+    những điều tốt đẹp. Hãy tự hỏi: "Hành vi này đang bảo vệ mình khỏi nỗi sợ
+    nào?"
+
+    3. Thực hành lòng trắc ẩn với bản thân.
+    Sự tự trách móc chỉ làm trầm trọng thêm tình trạng tự hủy hoại. Thay vì
+    trừng phạt bản thân vì đã làm hỏng việc, hãy đối xử với chính mình như
+    cách bạn đối xử với một người bạn thân. Thay thế những lời chỉ trích nội
+    tâm bằng sự thấu hiểu. Thừa nhận rằng con người ai cũng có lúc sai lầm và
+    bạn có quyền được bắt đầu lại. Lòng trắc ẩn không phải là sự nuông chiều,
+    mà là sự chấp nhận thực tế để có sức mạnh thay đổi.
+
+    4. Thay đổi tư duy về sự thất bại.
+    Nhiều người tự hủy hoại vì họ coi thất bại là bằng chứng cho sự kém cỏi
+    của bản thân. Hãy coi thất bại là một nguồn dữ liệu, một bài học để điều
+    chỉnh hướng đi. Thực hành "Tư duy phát triển" (Growth Mindset): thay vì
+    nói "Tôi không làm được," hãy nói "Tôi chưa làm được điều này theo cách
+    này, tôi cần thử cách khác."
+
+    5. Xây dựng sự tự tin từ những bước nhỏ.
+    Tự hủy hoại thường xảy ra khi chúng ta cảm thấy quá tải trước những mục
+    tiêu khổng lồ. Hãy chia nhỏ mục tiêu thành những việc cực kỳ đơn giản mà
+    bạn chắc chắn có thể hoàn thành. Mỗi chiến thắng nhỏ sẽ tích lũy "bằng
+    chứng" cho bộ não thấy rằng bạn có năng lực, từ đó làm giảm nhu cầu phải
+    tự hủy hoại để trốn tránh áp lực.
+
+    6. Thực hành Chánh niệm (Mindfulness).
+    Chánh niệm giúp bạn tạo ra một khoảng trống giữa xung động tự hủy hoại và
+    hành động thực tế. Khi bạn nhận ra cảm giác lo lắng đang thôi thúc mình
+    bỏ cuộc, hãy chỉ quan sát cảm giác đó mà không làm theo nó. Tập trung vào
+    hơi thở và giữ mình ở hiện tại. Điều này giúp hệ thần kinh dịu lại, cho
+    phép phần não logic tiếp quản và đưa ra quyết định sáng suốt hơn.
+  action: "Chọn một trong 6 chiến lược trên mà bạn thấy gần với mình nhất, và thử đúng bước đó trong hôm nay."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — \"Cách giúp con người ngừng tự hủy hoại bản thân\""
+
+xa-stress-nhanh:
+  title: "Hướng dẫn cách xả stress hiệu quả, giúp giảm bớt triệu chứng nhanh chóng"
+  body: |
+    Một số cách xả stress hiệu quả, giảm bớt triệu chứng, bao gồm:
+
+    1. Ghi nhận điều tích cực. Tìm kiếm và ghi nhận những điều tích cực xung
+    quanh mình. Vào cuối ngày, bạn thử viết ra 3 chuyện tốt đã diễn ra trong
+    ngày. Việc này sẽ tạo cho bạn cảm giác vui sướng, tự hào và sống tích cực
+    hơn.
+
+    2. Kiểm soát cảm xúc. Kiểm soát cảm xúc tốt sẽ giúp bạn chủ động hơn trong
+    mọi tình huống. Mất kiểm soát cảm xúc thuộc một trong những nguyên nhân
+    chính khiến người bệnh stress và mệt mỏi. Vì vậy, chính bạn cần kiểm soát
+    cảm xúc hoặc đến gặp bác sĩ chuyên khoa Tâm lý để được khám và điều trị
+    kịp thời.
+
+    3. Chế độ ăn uống lành mạnh. Một số người cố gắng xả stress bằng cách dùng
+    chất kích thích như rượu, bia, caffeine, hoặc ăn thật nhiều. Tuy nhiên,
+    nếu dùng cách này lâu dần sẽ khiến cơ thể càng stress hơn. Vì vậy, để giúp
+    cơ thể xả stress, hãy áp dụng chế độ ăn uống cân bằng và lành mạnh.
+
+    4. Tập thể dục thường xuyên. Hãy đặt mục tiêu tập thể dục 30 phút/ngày và
+    thử sức một số loại hình như yoga, thể dục nhịp điệu, Thái Cực Quyền, cử
+    tạ. Khi tập thể dục nhịp điệu, cơ thể sẽ giải phóng endorphin giúp bạn
+    cảm thấy dễ chịu và tích cực hơn.
+
+    5. Ngừng sử dụng thuốc lá và nicotin. Nicotin tưởng chừng như một liều
+    thuốc xả stress. Tuy nhiên, thực tế chất này làm thể chất hưng phấn, lưu
+    lượng máu giảm ảnh hưởng đến hơi thở và khiến cơ thể stress hơn. Ngoài
+    ra, thuốc lá và nicotin còn làm cơn đau mạn tính trở nên nghiêm trọng
+    hơn.
+
+    6. Học và thực hành các kỹ thuật thư giãn:
+       • Yoga: các bài tập yoga tập hợp cả yếu tố thể chất lẫn tinh thần giúp
+         cơ thể và tâm trí thư giãn. Hatha yoga có các động tác đơn giản, tốc
+         độ chậm nên dễ tập hơn.
+       • Thiền: giữ hơi thở chậm và sâu sẽ giúp cơ thể dịu các phản ứng do
+         stress gây ra. Nếu mới tập, hãy dành khoảng 5 – 10 phút và tăng dần
+         thời gian.
+       • Bài tập hít thở sâu: hít và đưa không khí vào sâu trong bụng qua
+         đường mũi; thở từ từ ra qua đường miệng; hít thở nhẹ nhàng, đều đặn
+         theo nhịp đếm từ 1 – 5; thực hiện trong vòng 5 phút.
+       • Liệu pháp cười: xem chuyện cười, phim hài hoặc chơi với người bạn hài
+         hước, tích cực sẽ giúp tâm trạng tốt hơn. Nó không điều trị được
+         stress mà hỗ trợ cơ thể làm dịu các phản ứng stress.
+       • Liệu pháp nói chuyện: khi stress, người ta dễ nổi nóng và cô lập bản
+         thân, khiến càng stress hơn. Hãy tâm sự với người thân, bạn bè — khi
+         nói chuyện, tâm trí sẽ thư giãn và không tập trung vào điều tiêu cực
+         nữa. Người lắng nghe cũng có thể hỗ trợ, tư vấn hoặc giúp bạn nhìn
+         nhận vấn đề tích cực hơn.
+
+    7. Quản lý hành vi. Trang bị cho bản thân những kỹ năng thực tế để đối phó
+    với tình huống dễ gây stress. Bạn có thể đến gặp bác sĩ chuyên khoa Tâm
+    lý để được hướng dẫn các bài tập quản lý hành vi, và dành vài phút mỗi
+    ngày để thực hành.
+
+    8. Giảm các tác nhân gây stress. Dành nhiều thời gian theo dõi những điều
+    tiêu cực trong cuộc sống hay tin tức trên truyền hình và mạng xã hội sẽ
+    khiến stress nghiêm trọng hơn. Hãy giảm các tác nhân đó và thay bằng
+    những hoạt động tích cực hơn như thư giãn bên người thân, tập thể dục,
+    nghe nhạc.
+
+    9. Dành thời gian cho bản thân. Người bị stress thường dành nhiều thời
+    gian cho công việc và ít khi làm những việc mình yêu thích. Hãy dành vài
+    giờ cuối ngày để trò chuyện, giao lưu với mọi người, hoặc tập thể dục và
+    thư giãn.
+
+    10. Đặt mục tiêu thử thách bản thân. Đặt mục tiêu và thử thách trong mọi
+    tình huống như làm việc, học ngôn ngữ, chơi thể thao. Cách này khiến bạn
+    năng động hơn; sau khi đạt được mục tiêu, bạn sẽ tự tin hơn và giảm bớt
+    stress.
+
+    11. Thử phản hồi sinh học. Liệu pháp phản hồi sinh học dùng các thiết bị
+    điện tử để giúp người bệnh kiểm soát các chức năng trong cơ thể (hoạt
+    động của cơ, nhịp tim, huyết áp). Khi stress, các thông số thay đổi, bác
+    sĩ sẽ căn cứ vào đó để hướng dẫn một số bài tập thư giãn.
+
+    12. Kết nối với mọi người. Cách này giúp bạn cảm nhận được sự thân thuộc
+    và giá trị của bản thân, đồng thời nhận được lời khuyên, hỗ trợ từ mọi
+    người. Một số cách:
+       • Dành thời gian sinh hoạt và ăn tối cùng gia đình.
+       • Sắp xếp một ngày đi chơi với bạn bè.
+       • Trò chuyện với mọi người xung quanh thay vì dùng điện thoại, TV liên tục.
+       • Tham gia hoạt động tình nguyện.
+       • Tận dụng công nghệ, mạng xã hội để giữ liên lạc với mọi người.
+
+    13. Ngủ đủ giấc. Giấc ngủ giúp cơ thể phục hồi, thư giãn và đảo ngược các
+    tác động tiêu cực do stress gây ra. Nếu khó ngủ, hãy thử:
+       • Lên lịch ngủ: ngủ và dậy vào đúng một thời điểm mỗi ngày, kể cả cuối tuần.
+       • Đảm bảo giường, gối và môi trường xung quanh giúp cơ thể nằm thoải mái.
+       • Giữ nơi ngủ tối và yên tĩnh.
+       • Nghe nhạc thư giãn.
+       • Hạn chế dùng TV, máy tính và điện thoại trước khi ngủ.
+       • Không tập thói quen dùng thuốc ngủ.
+       • Tránh ăn quá nhiều hoặc món khó tiêu, caffeine và rượu trước khi ngủ.
+       • Duy trì tập thể dục đều đặn 30 phút/ngày, không tập trước khi ngủ 2 – 3 tiếng.
+
+    14. Quản lý thời gian hiệu quả hơn. Lên lịch trình hàng ngày giúp bạn dùng
+    thời gian hiệu quả và chủ động hơn. Ngoài giờ làm việc, hãy dành thời gian
+    thư giãn: tập thể dục, giải trí, làm việc mình yêu thích, sinh hoạt bên
+    gia đình, bạn bè.
+
+    15. Chấp nhận những điều bạn không thể thay đổi. Đôi khi một số tình huống
+    sẽ không thay đổi theo mong muốn của bạn. Hãy chấp nhận những điều không
+    thể thay đổi và tập trung vào những việc tích cực hơn.
+
+    16. Tránh những thói quen không lành mạnh. Hạn chế dùng rượu, bia, thuốc
+    lá để xả stress. Các cách này chỉ giúp xả stress tạm thời, dùng lâu dài
+    có thể làm gia tăng mức độ stress.
+
+    17. Giúp đỡ người khác. Những hoạt động cộng đồng hoặc tình nguyện giúp
+    bạn xả stress, suy nghĩ tích cực và kết nối được nhiều bạn hơn. Bạn cũng
+    sẽ thấy bản thân có giá trị và cuộc sống có mục đích. Nếu không có thời
+    gian, chỉ cần giúp đỡ ai đó khi có thể.
+
+    18. Bác sĩ tâm lý. Nếu bạn nhận thấy bản thân stress và không biết cách
+    giải tỏa, hãy đến gặp bác sĩ chuyên khoa Tâm lý để được khám, tư vấn và
+    đưa ra liệu trình điều trị phù hợp với tình trạng của bản thân.
+  action: "Chọn MỘT mục dễ bắt đầu nhất với bạn hôm nay, làm đúng cái đó."
+  source: "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx — \"Hướng dẫn xả stress hiệu quả\""
 
 ghi-nhan-tich-cuc:
   title: "Ghi lại 3 điều tốt mỗi ngày"

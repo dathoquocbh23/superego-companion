@@ -255,10 +255,10 @@ nodes:
     cues: ["không muốn gặp ai", "ở lì trong phòng", "tránh bạn bè", "một mình cho xong", "không nói chuyện với ai"]
 
   # ==========================================================================
-  # CONTENT NODE (26) — bot phát ngôn qua văn bản duyệt sẵn
+  # CONTENT NODE (44) — bot phát ngôn qua văn bản duyệt sẵn
   # ==========================================================================
 
-  # --- 3.1 Concept — Khái niệm (12) ------------------------------------
+  # --- 3.1 Concept — Khái niệm (27) ------------------------------------
   - id: c-id-ego-superego
     type: concept
     label: "Id – Ego – Superego"
@@ -328,11 +328,114 @@ nodes:
     label: "Nếu muốn giúp một người bạn"
     content_ref: "content/concepts.yaml#giup-mot-nguoi-ban"
 
-  # --- 3.2 Coping — Kỹ năng ứng phó (6) ------------------------------
+  # Trích 09/09/2026 — chủ đề 3 "Ảnh hưởng đến sức khoẻ tinh thần" (docx/13 §7).
+  # Nguồn: RỐI LOẠN LO ÂU & TRẦM CẢM.docx. Tất cả tới được bằng chip TÌM HIỂU;
+  # CỐ Ý không thêm cạnh explained_by (cạnh đó đổi concept mà gate SUPPORT phục
+  # vụ cho node đã CONFIRMED). Danh sách triệu chứng trong docx KHÔNG trích —
+  # docx/13 §12.
+  - id: c-suc-khoe-va-sieu-toi
+    type: concept
+    label: "Siêu tôi trừng phạt và sức khoẻ tinh thần"
+    content_ref: "content/concepts.yaml#suc-khoe-va-sieu-toi"
+
+  - id: c-lo-au-la-gi
+    type: concept
+    label: "Rối loạn lo âu là gì"
+    content_ref: "content/concepts.yaml#lo-au-la-gi"
+
+  - id: c-tram-cam-la-gi
+    type: concept
+    label: "Trầm cảm là gì"
+    content_ref: "content/concepts.yaml#tram-cam-la-gi"
+
+  - id: c-vong-lap-tram-cam
+    type: concept
+    label: "Vì sao học sinh THPT dễ chịu ảnh hưởng"
+    content_ref: "content/concepts.yaml#vong-lap-tram-cam"
+
+  # Đợt 2 (09/09/2026) — 3 node CÓ chip (khái niệm an toàn) + 2 node KHÔNG chip
+  # (dau-hieu-*), chỉ tới qua explained_by khi có bằng chứng CONFIRMED. docx/13 §12.
+  - id: c-tram-cam-yeu-to-phong-ngua
+    type: concept
+    label: "Yếu tố góp phần và phòng ngừa trầm cảm"
+    content_ref: "content/concepts.yaml#tram-cam-yeu-to-phong-ngua"
+
+  - id: c-tram-cam-tu-cham-soc
+    type: concept
+    label: "Tự chăm sóc khi có biểu hiện trầm cảm"
+    content_ref: "content/concepts.yaml#tram-cam-tu-cham-soc"
+
+  - id: c-tram-cam-dieu-tri
+    type: concept
+    label: "Trầm cảm có chữa được không"
+    content_ref: "content/concepts.yaml#tram-cam-dieu-tri"
+
+  # Thêm 09/09/2026 theo yêu cầu khách, NGƯỢC default an toàn (docx/03 §7 luật
+  # 3). Là chip. Giảm rủi ro tự-soi bằng `steer` cứng + chip c-khong-phai-chan-doan.
+  - id: c-cac-dang-lo-au
+    type: concept
+    label: "Các dạng rối loạn lo âu"
+    content_ref: "content/concepts.yaml#cac-dang-lo-au"
+
+  - id: c-dau-hieu-lo-au
+    type: concept
+    label: "Rối loạn lo âu biểu hiện ra sao"
+    content_ref: "content/concepts.yaml#dau-hieu-lo-au"
+
+  - id: c-dau-hieu-tram-cam
+    type: concept
+    label: "Trầm cảm biểu hiện ra sao"
+    content_ref: "content/concepts.yaml#dau-hieu-tram-cam"
+
+  # Đợt 5 (09/09/2026) — quét trọn RỐI LOẠN LO ÂU & TRẦM CẢM.docx (yêu cầu khách).
+  - id: c-lo-au-tong-quan
+    type: concept
+    label: "Rối loạn lo âu phổ biến thế nào"
+    content_ref: "content/concepts.yaml#lo-au-tong-quan"
+
+  - id: c-lo-au-yeu-to-phong-ngua
+    type: concept
+    label: "Vì sao có người bị rối loạn lo âu"
+    content_ref: "content/concepts.yaml#lo-au-yeu-to-phong-ngua"
+
+  - id: c-lo-au-dieu-tri
+    type: concept
+    label: "Rối loạn lo âu có chữa được không"
+    content_ref: "content/concepts.yaml#lo-au-dieu-tri"
+
+  - id: c-tram-cam-nguyen-nhan
+    type: concept
+    label: "Trầm cảm do đâu mà có"
+    content_ref: "content/concepts.yaml#tram-cam-nguyen-nhan"
+
+  - id: c-sieu-toi-phan-tam
+    type: concept
+    label: "Góc nhìn phân tâm học về siêu tôi trừng phạt"
+    content_ref: "content/concepts.yaml#sieu-toi-phan-tam"
+
+  # --- 3.2 Coping — Kỹ năng ứng phó (9) ------------------------------
   - id: k-nhan-dien-tu-phe-phan
     type: coping
     label: "Nhận diện hành vi tự cản trở"
     content_ref: "content/coping.yaml#nhan-dien-tu-phe-phan"
+
+  # Thêm 09/09/2026 (yêu cầu khách) — chủ đề 4 hiện chip cho 2 mục lớn của
+  # CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx: "ngừng tự hủy hoại" (gộp chiến lược 1·2·3
+  # vào một thẻ) + "xả stress nhanh" (rút gọn từ 18 mục).
+  - id: k-nguyen-nhan-goc-re
+    type: coping
+    label: "Nguyên nhân gốc rễ (cái \"tại sao\")"
+    content_ref: "content/coping.yaml#nguyen-nhan-goc-re"
+
+  - id: k-ngung-tu-huy-hoai
+    type: coping
+    label: "Cách ngừng tự hủy hoại bản thân"
+    content_ref: "content/coping.yaml#ngung-tu-huy-hoai"
+
+  - id: k-xa-stress-nhanh
+    type: coping
+    label: "Hướng dẫn xả stress hiệu quả"
+    content_ref: "content/coping.yaml#xa-stress-nhanh"
 
   - id: k-tu-tran-an
     type: coping
@@ -491,6 +594,21 @@ edges:
   - {from: m-phai-hoan-hao, to: c-id-ego-superego, type: explained_by}
   - {from: m-dang-bi-trach-phat, to: c-vong-lap-tu-phe-phan, type: explained_by}
   - {from: m-chua-du-tot, to: c-khong-phai-chan-doan, type: explained_by}
+
+  # --- explained_by: chủ đề 3 (09/09/2026) — Impact --> Concept -----------
+  # Đây là cách "khi học sinh nói cụ thể thì lý thuyết tự lên" (yêu cầu khách
+  # 09/09): KHÔNG bày chip, mà để gate SUPPORT kéo thẻ triệu chứng lên khi một
+  # node IMPACT (chức năng đã bị ảnh hưởng) đã CONFIRMED — tức hệ thống ĐÃ có
+  # bằng chứng, không phải học sinh tò mò bấm.
+  #
+  # CỐ Ý chỉ móc từ node IMPACT, KHÔNG từ affect lõi (a-lo-lang, a-buon): hai
+  # affect đó nằm trong vòng lặp siêu tôi và dùng chung mọi chủ đề — móc vào
+  # sẽ đổi {THEORY_CONTENT} của cả chủ đề 1, 2 (docx/13 §11).
+  #   né tránh bài tập / kiểm tra   -> "rối loạn lo âu biểu hiện ra sao"
+  #   mất động lực · thu mình       -> "trầm cảm biểu hiện ra sao"
+  - {from: i-ne-tranh, to: c-dau-hieu-lo-au, type: explained_by}
+  - {from: i-mat-dong-luc, to: c-dau-hieu-tram-cam, type: explained_by}
+  - {from: i-thu-minh, to: c-dau-hieu-tram-cam, type: explained_by}
 
   # --- addressed_by: POLICY EDGE (8) — thứ giết "sáo rỗng" -----------
   #     Luật chọn: priority cao nhất thắng; hoà → node có confidence cao hơn.

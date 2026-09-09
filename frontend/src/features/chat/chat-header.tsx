@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Download, LifeBuoy, Phone, X } from "lucide-react";
 
-import { BrandMark } from "@/components/app-shell";
 import { SidebarToggle } from "./session-sidebar";
 
 /**
@@ -38,10 +37,6 @@ export function ChatHeader({
           onExpand={onExpandSidebar}
           collapsed={sidebarCollapsed}
         />
-        <div className="flex items-center gap-2 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] py-1.5 pr-3.5 pl-1.5 shadow-[var(--shadow-card)]">
-          <BrandMark className="size-6" />
-          <span className="truncate text-[13px] font-medium">Góc Hiểu Mình</span>
-        </div>
       </div>
 
       <div className="flex items-center gap-1.5 sm:gap-2">

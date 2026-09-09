@@ -4,8 +4,8 @@ from app.config import settings
 
 def test_counts(graph):
     assert len(graph.evidence_node_ids) == 31  # 24 gốc + 7 tầng đời sống
-    # 18 gốc + 8 mục lý thuyết trích 09/09/2026 (docx/13 §11)
-    assert len(graph.content_node_ids) == 26
+    # 18 gốc + 8 mục lý thuyết (docx/13 §11) + 4 mục chủ đề 3 (docx/13 §7)
+    assert len(graph.content_node_ids) == 44
     assert len(graph.policy_edges()) == 13  # 8 gốc + 3 nhánh xấu hổ + 2 nhánh đời sống
 
 

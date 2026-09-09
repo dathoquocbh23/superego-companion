@@ -1,16 +1,13 @@
 import Link from "next/link";
 
 /**
- * Khung ngoài: cả ứng dụng nằm trong một tấm thẻ bo tròn nổi trên nền gradient
- * tím nhạt. Trên mobile tấm thẻ chiếm trọn màn hình (bỏ viền + bo góc) để không
- * phí không gian.
+ * Khung ngoài: ứng dụng chiếm TRỌN màn hình (không còn tấm thẻ bo tròn nổi trên
+ * nền tím). Bỏ padding / max-width / bo góc / đổ bóng.
  */
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-[100dvh] w-full justify-center p-0 sm:p-4 lg:p-6">
-      <div className="flex h-[100dvh] w-full max-w-[1400px] flex-col overflow-hidden bg-[var(--shell)] shadow-none sm:h-[calc(100dvh-2rem)] sm:rounded-[var(--radius-shell)] sm:shadow-[var(--shadow-shell)] lg:h-[calc(100dvh-3rem)]">
-        {children}
-      </div>
+    <div className="flex h-[100dvh] w-full flex-col overflow-hidden bg-[var(--shell)]">
+      {children}
     </div>
   );
 }

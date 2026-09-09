@@ -2,8 +2,8 @@
 
 /* Mobile-first. Font nội dung chat ≥ 15px. Tương phản WCAG AA. */
 :root {
-  /* nền trang — dải tím nhạt, app "nổi" trên đó như một tấm thẻ */
-  --page: #e8e3f4;
+  /* app chiếm trọn màn hình — nền trang = nền app luôn */
+  --page: #ffffff;
   --shell: #ffffff;
   --surface: #ffffff;
   --surface-2: #f7f5fb;
@@ -45,15 +45,8 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Nền: gradient nền + 2 quầng sáng mềm ở góc. Cố định để không trôi khi cuộn. */
 body {
-  background-color: var(--page);
-  background-image:
-    radial-gradient(60rem 40rem at 12% -10%, rgb(255 255 255 / 0.85), transparent 60%),
-    radial-gradient(45rem 35rem at 105% 15%, rgb(196 181 253 / 0.55), transparent 65%),
-    radial-gradient(50rem 40rem at 50% 115%, rgb(233 213 255 / 0.6), transparent 60%),
-    linear-gradient(155deg, #ded6f2 0%, #ece6f6 45%, #f3ecf7 100%);
-  background-attachment: fixed;
+  background: var(--shell);
 }
 
 * {

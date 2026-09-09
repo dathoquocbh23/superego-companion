@@ -37,11 +37,23 @@ def test_moi_chip_tro_toi_node_co_that(graph):
             assert graph.node(c.serves) is not None, f"{t.id}: chip «{c.text}» → {c.serves}"
 
 
-def test_chu_de_chua_co_noi_dung_thi_khong_hien(graph):
-    """Chủ đề 3 chưa trích nội dung → enabled: false → không nằm trong menu."""
+def test_ca_4_chu_de_deu_bat_va_co_noi_dung(graph):
+    """Chủ đề 3 đã trích nội dung 09/09/2026 (docx/13 §7) → cả 4 chủ đề đều hiện."""
     bat = {t.id for t in get_topics().enabled()}
-    assert "anh-huong-suc-khoe" not in bat
-    assert bat == {"hieu-sieu-toi", "nhan-dien-hoc-sinh", "khi-nao-tim-ho-tro"}
+    assert bat == {
+        "hieu-sieu-toi", "nhan-dien-hoc-sinh", "anh-huong-suc-khoe", "khi-nao-tim-ho-tro",
+    }
+    t3 = get_topics().get("anh-huong-suc-khoe")
+    assert t3.opening == "c-suc-khoe-va-sieu-toi"
+    assert graph.node(t3.opening) is not None
+    # docx/13 §12 — danh sách triệu chứng KHÔNG được là chip ở bất kỳ chủ đề nào.
+    cam = {"c-dau-hieu-lo-au", "c-dau-hieu-tram-cam"}
+    for t in get_topics().topics.values():
+        assert not ({c.serves for c in t.learn_chips} & cam), t.id
+    # nhưng 2 thẻ đó vẫn là node có thật, tới được qua explained_by.
+    for nid in cam:
+        assert graph.node(nid) is not None
+        assert any(e.type == "explained_by" and e.to == nid for e in graph.edges)
 
 
 def test_chu_de_bat_thi_phai_co_opening(graph):
@@ -57,6 +69,40 @@ def test_mo_chu_de_phat_the_khai_niem(graph):
     assert d.reason == "topic_opening"
     assert d.concept_node == "c-id-ego-superego"
     assert d.coping_node is None          # → runner đặt message_type = KNOWLEDGE_CARD
+
+
+def test_mo_chu_de_3_phat_the_co_che(graph):
+    """Chủ đề 3: thẻ mở đầu là cơ chế siêu tôi ↔ sức khoẻ, ra KNOWLEDGE_CARD."""
+    ov = _ov(topic_id="anh-huong-suc-khoe")
+    d = decide_gate(graph, ov, SafetyResult(), None)
+    assert d.gate == SUPPORT
+    assert d.reason == "topic_opening"
+    assert d.concept_node == "c-suc-khoe-va-sieu-toi"
+    assert d.coping_node is None
+
+
+def test_chip_tim_hieu_chu_de_3_phat_dung_node(graph):
+    ov = _ov(topic_id="anh-huong-suc-khoe", topic_opened=True)
+    d = decide_gate(graph, ov, SafetyResult(), _chip_learn("Trầm cảm là gì?"))
+    assert d.gate == SUPPORT
+    assert d.reason == "topic_learn"
+    assert d.concept_node == "c-tram-cam-la-gi"
+
+
+def test_chip_cac_dang_lo_au_co_va_di_kem_chip_chan_doan(graph):
+    """Thêm theo yêu cầu khách (ngược docx/03 §7 luật 3). Điều kiện: chip
+    c-khong-phai-chan-doan phải nằm ngay sau nó trong topics.yaml, và steer
+    của thẻ phải cấm hỏi 'bạn thuộc dạng nào'."""
+    t3 = get_topics().get("anh-huong-suc-khoe")
+    ids = [c.serves for c in t3.learn_chips]
+    assert "c-cac-dang-lo-au" in ids
+    i = ids.index("c-cac-dang-lo-au")
+    assert ids[i + 1] == "c-khong-phai-chan-doan"
+    steer = graph.content_body("c-cac-dang-lo-au")["steer"].lower()
+    assert "thuộc dạng nào" in steer and "không xác nhận" in steer
+    d = decide_gate(graph, _ov(topic_id="anh-huong-suc-khoe", topic_opened=True),
+                    SafetyResult(), _chip_learn("Lo âu có mấy dạng?"))
+    assert d.gate == SUPPORT and d.concept_node == "c-cac-dang-lo-au"
 
 
 def test_chu_de_mo_bang_bai_test_khong_phat_the(graph):
@@ -138,6 +184,32 @@ def test_chip_ky_nang_ra_the_coping(graph):
     d = decide_gate(graph, ov, SafetyResult(), _chip_learn("Mình có thể tự làm gì ở nhà không?"))
     assert d.gate == SUPPORT
     assert d.coping_node == "k-tu-tran-an"
+
+
+def test_chip_ngung_tu_huy_hoai_va_xa_stress(graph):
+    """docx CÁC CÁCH KHẮC PHỤC TẠI NHÀ — 2 mục lớn thành chip (yêu cầu khách 09/09)."""
+    ov = _ov(topic_id="khi-nao-tim-ho-tro", topic_opened=True)
+    for text, node in [
+        ("Làm sao ngừng tự hủy hoại bản thân?", "k-ngung-tu-huy-hoai"),
+        ("Vì sao mình cứ tự phá như vậy?", "k-nguyen-nhan-goc-re"),
+        ("Cách xả stress hiệu quả?", "k-xa-stress-nhanh"),
+    ]:
+        d = decide_gate(graph, ov, SafetyResult(), _chip_learn(text))
+        assert d.gate == SUPPORT and d.coping_node == node, text
+    # thẻ tổng quan phải gộp ĐỦ 6 chiến lược (feedback customer 09/09)
+    body = graph.content_body("k-ngung-tu-huy-hoai")["body"]
+    for n in ("1.", "2.", "3.", "4.", "5.", "6."):
+        assert n in body, n
+    # giữ nguyên từ của docx, không làm nhẹ thành "tự cản trở"
+    assert "tự hủy hoại bản thân" in body.lower()
+    assert graph.content_body("k-ngung-tu-huy-hoai")["title"] == "Cách ngừng tự hủy hoại bản thân"
+
+    # xả stress: đủ 18 mục, giữ chữ "hiệu quả" trong tiêu đề, bỏ tên bệnh viện
+    stress = graph.content_body("k-xa-stress-nhanh")
+    assert "hiệu quả" in stress["title"]
+    for n in ("1.", "9.", "13.", "18."):
+        assert n in stress["body"], n
+    assert "Tâm Anh" not in stress["body"] and "Bệnh viện" not in stress["body"]
 
 
 # ── A-1: chế độ TÌM HIỂU không phải là giậm chân ──────────────────────────
@@ -268,11 +340,20 @@ def test_xoay_chip_la_tat_dinh(graph):
     assert _chips_tim_hieu(graph, ov, d) == _chips_tim_hieu(graph, ov, d)
 
 
-def test_khong_bay_chip_trieu_chung_o_chu_de_4(graph):
+def test_khong_bay_chip_trieu_chung(graph):
     """docx/03 §7 luật 3 — không mời học sinh bấm để đọc danh sách triệu chứng."""
-    cam = {"c-dau-hieu-tram-cam", "c-lo-au-keo-dai"}
+    cam = {"c-dau-hieu-tram-cam", "c-dau-hieu-lo-au", "c-lo-au-keo-dai"}
     for t in get_topics().topics.values():
         assert not ({c.serves for c in t.learn_chips} & cam)
+
+
+def test_the_dau_hieu_toi_duoc_qua_explained_by(graph):
+    """docx/13 §12 — thẻ triệu chứng chỉ lên qua SUPPORT khi node CONFIRMED."""
+    for nid in ("c-dau-hieu-lo-au", "c-dau-hieu-tram-cam"):
+        srcs = [e.from_ for e in graph.edges if e.type == "explained_by" and e.to == nid]
+        assert srcs, f"{nid} không có đường nào tới được"
+        for s in srcs:
+            assert graph.node(s) is not None
 
 
 # ── bài test: bot phải NHỚ kết quả (bug 09/09/2026) ───────────────────────

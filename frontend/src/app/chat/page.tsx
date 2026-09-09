@@ -4,7 +4,6 @@ import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { AppShell } from "@/components/app-shell";
-import { DisclaimerBanner } from "@/components/disclaimer-banner";
 import { createSession, getCachedSession, setActiveSession } from "@/lib/api";
 import {
   clearConversations,
@@ -283,25 +282,15 @@ function ChatBody({
       {started ? (
         <>
           <main className="scroll-thin min-h-0 flex-1 overflow-y-auto">
-            <div className="mx-auto w-full max-w-2xl">
+            <div className="mx-auto w-full max-w-4xl">
               <MessageList messages={messages} onQuickReply={send} awaitingReply={awaitingReply} />
             </div>
           </main>
-          <ChatComposer
-            onSend={send}
-            disabled={awaitingReply}
-            footer={<DisclaimerBanner variant="attached" />}
-          />
+          <ChatComposer onSend={send} disabled={awaitingReply} />
         </>
       ) : (
         <ChatWelcome onPickTopic={pickTopic}>
-          <ChatComposer
-            onSend={send}
-            disabled={awaitingReply}
-            variant="hero"
-            autoFocus
-            footer={<DisclaimerBanner variant="attached" />}
-          />
+          <ChatComposer onSend={send} disabled={awaitingReply} variant="hero" autoFocus />
         </ChatWelcome>
       )}
     </>

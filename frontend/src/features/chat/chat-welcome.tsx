@@ -59,7 +59,7 @@ export function ChatWelcome({
 
   return (
     <div className="scroll-thin flex-1 overflow-y-auto">
-      <div className="mx-auto flex min-h-full w-full max-w-2xl flex-col justify-center px-4 py-8">
+      <div className="mx-auto flex min-h-full w-full max-w-3xl flex-col justify-center px-4 py-8">
         <div className="animate-rise flex flex-col items-center text-center">
           <div className="orb mb-5 size-24 rounded-full sm:size-28" aria-hidden />
           <p className="text-gradient text-2xl font-semibold sm:text-[28px]">

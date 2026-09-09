@@ -131,8 +131,11 @@ class GraphService:
             errors.append(f"cần 31 evidence node, đang có {len(ev)}")
         # 18 gốc + 8 mục lý thuyết trích 09/09/2026 (docx/13 §11): mục 3, 4, 6, 7
         # của docx siêu tôi · 2 mục của docx nhận diện · 2 mục của docx tìm hỗ trợ.
-        if len(ct) != 26:
-            errors.append(f"cần 26 content node, đang có {len(ct)}")
+        # + 4 mục chủ đề 3 trích 09/09/2026 từ RỐI LOẠN LO ÂU & TRẦM CẢM.docx
+        # (docx/13 §7) · + đợt 2: 3 chip (yếu tố & phòng ngừa · tự chăm sóc ·
+        # chữa được không) + 2 thẻ không-chip (dau-hieu-lo-au · dau-hieu-tram-cam).
+        if len(ct) != 44:
+            errors.append(f"cần 44 content node, đang có {len(ct)}")
 
         for e in self.edges:
             if e.from_ not in ids:

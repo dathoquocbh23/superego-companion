@@ -37,7 +37,7 @@ export function ChatComposer({
 
   return (
     <div className={variant === "docked" ? "shrink-0 px-3 pb-3 sm:px-5 sm:pb-4" : ""}>
-      <div className="mx-auto w-full max-w-2xl">
+      <div className="mx-auto w-full max-w-4xl">
         <div className="rounded-[22px] border border-[var(--border-strong)] bg-[var(--surface)] p-2.5 shadow-[var(--shadow-card)] transition-colors focus-within:border-[var(--accent)]">
           <textarea
             ref={taRef}
