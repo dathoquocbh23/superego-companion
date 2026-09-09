@@ -5,24 +5,55 @@
 # ============================================================================
 
 id-ego-superego:
-  title: "Ba cách phản ứng bên trong mỗi người"
+  title: "Id – Ego – Superego: ba thành tố trong mô hình của Freud"
   body: |
     Theo Sigmund Freud, tâm lý con người có thể được nhìn nhận thông qua ba
     thành tố: Id, Ego và Superego. Có thể hiểu đơn giản đây là ba cách phản
     ứng khác nhau bên trong mỗi người khi chúng ta đứng trước một tình huống.
 
-    Id → "Mình muốn!" — những mong muốn, nhu cầu và cảm xúc bản năng.
-    Ego → "Mình có thể làm gì?" — nhìn vào thực tế và cân nhắc trước khi hành động.
-    Superego → "Mình nên / phải làm gì?" — những quy tắc, giá trị, chuẩn mực
-    và kỳ vọng mà chúng ta dần hình thành trong quá trình lớn lên.
+    Id – Cái ấy: "Mình muốn!"
+    Id là phần liên quan đến những mong muốn, nhu cầu và cảm xúc bản năng. Nó
+    thường muốn điều mình thích được đáp ứng ngay lập tức, mà không suy nghĩ
+    quá nhiều về hậu quả. Nói đơn giản, Id giống như một tiếng nói bên trong:
+    "Mình muốn làm điều này!" Ví dụ: Ngày mai có bài kiểm tra nhưng hôm nay
+    bạn rất muốn chơi game. → Id: "Chơi một chút đi, học sau cũng được!" Id
+    không nhất thiết là "xấu". Nó giúp chúng ta nhận biết mình đang muốn gì,
+    cần gì và cảm thấy như thế nào.
 
-    Ví dụ: Ngày mai có bài kiểm tra nhưng hôm nay bạn rất muốn chơi game.
-    Id: "Chơi một chút đi, học sau cũng được!" → Ego: "Mình có thể học trước
-    một tiếng rồi chơi sau." → Superego: "Mình phải học thật tốt. Không được
-    lãng phí thời gian!"
+    Ego – Cái tôi: "Mình nên làm gì?"
+    Ego là phần giúp chúng ta nhìn vào tình hình thực tế và cân nhắc trước khi
+    hành động. Thay vì chỉ làm theo mong muốn hoặc cảm xúc, Ego xem xét: Điều
+    gì có thể thực hiện được? Điều gì phù hợp với hoàn cảnh hiện tại? Có thể
+    hình dung Ego như tiếng nói: "Mình muốn như vậy, nhưng trong hoàn cảnh này
+    thì mình nên làm gì?" Ví dụ: → Id: "Chơi đi!" → Ego: "Mình có thể học
+    trước một tiếng rồi chơi sau." Ego giúp chúng ta cân bằng giữa mong muốn
+    của bản thân và thực tế.
 
-    Superego không phải lúc nào cũng tiêu cực. Vấn đề có thể xuất hiện khi
-    những tiêu chuẩn và yêu cầu dành cho bản thân trở nên quá khắt khe.
+    Superego – Cái siêu tôi: "Mình phải làm đúng!"
+    Superego liên quan đến những quy tắc, giá trị, chuẩn mực và kỳ vọng mà
+    chúng ta dần hình thành trong quá trình lớn lên. Những điều này có thể đến
+    từ gia đình, nhà trường, xã hội và chính những tiêu chuẩn mà chúng ta đặt
+    ra cho bản thân. Nói đơn giản, Superego giống như một tiếng nói nhắc nhở:
+    "Điều này có đúng không?", "Mình có nên làm như vậy không?", "Mình phải
+    trở thành người như thế nào?" Ví dụ: → Id: "Mình muốn chơi!" → Ego: "Học
+    trước rồi chơi sau." → Superego: "Mình phải học thật tốt. Không được lãng
+    phí thời gian!" Superego giúp chúng ta biết đúng – sai, hình thành nguyên
+    tắc và hướng đến những điều mình cho là tốt đẹp.
+
+    Vậy ba thành tố khác nhau như thế nào? Có thể nhớ rất đơn giản:
+    Id → "Mình muốn!"
+    Ego → "Mình có thể làm gì?"
+    Superego → "Mình nên / phải làm gì?"
+
+    Trong cuộc sống, ba thành tố này có thể cùng xuất hiện và đôi khi không
+    cùng muốn một điều. Khi đó, chúng ta có thể cảm thấy giằng co hoặc mâu
+    thuẫn trong lòng.
+
+    Đặc biệt, Superego không phải lúc nào cũng tiêu cực. Vấn đề có thể xuất
+    hiện khi những tiêu chuẩn và yêu cầu dành cho bản thân trở nên quá khắt
+    khe, khiến một người thường xuyên tự trách, khó tha thứ cho bản thân hoặc
+    cảm thấy mình chưa bao giờ đủ tốt. Đây là điểm dẫn đến khái niệm Cái siêu
+    tôi trừng phạt (Punitive Superego).
   steer: |
     Ba tiếng nói bên trong: Id "mình muốn", Ego "mình có thể làm gì", Superego
     "mình phải làm gì". Khi người dùng nói bằng giọng PHẢI / NÊN / ĐÁNG LẼ, đó
@@ -37,12 +68,15 @@ id-ego-superego:
   source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 2"
 
 lanh-manh-vs-trung-phat:
-  title: "Siêu tôi lành mạnh và Siêu tôi trừng phạt khác nhau ở đâu"
+  title: "Phân biệt Superego lành mạnh và Superego trừng phạt"
   body: |
-    Đây là điểm quan trọng nhất để nhận diện. Không phải cứ tự phê bình hay
-    đặt mục tiêu cao là có Cái siêu tôi trừng phạt — điều cần chú ý là mức độ
-    cứng nhắc, kéo dài và mang tính tự trừng phạt trong cách một người đánh
-    giá chính mình.
+    Đây là điểm quan trọng nhất để nhận diện Cái siêu tôi trừng phạt.
+
+    Theo tài liệu nghiên cứu, Superego lành mạnh có xu hướng hỗ trợ, đánh giá
+    bản thân thực tế, khuyến khích nhận biết cảm xúc và đối diện với thất bại
+    bằng hành động mang tính xây dựng. Ngược lại, Superego trừng phạt duy trì
+    mối quan hệ nội tâm cứng nhắc, thiếu yêu thương và có xu hướng quở trách,
+    làm xấu hổ bản thân.
 
     Cái siêu tôi lành mạnh — Cái siêu tôi trừng phạt
     • Đặt ra tiêu chuẩn thực tế — Đặt tiêu chuẩn quá cao hoặc cứng nhắc
