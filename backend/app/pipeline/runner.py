@@ -150,7 +150,9 @@ def _crisis_card_payload() -> dict:
     return {"type": "CRISIS_CARD", "markdown": text, "phone": "0832000202"}
 
 
-async def run_chat_turn(session_id: str, message: str) -> AsyncIterator[tuple[str, dict]]:
+async def run_chat_turn(
+    session_id: str, message: str, topic: str | None = None
+) -> AsyncIterator[tuple[str, dict]]:
     graph = get_graph()
     store = get_store()
     llm = get_llm()
@@ -162,6 +164,12 @@ async def run_chat_turn(session_id: str, message: str) -> AsyncIterator[tuple[st
     # Node nạp vào mang source=REMEMBERED: không phát ngôn được, không đủ mạnh
     # để kích REFLECT, chỉ giúp CLARIFY hỏi trúng chỗ hơn. Xem docx/12 §5.
     await memory_seed_overlay(overlay, overlay.user_id, graph)
+
+    # Chủ đề gửi kèm mỗi lượt để đổi chủ đề giữa phiên không phải mở phiên mới.
+    # Đổi chủ đề => mở lại thẻ đầu của chủ đề mới (docx/13 §5.4).
+    if topic and topic != overlay.topic_id:
+        overlay.topic_id = topic
+        overlay.topic_opened = False
 
     overlay.turn_count += 1
     turn_id = overlay.turn_count
@@ -282,6 +290,21 @@ async def run_chat_turn(session_id: str, message: str) -> AsyncIterator[tuple[st
     # ── [5] GATE ─────────────────────────────────────────────────
     ctx.gate = decide_gate(graph, overlay, ctx.safety, ctx.chip)
     decision = ctx.gate
+
+    # Chế độ chủ đề — decide_gate() thuần, việc ghi nằm ở đây cùng chỗ với
+    # turn_count. `topic_opened` bật ở MỌI lượt có chủ đề, kể cả lượt gate
+    # không phát thẻ (chủ đề mở bằng bài Likert): thẻ mở đầu chỉ được nổ đúng
+    # một lần, ngay lượt đầu tiên của chủ đề đó.
+    if overlay.topic_id:
+        overlay.topic_opened = True
+    if decision.reason == "assessment_debrief":
+        overlay.assessment_debriefed = True
+    if decision.reason in ("topic_opening", "topic_learn"):
+        overlay.luot_tim_hieu += 1
+        the = decision.concept_node or decision.coping_node or decision.resource_node
+        if the and the not in overlay.the_da_xem:
+            overlay.the_da_xem.append(the)
+
     overlay.target_truoc = (
         decision.target_nodes[0]
         if decision.gate == CLARIFY and decision.target_nodes
@@ -508,7 +531,10 @@ async def run_chat_turn(session_id: str, message: str) -> AsyncIterator[tuple[st
     # ── cập nhật overlay lịch sử + gate ─────────────────────
     overlay.gates_used.append("REFUSAL" if refusal else decision.gate)
     overlay.gates_used[:] = overlay.gates_used[-20:]
-    if decision.gate == BRIDGE:
+    # docx/14 ⚠️ C-1 — thẻ nguồn hỗ trợ do NGƯỜI DÙNG tự bấm đọc thử (chip TÌM
+    # HIỂU của chủ đề "Khi nào nên tìm hỗ trợ") KHÔNG phải là hệ thống đã bắc
+    # cầu cho họ. Set cờ ở đây thì sau này thật sự cần bắc cầu, gate im lặng.
+    if decision.gate == BRIDGE and decision.reason != "topic_learn":
         overlay.bridge_offered = True
     overlay.push_history("user", message)
     display = ctx.response_text or (ctx.card.get("lead") if ctx.card else "") or "[thẻ]"

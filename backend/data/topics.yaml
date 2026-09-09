@@ -1,0 +1,171 @@
+# ============================================================================
+# TOPIC PROFILE — 4 chủ đề cửa vào, map 1:1 với 4 folder tài liệu nghiên cứu
+# ----------------------------------------------------------------------------
+# Vì sao có file này: khách muốn màn đầu là một thực đơn 4 chủ đề theo đúng 4
+# mảng lý thuyết (tin nhắn 08/09/2026), và luồng khách mô tả là dáng BÀI GIẢNG:
+#
+#     [1] lý thuyết + ví dụ  ->  [2] học sinh kể chuyện mình  ->  [3] phân tích
+#
+# Bước [1] là thẻ nguyên văn (file này chỉ ra thẻ nào). Bước [2] là ô nhập tự
+# do. Bước [3] là gate/overlay sẵn có — KHÔNG có gì ở đây can thiệp vào nó.
+#
+# ----------------------------------------------------------------------------
+# BA LUẬT KHÔNG ĐƯỢC PHÁ KHI SỬA FILE NÀY
+#
+# 1. `learn_chips` chỉ được trỏ tới content node CÓ THẬT. Chip là một lời hứa:
+#    học sinh bấm thì bot phải có cái nguyên văn để phát. Chip không có node
+#    thì mô hình sẽ tự chế nội dung tâm lý — đúng thứ luật nguyên văn dựng ra
+#    để chặn. (Quan sát 08/09: demo có chip "Nó khác gì với lương tâm?" trong
+#    khi từ "lương tâm" xuất hiện 0 lần trong cả 5 docx.)
+#
+# 2. Chọn chủ đề KHÔNG tắt tầng an toàn. `check_crisis` vẫn chạy trước gate ở
+#    mọi lượt, mọi chủ đề. Đây là lý do 4 chủ đề là 4 hồ sơ cấu hình chứ không
+#    phải 4 agent rời.
+#
+# 3. Chủ đề không phải nhà tù. Học sinh gõ chuyện ngoài chủ đề thì overlay và
+#    gate làm việc bình thường; `source_docs` chỉ là ƯU TIÊN khi chọn nội dung
+#    để nói, không phải bộ lọc cứng.
+# ============================================================================
+
+version: "1.0"
+
+topics:
+  # ==========================================================================
+  - id: hieu-sieu-toi
+    title: "Hiểu về cái siêu tôi"
+    subtitle: "Một bản đồ đơn giản về tiếng nói chuẩn mực bên trong"
+    folder: "SƠ LƯỢC VỀ _SIÊU TÔI TRỪNG PHẠT_"
+    source_docs:
+      - "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx"
+
+    # Thẻ phát ngay khi bấm vào chủ đề. Đây là "giải thích chay về lý thuyết"
+    # mà khách yêu cầu — và nó chứa luôn ví dụ chơi game/bài kiểm tra, ví dụ
+    # DUY NHẤT có trong toàn bộ docx này.
+    opening: c-id-ego-superego
+
+    # 6 chip, mỗi lượt chỉ hiện được 3 — thứ tự ở đây là THỨ TỰ ƯU TIÊN, đi từ
+    # khái niệm về phía người đọc:
+    #   là gì -> trừng phạt là gì -> luôn xấu? -> soi vào mình -> để làm gì
+    #   -> có bị gì không
+    # Chip đã đọc rồi thì tự tụt xuống cuối (xem pipeline/quick_reply.py), nên
+    # đọc hết một vòng là gặp đủ 6 mục lý thuyết của docx này.
+    learn_chips:
+      - text: "Cái siêu tôi là gì?"
+        serves: c-sieu-toi-la-gi
+      - text: "Còn \"siêu tôi trừng phạt\" là gì?"
+        serves: c-sieu-toi-trung-phat-la-gi
+      - text: "Có phải cái siêu tôi luôn xấu không?"
+        serves: c-lanh-manh-vs-trung-phat
+      # Thêm 09/09/2026. Mục 6 của docx là mục DUY NHẤT viết dưới dạng câu hỏi
+      # để người đọc tự soi, nên nó là bậc thang tự nhiên nhất từ chế độ TÌM
+      # HIỂU sang chế độ KỂ CHUYỆN — bấm xong là có sẵn ba tình huống để hỏi
+      # tiếp "bạn thấy mình ở vế nào".
+      # (Thay cho chip "Vậy khắt khe tới mức nào thì là quá?" — chip đó phát ra
+      #  đúng cùng một thẻ với chip số 1, bày hai nút cho một nội dung.)
+      - text: "Làm sao biết mình đang ở vế nào?"
+        serves: c-nhan-dien-hang-ngay
+      - text: "Biết mấy cái này để làm gì?"
+        serves: c-vi-sao-dang-quan-tam
+      # Chip QUAN TRỌNG NHẤT của cả file. Khách nói mục đích là "để học sinh
+      # hiểu mình đang bị gì" — mà docx mục 7 cấm đúng cách nói đó. Node này
+      # LÀ câu trả lời đúng cho câu hỏi ấy, nguyên văn từ tài liệu: đây không
+      # phải chẩn đoán, không ai "bị" cả. Đừng gỡ chip này đi.
+      - text: "Vậy mình có đang bị gì không?"
+        serves: c-khong-phai-chan-doan
+
+    # Chip chuyển sang bước [2] — từ đây trở đi là cỗ máy overlay/gate cũ.
+    bridge_chip: "Nghe giống chuyện của mình"
+
+    # Đã phủ hết mục lý thuyết của docx này: mục 2 (opening) · 3 · 4 · 5 · 6 · 7.
+    # Mục 1 là "Giới thiệu về đề tài" — văn bản hành chính của bài nghiên cứu,
+    # không phải nội dung để nói với học sinh.
+
+  # ==========================================================================
+  - id: nhan-dien-hoc-sinh
+    title: "Nhận diện trong đời sống học sinh"
+    subtitle: "Nhìn thấy áp lực ẩn sau những ngày học rất bình thường"
+    folder: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH"
+    source_docs:
+      - "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx"
+
+    # Nội dung chính của chủ đề này LÀ bài tự đánh giá: cả 10 câu Likert đều mang
+    # source_doc của docx này. Nên bài test được gộp vào đây thay vì đứng
+    # riêng ở route /assessment như trước.
+    #
+    # Lợi ích kèm theo: POST /api/assessment seed sẵn overlay bằng
+    # LIKERT_CONFIDENCE, nên làm test trong chủ đề này khiến toàn bộ đoạn chat
+    # sau đó hiểu người dùng hơn hẳn.
+    opening: assessment
+
+    # Hai chip đầu là nội dung CỦA CHÍNH docx này (danh sách biểu hiện ở phần
+    # mở đầu, và phần giải thích thang đo). Hai chip sau mượn từ docx siêu tôi
+    # — chip trỏ tới node theo id chứ không theo source_doc, nên dùng chéo chủ
+    # đề được khi nội dung hợp.
+    learn_chips:
+      - text: "Biểu hiện thường gặp là gì?"
+        serves: c-bieu-hien-thuong-gap
+      - text: "Nhìn ra nó trong ngày thường kiểu gì?"
+        serves: c-nhan-dien-hang-ngay
+      - text: "Thang đo Likert là gì?"
+        serves: c-thang-do-likert
+      - text: "Vậy mình có đang bị gì không?"
+        serves: c-khong-phai-chan-doan
+
+    bridge_chip: "Mình muốn kể chuyện của mình"
+
+  # ==========================================================================
+  - id: anh-huong-suc-khoe
+    title: "Ảnh hưởng đến sức khoẻ tinh thần"
+    subtitle: "Hiểu vì sao áp lực nội tâm có thể làm mình cạn năng lượng"
+    folder: "ẢNH HƯỞNG ĐẾN SỨC KHỎE TINH THẦN"
+    source_docs:
+      - "RỐI LOẠN LO ÂU & TRẦM CẢM.docx"
+
+    # ⚠️ CHƯA DÙNG ĐƯỢC — chủ đề này có 8 node bằng chứng (bot THEO DÕI) nhưng
+    # 0 content node (bot PHÁT NGÔN). Bấm vào là bot không có gì nguyên văn để
+    # nói, và mô hình sẽ lấp bằng nội dung tự chế.
+    #
+    # Không phải thiếu vật liệu: RỐI LOẠN LO ÂU & TRẦM CẢM.docx là docx LỚN
+    # NHẤT trong bộ (~37k ký tự, ~12.4k token). Chỉ là chưa ai trích.
+    #
+    # Phải làm trước demo 30/09: trích 2–3 concept node từ docx đó vào
+    # content/concepts.yaml, thêm node vào domain_graph.yaml, rồi điền
+    # `opening` + `learn_chips` ở đây. Trước khi làm xong, để enabled: false —
+    # thà giấu một ô còn hơn bày một ô bấm vào là bot bịa.
+    enabled: false
+    opening: null
+    learn_chips: []
+    bridge_chip: "Dạo này mình thấy mệt lắm"
+
+  # ==========================================================================
+  - id: khi-nao-tim-ho-tro
+    title: "Khi nào nên tìm hỗ trợ"
+    subtitle: "Biết lúc nào và tìm một người thật để cùng chia sẻ"
+    folder: "KHI NÀO NÊN TÌM HỖ TRỢ"
+    source_docs:
+      - "KHI NÀO CẦN TÌM HỖ TRỢ.docx"
+      - "CÁC CÁCH KHẮC PHỤC TẠI NHÀ.docx"
+
+    # Chủ đề giàu nội dung nhất: 3 concept + 5 resource + 6 coping = 14 node.
+    # 5 chip phủ ba hướng khác nhau: khi nào là quá mức · tự làm gì · nói với ai.
+    #
+    # ⚠️ CỐ Ý KHÔNG có chip cho mục 3 ("dấu hiệu giống triệu chứng trầm cảm") và
+    # mục 4 ("biểu hiện lo âu kéo dài") của docx. Bày một nút mời học sinh đọc
+    # danh sách triệu chứng rồi tự soi là đúng cạm bẫy "gợi ý mang tính mớm" mà
+    # docx/03 §7 luật 3 cấm. Nội dung đó vẫn tới được — nhưng qua gate BRIDGE,
+    # tức là khi hệ thống ĐÃ có bằng chứng, chứ không phải vì họ tò mò bấm thử.
+    opening: c-vong-lap-tu-phe-phan
+
+    learn_chips:
+      - text: "Thế nào là quá mức?"
+        serves: c-tu-phe-phan-qua-muc
+      - text: "Mình có thể tự làm gì ở nhà không?"
+        serves: k-tu-tran-an
+      - text: "Nói với thầy cô thì nói thế nào?"
+        serves: s-gvcn
+      - text: "Nói với ba mẹ thì mở lời sao?"
+        serves: s-ba-me
+      - text: "Bạn mình cũng vậy, giúp bạn sao?"
+        serves: c-giup-mot-nguoi-ban
+
+    bridge_chip: "Mình chưa biết mình có cần không"

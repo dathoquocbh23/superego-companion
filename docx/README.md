@@ -22,8 +22,12 @@
 | [10-DEMO-VA-RUI-RO.md](10-DEMO-VA-RUI-RO.md) | Kịch bản demo, bảng rủi ro, chuẩn bị giai đoạn 2 | Tuần 4 |
 | [11-KICH-BAN-CHAT-MAU.md](11-KICH-BAN-CHAT-MAU.md) | **Kịch bản chat đầy đủ để duyệt** — lời thoại + trạng thái nội bộ + checklist duyệt | **Đọc & duyệt TRƯỚC khi code** |
 | [12-BO-NHO-DAI-HAN.md](12-BO-NHO-DAI-HAN.md) | Đăng nhập Supabase + bộ nhớ dài hạn theo graph, schema SQL, ràng buộc an toàn & pháp lý | Sau khi `03` đã chạy |
+| [13-MENU-4-CHU-DE.md](13-MENU-4-CHU-DE.md) | **Menu 4 chủ đề** theo 4 folder tài liệu — hồ sơ chủ đề, 2 loại chip, bảng vật liệu, kế hoạch sửa từng file | **Trước khi code màn chào mới** |
+| [14-KICH-BAN-4-CHU-DE.md](14-KICH-BAN-4-CHU-DE.md) | **Kịch bản 4 chủ đề để duyệt** — lời thoại + trạng thái nội bộ + kịch bản an toàn + checklist | **Đọc & duyệt cùng `13`** |
 
 > ⚠️ File `11` chứa **4 điều chỉnh spec** (mục D) phát hiện khi viết kịch bản — cần áp vào file `03` và `05` trước khi implement.
+>
+> ⚠️ File `13` chứa **5 điều chỉnh spec** nữa (mục 6) phát hiện khi đối chiếu yêu cầu khách 08/09 với tài liệu nghiên cứu — cần áp vào `03`, `05`, `07`. Nặng nhất là **D2**: cách khách phát biểu mục tiêu ("để học sinh hiểu mình đang bị gì") đụng thẳng luật cấm chẩn đoán của chính docx nguồn.
 
 ---
 

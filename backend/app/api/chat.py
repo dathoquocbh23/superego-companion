@@ -18,6 +18,9 @@ router = APIRouter(prefix="/api", tags=["chat"])
 class ChatRequest(BaseModel):
     session_id: str
     message: str
+    # Chủ đề đang mở, gửi kèm MỖI lượt (docx/13 §5.4). Gửi mỗi lượt chứ không
+    # chỉ lúc mở phiên: đổi chủ đề giữa chừng thì không phải bỏ cả phiên chat.
+    topic: str | None = None
 
 
 def _sse(event: str, data: dict) -> str:
@@ -28,7 +31,7 @@ def _sse(event: str, data: dict) -> str:
 async def chat_stream(req: ChatRequest) -> StreamingResponse:
     async def gen():
         try:
-            async for event, data in run_chat_turn(req.session_id, req.message):
+            async for event, data in run_chat_turn(req.session_id, req.message, req.topic):
                 yield _sse(event, data)
         except Exception:  # pragma: no cover — không bao giờ 500 trần cho người dùng
             logger.exception("chat_stream lỗi")

@@ -101,6 +101,32 @@ KHÔNG trị liệu. Việc của bạn là lắng nghe, hỏi để hiểu, ph�
 
 **Placeholder:** `{TURN_COUNT}`, `{HAS_TAKEN_ASSESSMENT}`
 
+### 4.1. NÊU KHÁI NIỆM ≠ DÁN NHÃN LÊN NGƯỜI — thêm 09/09/2026
+
+Luật 1 ở trên hay bị đọc quá rộng thành *"không được nhắc tới Siêu tôi trừng phạt"*.
+Đọc như vậy thì chủ đề *"Hiểu về cái siêu tôi"* không tồn tại được. Phải tách rõ **hai
+việc khác nhau**:
+
+| | Được phép | Bị cấm |
+|---|---|---|
+| **Thẻ nguyên văn** (`concepts.yaml` …) | ✅ Nêu đủ khái niệm — Id, Ego, Superego, "Siêu tôi trừng phạt". Đó là **tài liệu**, có nguồn, đã duyệt. | — |
+| **Văn nói bot tự viết** | ✅ Mô tả **biểu hiện**: *"Điều bạn vừa kể trùng với biểu hiện mà tài liệu mô tả — bạn thấy có giống không?"* | ❌ Gán nhãn **người**: *"Bạn đang có cái siêu tôi trừng phạt"* |
+
+Chỗ dựa là nguyên văn `HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 7` (node
+`c-khong-phai-chan-doan`):
+
+> *"…không nên trình bày như một chẩn đoán / bệnh độc lập. Vì vậy nên nói **"khi có
+> biểu hiện của Siêu tôi trừng phạt"**, thay vì "khi mắc bệnh"."*
+
+**Bối cảnh vì sao phải ghi ra:** khách phát biểu mục đích sản phẩm là *"để học sinh
+hiểu mình đang bị gì"* (08/09/2026). Mục đích đó **giữ nguyên** — cái đổi là **ai kết
+luận**: bot mô tả, học sinh tự đối chiếu. Khách gọi đích đến là *"nâng cao mức độ nhận
+biết"*, mà nhận biết không cần dán nhãn. Xem [13 mục 6/D2](13-MENU-4-CHU-DE.md).
+
+**Hệ quả cho `steer` trong `content/*.yaml`:** câu *"Đừng gọi tên Id/Ego/Superego ra
+trước mặt người dùng"* phải viết lại theo bảng trên — nó đang cấm cả thẻ, mà thẻ thì
+được phép. Nếu không sửa, mô hình đọc thành lệnh cấm rồi né luôn cả việc phát thẻ.
+
 ---
 
 ## 5. `01_EXTRACT_EVIDENCE.md` — LLM lượt 1

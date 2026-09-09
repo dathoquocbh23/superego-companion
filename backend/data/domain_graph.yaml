@@ -255,10 +255,10 @@ nodes:
     cues: ["không muốn gặp ai", "ở lì trong phòng", "tránh bạn bè", "một mình cho xong", "không nói chuyện với ai"]
 
   # ==========================================================================
-  # CONTENT NODE (18) — bot phát ngôn qua văn bản duyệt sẵn
+  # CONTENT NODE (26) — bot phát ngôn qua văn bản duyệt sẵn
   # ==========================================================================
 
-  # --- 3.1 Concept — Khái niệm (4) -------------------------------------
+  # --- 3.1 Concept — Khái niệm (12) ------------------------------------
   - id: c-id-ego-superego
     type: concept
     label: "Id – Ego – Superego"
@@ -278,6 +278,55 @@ nodes:
     type: concept
     label: "Không phải chẩn đoán, không dán nhãn"
     content_ref: "content/concepts.yaml#khong-phai-chan-doan"
+
+  # Thêm 09/09/2026 — mục 6 của docx, trước đó chưa ai trích. Đây là mục DUY
+  # NHẤT trong toàn bộ tài liệu viết dưới dạng câu hỏi soi gương cho người đọc
+  # tự đối chiếu, nên nó là cầu nối tự nhiên nhất từ chế độ TÌM HIỂU sang chế
+  # độ KỂ CHUYỆN. CỐ Ý không thêm cạnh explained_by: node này tới được bằng
+  # chip TÌM HIỂU, thêm cạnh sẽ đổi concept mà gate SUPPORT đang phục vụ cho
+  # các node đã CONFIRMED.
+  - id: c-nhan-dien-hang-ngay
+    type: concept
+    label: "Nhận diện trong đời sống hằng ngày"
+    content_ref: "content/concepts.yaml#nhan-dien-hang-ngay"
+
+  # Trích 09/09/2026 — 7 mục lý thuyết còn lại của 3 chủ đề đang bật (docx/13 §11).
+  # Tất cả tới được bằng chip TÌM HIỂU; CỐ Ý không thêm cạnh explained_by nào
+  # (cạnh đó đổi concept mà gate SUPPORT phục vụ cho node đã CONFIRMED).
+  - id: c-sieu-toi-la-gi
+    type: concept
+    label: "Cái siêu tôi là gì"
+    content_ref: "content/concepts.yaml#sieu-toi-la-gi"
+
+  - id: c-sieu-toi-trung-phat-la-gi
+    type: concept
+    label: "Cái siêu tôi trừng phạt là gì"
+    content_ref: "content/concepts.yaml#sieu-toi-trung-phat-la-gi"
+
+  - id: c-vi-sao-dang-quan-tam
+    type: concept
+    label: "Vì sao điều này đáng quan tâm"
+    content_ref: "content/concepts.yaml#vi-sao-dang-quan-tam"
+
+  - id: c-bieu-hien-thuong-gap
+    type: concept
+    label: "Biểu hiện thường gặp ở học sinh"
+    content_ref: "content/concepts.yaml#bieu-hien-thuong-gap"
+
+  - id: c-thang-do-likert
+    type: concept
+    label: "Thang đo Likert"
+    content_ref: "content/concepts.yaml#thang-do-likert"
+
+  - id: c-tu-phe-phan-qua-muc
+    type: concept
+    label: "Khi tự phê phán trở nên quá mức"
+    content_ref: "content/concepts.yaml#tu-phe-phan-qua-muc"
+
+  - id: c-giup-mot-nguoi-ban
+    type: concept
+    label: "Nếu muốn giúp một người bạn"
+    content_ref: "content/concepts.yaml#giup-mot-nguoi-ban"
 
   # --- 3.2 Coping — Kỹ năng ứng phó (6) ------------------------------
   - id: k-nhan-dien-tu-phe-phan

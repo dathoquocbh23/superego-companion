@@ -61,7 +61,7 @@ export function SessionSidebar({
           onClick={pingBackend}
           title="Đánh thức máy chủ cho phản hồi nhanh hơn"
         />
-        <span className="flex-1 truncate text-[15px] font-semibold tracking-tight">Đồng hành</span>
+        <span className="flex-1 truncate text-[15px] font-semibold tracking-tight">Góc Hiểu Mình</span>
         {onToggleCollapse && (
           <button
             type="button"

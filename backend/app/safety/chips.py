@@ -17,6 +17,10 @@ CONFIRM_NO = "CONFIRM_NO"
 CONFIRM_PARTIAL = "CONFIRM_PARTIAL"
 ASK = "ASK"
 DECLINE = "DECLINE"
+# docx/13 — người dùng bấm hỏi bot về một khái niệm. Ý định đã biết chắc nên
+# gate xử ở §0, không để rơi xuống luồng chính (ở đó REFLECT sẽ nuốt mất câu
+# hỏi khi overlay đã đủ 3 node).
+LEARN = "LEARN"
 
 _PREFIX_TO_TYPE = {
     phrases.CHIP_CONFIRM_YES: CONFIRM_YES,
@@ -24,6 +28,7 @@ _PREFIX_TO_TYPE = {
     phrases.CHIP_CONFIRM_PARTIAL: CONFIRM_PARTIAL,
     phrases.CHIP_ASK: ASK,
     phrases.CHIP_DECLINE: DECLINE,
+    phrases.CHIP_LEARN: LEARN,
 }
 
 

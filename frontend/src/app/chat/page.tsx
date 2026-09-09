@@ -1,10 +1,11 @@
 "use client";
 
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { AppShell } from "@/components/app-shell";
 import { DisclaimerBanner } from "@/components/disclaimer-banner";
-import { createSession, setActiveSession } from "@/lib/api";
+import { createSession, getCachedSession, setActiveSession } from "@/lib/api";
 import {
   clearConversations,
   loadConversations,
@@ -22,18 +23,40 @@ import { ChatWelcome } from "@/features/chat/chat-welcome";
 import { MessageList } from "@/features/chat/message-list";
 import { SessionSidebar } from "@/features/chat/session-sidebar";
 import { useChatSession } from "@/features/chat/use-chat-session";
-import type { ChatMessage } from "@/lib/types";
+import type { ChatMessage, Topic } from "@/lib/types";
+
+/**
+ * Câu tự gửi khi người dùng bấm "Nói chuyện về kết quả này" ở màn hình kết quả
+ * bài Likert.
+ *
+ * Vì sao cần (bug 09/09/2026): `/assessment` không tạo message nào trong chat,
+ * nên quay về `started` vẫn false và app render đúng màn hình chào với 4 thẻ —
+ * người dùng vừa làm 10 câu xong thì bị ném về "cuộc trò chuyện mới", kết quả
+ * biến mất. Đúng thứ docx/07 §2.2 cấm: màn hình kết quả không được là điểm dừng.
+ *
+ * Gửi như một lượt người dùng bình thường (đi qua bước trích, hiện thành bong
+ * bóng của họ) — cùng cơ chế với chip. Bot đã biết bối cảnh qua
+ * `{HAS_TAKEN_ASSESSMENT}` trong 00_CORE_PERSONA.md và qua evidence LIKERT đã
+ * seed sẵn trong overlay, nên không cần nhồi điểm số vào câu này.
+ */
+const MO_LOI_SAU_BAI_TEST = "Mình vừa làm xong bài tự đánh giá.";
 
 const GREETING: ChatMessage = {
   id: "greeting",
   role: "assistant",
   messageType: "REFLECT",
   content:
-    "Chào bạn. Đây là nơi bạn có thể nói ra điều khó nói mà không bị phán xét. Có chuyện gì đang làm bạn nặng lòng không?",
+    "Chào bạn. Ở đây bạn có thể tìm hiểu, hoặc kể chuyện của mình — cái nào trước cũng được.",
   createdAt: 0,
 };
 
 function ChatInner() {
+  // /assessment?topic=... quay về mang theo chủ đề, để đoạn chat sau bài test
+  // vẫn nằm trong đúng mảng tài liệu đó (docx/13 §5.7).
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const topicTuUrl = searchParams.get("topic");
+  const tuBaiTest = searchParams.get("from") === "assessment";
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [error, setError] = useState(false);
@@ -68,6 +91,19 @@ function ChatInner() {
       setConversations(list);
       setActiveId(list[0].id);
       setActiveSession(list[0].sessionId);
+      return;
+    }
+    // Chưa có hội thoại nào nhưng ĐÃ có phiên trong sessionStorage → nhận lại
+    // phiên đó thay vì mở phiên mới. Xảy ra khi người dùng vào thẳng
+    // /assessment (không qua chat): ensureSession() đã mở phiên và POST
+    // /api/assessment đã seed 10 node LIKERT vào overlay của phiên ĐÓ. Gọi
+    // createSession() ở đây là vứt toàn bộ bài test vừa làm sang một phiên mồ
+    // côi, và bot sẽ hỏi lại từ đầu như chưa có gì.
+    const daCo = getCachedSession();
+    if (daCo) {
+      const conv = newConversation(daCo);
+      setConversations((prev) => upsertConversation(prev, conv));
+      setActiveId(conv.id);
       return;
     }
     void startNew();
@@ -159,6 +195,9 @@ function ChatInner() {
             <ChatBody
               key={active.id}
               conversation={active}
+              initialTopic={topicTuUrl}
+              tuBaiTest={tuBaiTest}
+              onDaMoLoi={() => router.replace("/chat")}
               onMessages={handleMessages}
               onOpenSidebar={() => setDrawerOpen(true)}
               onExpandSidebar={() => setSidebarCollapsed(false)}
@@ -175,21 +214,51 @@ function ChatInner() {
 
 function ChatBody({
   conversation,
+  initialTopic,
+  tuBaiTest,
+  onDaMoLoi,
   onMessages,
   onOpenSidebar,
   onExpandSidebar,
   sidebarCollapsed,
 }: {
   conversation: Conversation;
+  initialTopic: string | null;
+  tuBaiTest: boolean;
+  onDaMoLoi: () => void;
   onMessages: (id: string, messages: ChatMessage[]) => void;
   onOpenSidebar: () => void;
   onExpandSidebar: () => void;
   sidebarCollapsed: boolean;
 }) {
+  const [topic, setTopic] = useState<string | null>(initialTopic);
   const { messages, awaitingReply, crisisShown, send } = useChatSession(
     conversation.sessionId,
     conversation.messages.length ? conversation.messages : [GREETING],
+    topic,
   );
+
+  // Bấm thẻ chủ đề = gửi NGUYÊN VĂN tên thẻ như một lượt bình thường, kèm id
+  // chủ đề. Cùng cơ chế với chip: người dùng thấy trước mình sắp "nói" gì.
+  const pickTopic = useCallback(
+    (t: Topic) => {
+      setTopic(t.id);
+      void send(t.title, t.id);
+    },
+    [send],
+  );
+
+  // Vừa làm xong bài test → mở lượt đầu hộ người dùng. Ref chặn StrictMode
+  // chạy effect 2 lần, và chặn luôn việc gửi lại khi họ F5 (query đã được xoá
+  // ở onDaMoLoi, nhưng ref là hàng rào thứ hai rẻ tiền).
+  const daMoLoi = useRef(false);
+  useEffect(() => {
+    if (!tuBaiTest || daMoLoi.current) return;
+    if (messages.some((m) => m.role === "user")) return;   // đã có lượt rồi thì thôi
+    daMoLoi.current = true;
+    void send(MO_LOI_SAU_BAI_TEST, initialTopic);
+    onDaMoLoi();
+  }, [tuBaiTest, messages, send, initialTopic, onDaMoLoi]);
 
   // Chỉ ghi khi stream đã xong — tránh ghi localStorage mỗi token.
   useEffect(() => {
@@ -225,7 +294,7 @@ function ChatBody({
           />
         </>
       ) : (
-        <ChatWelcome onPick={send}>
+        <ChatWelcome onPickTopic={pickTopic}>
           <ChatComposer
             onSend={send}
             disabled={awaitingReply}

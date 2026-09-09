@@ -30,7 +30,13 @@ export function BridgeCard({
         {card.body && (
           <p className="text-[15px] leading-relaxed whitespace-pre-wrap text-emerald-950">{card.body}</p>
         )}
-        {card.source && <p className="mt-3 text-xs text-emerald-700/80">Nguồn: {card.source}</p>}
+        {/* `card.source` KHÔNG hiện — cùng lý do với coping-card.tsx.
+            Sửa 09/09/2026: bản đầu cố ý giữ dòng nguồn ở riêng thẻ này ("thẻ
+            hotline / phòng tham vấn thì ghi nguồn làm tăng độ tin"). Lập luận
+            đó hỏng từ khi chip TÌM HIỂU của chủ đề "Khi nào nên tìm hỗ trợ"
+            cũng đẩy thẻ này ra: học sinh bấm "Nói với thầy cô thì nói thế
+            nào?" và nhận về một cái tên file .docx.
+            Trường vẫn đi trong payload và vẫn ghi vào transcript. */}
       </div>
       {!disabled && <QuickReplies replies={message.quickReplies ?? []} onReply={onReply} disabled={disabled} />}
     </div>

@@ -55,6 +55,18 @@ export type SseEvent =
   | { event: "footer"; data: { quickReplies: string[]; turn_id: number; crisis?: boolean } }
   | { event: "done"; data: Record<string, never> };
 
+// ── Chủ đề cửa vào (docx/13) ────────────────────────────────────────────
+// Câu chữ 4 thẻ sống ở backend/data/topics.yaml, KHÔNG hardcode ở đây: tiêu đề
+// trên thẻ và nội dung bấm vào phải cùng một nguồn, nếu không sớm muộn nó lệch.
+export const topicSchema = z.object({
+  id: z.string(),
+  title: z.string(),
+  subtitle: z.string(),
+  // true = chủ đề mở bằng bài Likert 10 câu chứ không bằng một lượt chat.
+  opens_assessment: z.boolean(),
+});
+export type Topic = z.infer<typeof topicSchema>;
+
 // ── Assessment (docx/06 §2.2–§2.3) ──────────────────────────────────────
 export const assessmentSpecSchema = z.object({
   scale: z.array(z.object({ value: z.number(), label: z.string() })),

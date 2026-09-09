@@ -27,7 +27,13 @@ id-ego-superego:
     Ba tiếng nói bên trong: Id "mình muốn", Ego "mình có thể làm gì", Superego
     "mình phải làm gì". Khi người dùng nói bằng giọng PHẢI / NÊN / ĐÁNG LẼ, đó
     là Superego đang cầm mic. Hỏi vào chính chỗ đó: tiêu chuẩn ấy ở đâu ra, ai
-    đặt nó. Đừng gọi tên Id/Ego/Superego ra trước mặt người dùng.
+    đặt nó.
+
+    Về việc gọi tên khái niệm (sửa 09/09/2026 — bản cũ cấm nhầm cả thẻ):
+    THẺ NÀY được phép nêu đủ Id / Ego / Superego — nó là tài liệu, có nguồn.
+    Câu BẠN TỰ VIẾT thì không gọi tên khái niệm ra để mô tả người dùng: nói
+    "điều bạn vừa kể trùng với biểu hiện tài liệu mô tả", không nói "bạn đang
+    có Siêu tôi trừng phạt". Nêu khái niệm được, dán nhãn lên người thì không.
   source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 2"
 
 lanh-manh-vs-trung-phat:
@@ -54,6 +60,38 @@ lanh-manh-vs-trung-phat:
     mình không đủ giỏi". Nghe xem người dùng đang ở vế nào, rồi hỏi cho rõ vế
     đó. Đừng đọc ra hai vế này như bảng so sánh.
   source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 5"
+
+nhan-dien-hang-ngay:
+  title: "Nhận diện trong đời sống hằng ngày"
+  body: |
+    Có thể nhận diện thông qua một số câu hỏi:
+
+    Khi mắc lỗi, tôi phản ứng như thế nào?
+    • Bình thường: "Mình đã sai ở đâu? Mình có thể sửa như thế nào?"
+    • Có xu hướng trừng phạt: "Tại sao mình lại ngu ngốc như vậy?"
+
+    Khi không đạt mục tiêu?
+    • Bình thường: "Kết quả chưa tốt, nhưng mình có thể thử lại."
+    • Có xu hướng trừng phạt: "Mình không được phép thất bại."
+
+    Khi được người khác khen?
+    • Bình thường: "Mình đã làm tốt điều này."
+    • Có xu hướng trừng phạt: "Chắc mình chỉ may mắn thôi. Mình vẫn chưa đủ tốt."
+
+    Như vậy, không phải cứ tự phê bình hay đặt mục tiêu cao là có Cái siêu tôi
+    trừng phạt. Điều cần chú ý là mức độ cứng nhắc, kéo dài và mang tính tự
+    trừng phạt trong cách cá nhân đánh giá chính mình.
+  steer: |
+    Ba câu hỏi soi gương, mỗi câu hai vế đối nhau. Thẻ này khác các thẻ khác ở
+    chỗ nó KHÔNG kết thúc bằng một kết luận — nó kết thúc bằng một câu hỏi bỏ
+    ngỏ cho người đọc. Sau khi thẻ hiện ra, việc của bạn là hỏi họ NHẬN RA MÌNH
+    Ở VẾ NÀO, bằng đúng ba tình huống trên chứ không bịa tình huống thứ tư:
+    lúc mắc lỗi, lúc không đạt mục tiêu, lúc được khen.
+
+    Họ chọn vế phải thì KHÔNG chốt hạ ("vậy là bạn có Siêu tôi trừng phạt") —
+    câu cuối của thẻ đã nói rõ điều cần chú ý là MỨC ĐỘ cứng nhắc và kéo dài,
+    không phải một lần trả lời. Hỏi tiếp về mức độ, đừng dán nhãn.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 6"
 
 vong-lap-tu-phe-phan:
   title: "Khi tự phê phán chuyển thành một vòng lặp khó thoát"
@@ -93,3 +131,207 @@ khong-phai-chan-doan:
     không phải chỗ chẩn đoán, rồi quay về đúng điều họ đang trải qua. Không
     trấn an kiểu "không sao đâu" — đó là gạt đi, không phải trả lời.
   source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 7 · NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx — lưu ý cuối"
+
+# ============================================================================
+# Trích 09/09/2026 — 7 mục lý thuyết còn lại của 3 chủ đề đang bật.
+# Nguồn thêm: NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx · KHI NÀO CẦN TÌM HỖ TRỢ.docx
+# ============================================================================
+
+# ── Chủ đề 1: HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx ──────────────────────────
+
+sieu-toi-la-gi:
+  title: "Cái siêu tôi là gì"
+  body: |
+    Superego là hệ thống các chuẩn mực, giá trị và quy tắc đạo đức được cá nhân
+    nội tâm hóa từ cha mẹ và môi trường xã hội.
+
+    Nó giúp chúng ta:
+    • phân biệt đúng và sai;
+    • đánh giá hành vi của bản thân;
+    • đặt ra những tiêu chuẩn cho chính mình;
+    • cảm thấy hài lòng khi hành động phù hợp với giá trị của bản thân;
+    • cảm thấy có lỗi hoặc không hài lòng khi vi phạm những chuẩn mực đó.
+
+    Theo tài liệu của Neborsky và Peluso, Freud cho rằng những giá trị từ cha mẹ
+    và chuẩn mực của cộng đồng được nội tâm hóa trong quá trình phát triển và
+    trở thành một cấu trúc riêng biệt gọi là Superego.
+
+    Vì vậy, Superego không phải là một phần xấu. Một Superego hoạt động lành
+    mạnh có thể giúp cá nhân tự điều chỉnh, có trách nhiệm và phát triển theo
+    những giá trị mà mình coi trọng.
+
+    Vấn đề xuất hiện khi những tiêu chuẩn này trở nên quá cứng nhắc, khắt khe
+    và mang tính trừng phạt.
+  steer: |
+    Thẻ định nghĩa. Ý cần giữ lại sau khi họ đọc xong: cái siêu tôi KHÔNG phải
+    phần xấu — nó là bộ tiêu chuẩn học được từ cha mẹ và xung quanh. Chỉ khi
+    tiêu chuẩn đó cứng nhắc quá thì mới thành chuyện.
+
+    Chỗ mở ra câu hỏi tiếp: những tiêu chuẩn của họ HỌC TỪ ĐÂU, ai đặt ra đầu
+    tiên. Đừng hỏi họ "siêu tôi của bạn thế nào" — đó là bắt họ dùng thuật ngữ.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 3"
+
+sieu-toi-trung-phat-la-gi:
+  title: "Cái siêu tôi trừng phạt là gì"
+  body: |
+    Punitive Superego (Cái siêu tôi trừng phạt) có thể được hiểu là một dạng
+    Superego hoạt động theo hướng khắt khe, cứng nhắc và mang tính trừng phạt
+    đối với chính bản thân.
+
+    Thay vì chỉ nhắc nhở: "Mình đã làm sai, mình cần sửa."
+    nó có thể chuyển thành: "Mình không được phép sai.", "Mình phải luôn giỏi.",
+    "Mình chưa đủ tốt.", "Mình thất bại vì mình kém."
+
+    Điểm quan trọng nằm ở cách cá nhân đối xử với chính mình sau một sai lầm,
+    chứ không đơn giản là việc cá nhân có tiêu chuẩn cao.
+
+    Tài liệu của Neborsky và Peluso mô tả Superego trừng phạt là một cấu trúc
+    hoạt động cứng nhắc, có xu hướng quở trách, làm xấu hổ và khiến Ego chịu áp
+    lực khi không tuân theo các yêu cầu của nó. Nó cũng có thể khiến cá nhân khó
+    nhận biết cảm xúc và khó học hỏi từ thất bại.
+  steer: |
+    Bốn câu trong ngoặc kép là bốn CÂU NÓI, không phải bốn triệu chứng. Nếu
+    người dùng đã từng nói câu nào gần giống, đó là chỗ để hỏi tiếp — bằng chính
+    chữ họ đã dùng, không phải bằng chữ trong thẻ.
+
+    Câu chốt của thẻ: điều quan trọng là CÁCH ĐỐI XỬ VỚI MÌNH SAU sai lầm, không
+    phải việc có tiêu chuẩn cao. Đừng để người dùng hiểu thành "đặt mục tiêu cao
+    là có vấn đề".
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 4"
+
+vi-sao-dang-quan-tam:
+  title: "Vì sao điều này đáng quan tâm"
+  body: |
+    Cái siêu tôi trừng phạt đáng được quan tâm vì nó có thể ảnh hưởng đến cách
+    một người nhìn nhận và đối xử với chính mình. Khi những tiêu chuẩn và kỳ
+    vọng trở nên quá khắt khe, một sai lầm nhỏ cũng có thể bị nhìn nhận như một
+    thất bại lớn, khiến cá nhân dễ tự trách, cảm thấy chưa đủ tốt hoặc khó hài
+    lòng với bản thân.
+
+    Điều đáng chú ý là những biểu hiện này đôi khi không dễ nhận ra, bởi chúng
+    có thể xuất hiện dưới dạng những suy nghĩ quen thuộc như:
+    • "Mình có thể làm tốt hơn."
+    • "Mình không được phép mắc lỗi."
+    • "Như vậy vẫn chưa đủ tốt."
+
+    Đặc biệt ở học sinh THPT, khi áp lực học tập, kỳ vọng từ gia đình và sự so
+    sánh với bạn bè thường xuyên xuất hiện, việc nhận diện cách bản thân tự đánh
+    giá và phê bình chính mình trở nên quan trọng.
+
+    Hiểu về Cái siêu tôi trừng phạt không phải để gắn nhãn hay đánh giá một
+    người, mà để nhận ra khi nào sự tự phê bình đang trở nên quá mức và từ đó
+    học cách nhìn nhận bản thân cân bằng hơn.
+  steer: |
+    Ba câu trong ngoặc kép là ba câu nghe RẤT BÌNH THƯỜNG — đó chính là ý của
+    thẻ: những câu quen tới mức không ai để ý. Nếu người dùng từng nói câu nào
+    kiểu vậy, chỉ ra chỗ đó bằng chữ của họ.
+
+    Câu cuối là hàng rào: hiểu về nó KHÔNG phải để gắn nhãn. Đừng bỏ qua câu đó
+    khi dẫn dắt.
+  source: "HIỂU VỀ CÁI SIÊU TÔI TRỪNG PHẠT.docx — mục 7"
+
+# ── Chủ đề 2: NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx ────────────────────────
+
+bieu-hien-thuong-gap:
+  title: "Những biểu hiện thường gặp ở học sinh"
+  body: |
+    Một số biểu hiện thường gặp có thể là:
+
+    • Tự trách bản thân khi mắc lỗi, kể cả những sai sót nhỏ.
+    • Đặt tiêu chuẩn quá cao và luôn cảm thấy mình cần phải làm tốt hơn.
+    • Cảm thấy chưa đủ tốt dù đã cố gắng.
+    • Khó tha thứ cho bản thân sau một thất bại.
+    • Tập trung nhiều vào khuyết điểm và lỗi sai hơn những điều mình đã làm tốt.
+    • Cảm thấy xấu hổ hoặc có lỗi khi không đáp ứng được kỳ vọng của bản thân
+      hoặc người khác.
+    • Có xu hướng đánh giá giá trị của bản thân dựa trên thành tích và mức độ
+      hoàn hảo.
+  steer: |
+    Đây là danh sách nguồn của 10 câu Likert — cùng nội dung, khác cách bày.
+    Người đọc rất dễ tick hết vào đầu mình, nên SAU thẻ này tuyệt đối không hỏi
+    "bạn thấy mình có mấy cái?" (biến nó thành bài chấm điểm ngầm) và không kết
+    luận gì. Hỏi vào ĐÚNG MỘT dòng mà họ nhận ra mình, rồi để họ kể.
+
+    Ai muốn có con số thì đã có bài Likert 10 câu — mời làm bài, đừng tự chấm.
+  source: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx — mở đầu"
+
+thang-do-likert:
+  title: "Thang đo Likert là gì"
+  body: |
+    Trong dự án này, thang đo Likert được sử dụng với 5 mức độ, từ thấp nhất
+    đến cao nhất:
+
+    1 — Hoàn toàn không
+    2 — Không đúng lắm
+    3 — Khó xác định / đôi khi đúng, đôi khi không
+    4 — Khá đúng
+    5 — Hoàn toàn đúng
+  steer: |
+    Thẻ kỹ thuật, trả lời đúng một câu hỏi. Nói xong thì mời làm bài, đừng giảng
+    thêm về đo lường. Và nhắc được thì nhắc: đây không phải bài kiểm tra, không
+    có đáp án đúng.
+  source: "NHẬN DIỆN TRONG ĐỜI SỐNG HỌC SINH.docx — phần thang đo"
+
+# ── Chủ đề 4: KHI NÀO CẦN TÌM HỖ TRỢ.docx ──────────────────────────────────
+
+tu-phe-phan-qua-muc:
+  title: "Khi sự tự phê phán trở nên quá mức"
+  body: |
+    • Thường xuyên cảm thấy mình "không đủ tốt", "vô dụng" hoặc luôn làm sai.
+    • Khó chấp nhận sai sót dù là những lỗi rất nhỏ.
+    • Liên tục tự trách hoặc cảm thấy tội lỗi dù không có lý do tương xứng.
+    • Có cảm giác phải đạt được tiêu chuẩn rất cao mới xứng đáng được công nhận.
+
+    Khi nó bắt đầu ảnh hưởng đến học tập và sinh hoạt, ví dụ:
+
+    • Khó tập trung học vì liên tục tự trách về kết quả.
+    • Sợ thất bại đến mức né tránh bài tập, kiểm tra hoặc những cơ hội mới.
+    • Mất động lực học tập.
+    • Khó ngủ hoặc thường xuyên cảm thấy căng thẳng vì những lỗi đã xảy ra.
+  steer: |
+    Thẻ này trả lời câu "thế nào là QUÁ MỨC" — mốc nằm ở chỗ nó bắt đầu ăn vào
+    việc học, giấc ngủ, sinh hoạt, chứ không nằm ở việc tự trách nhiều hay ít.
+
+    ⚠️ Đây là thẻ dễ bị đọc thành bảng chẩn đoán nhất trong cả bộ. Sau thẻ,
+    TUYỆT ĐỐI không đếm hộ, không kết luận, không nói "bạn có mấy dấu hiệu rồi
+    đấy". Hỏi một câu về CHUYỆN THẬT của họ, và nếu họ nhận nhiều dòng thì đó là
+    lúc nhắc tới việc nói với người thật — nhẹ, không doạ.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — mục 1 và 2"
+
+giup-mot-nguoi-ban:
+  title: "Nếu muốn giúp một người bạn"
+  body: |
+    Điều tốt nhất bạn có thể làm không phải là cố chữa cho bạn ấy, mà là trở
+    thành một người an toàn để bạn ấy có thể chia sẻ.
+
+    Lắng nghe trước, đừng vội đưa lời khuyên. Thay vì "Bạn đừng nghĩ nhiều
+    nữa.", bạn có thể nói:
+    "Mình nhận thấy dạo này bạn thường tự trách bản thân. Nếu bạn muốn kể, mình
+    sẵn sàng nghe. Mình không phán xét bạn đâu."
+
+    Giúp bạn ấy nhận ra vòng lặp tự phê phán, bằng cách nhẹ nhàng hỏi:
+    "Chuyện gì đã xảy ra?" → "Bạn nghĩ gì về bản thân sau chuyện đó?" → "Bạn có
+    đang tự trách mình nhiều hơn mức cần thiết không?" → "Nếu chuyện này xảy ra
+    với một người bạn, bạn có đối xử với họ khắt khe như cách bạn đang đối xử
+    với chính mình không?"
+
+    Khuyến khích bạn ấy tìm người lớn hoặc chuyên gia:
+    "Mình nghĩ chuyện này hơi quá sức để bạn phải tự giải quyết một mình. Hay
+    mình cùng tìm một thầy cô mà bạn tin tưởng hoặc phòng tư vấn tâm lý của
+    trường nhé?" Bạn thậm chí có thể đi cùng bạn ấy nếu bạn ấy ngại đi một mình.
+
+    Và đừng biến mình thành "người trị liệu" cho bạn:
+    "Bạn có thể ở bên cạnh và lắng nghe người bạn của mình, nhưng bạn không cần
+    phải trở thành chuyên gia tâm lý của họ. Giúp đỡ tốt nhất đôi khi đơn giản
+    là ở bên, lắng nghe mà không phán xét và khuyến khích họ tìm kiếm sự hỗ trợ
+    phù hợp."
+  steer: |
+    Thẻ DUY NHẤT trong bộ nói về người thứ ba. Hai điều cần để ý:
+
+    Một, rất nhiều học sinh hỏi "giúp bạn mình thế nào" khi thật ra đang nói về
+    chính mình. Đừng vặn hỏi chuyện đó, cũng đừng giả vờ không biết — cứ trả lời
+    câu họ hỏi, rồi để ngỏ một cửa: "còn bạn thì sao".
+
+    Hai, câu cuối là hàng rào cho chính người đang hỏi: họ không phải chịu trách
+    nhiệm chữa cho bạn mình. Đừng bỏ ý đó khi dẫn dắt.
+  source: "KHI NÀO CẦN TÌM HỖ TRỢ.docx — phần giúp một người bạn"

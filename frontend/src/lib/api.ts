@@ -1,4 +1,13 @@
-import { assessmentResultSchema, assessmentSpecSchema, type AssessmentResult, type AssessmentSpec } from "./types";
+import { z } from "zod";
+
+import {
+  assessmentResultSchema,
+  assessmentSpecSchema,
+  topicSchema,
+  type AssessmentResult,
+  type AssessmentSpec,
+  type Topic,
+} from "./types";
 import { getAccessToken } from "./supabase";
 
 export const API_BASE = process.env.NEXT_PUBLIC_API_BASE ?? "http://localhost:8000";
@@ -67,11 +76,19 @@ export function getCachedSession(): string | null {
   return window.sessionStorage.getItem(SESSION_KEY);
 }
 
+/** 4 chủ đề cửa vào cho màn chào. Chỉ trả chủ đề đang bật (docx/13 §5.4). */
+export async function fetchTopics(): Promise<Topic[]> {
+  const res = await fetch(`${API_BASE}/api/topics`);
+  if (!res.ok) throw new Error(`GET /api/topics ${res.status}`);
+  return z.array(topicSchema).parse(await res.json());
+}
+
 /** Luôn mở phiên MỚI — dùng khi người dùng bấm "Cuộc trò chuyện mới" ở sidebar. */
-export async function createSession(): Promise<string> {
+export async function createSession(topic?: string | null): Promise<string> {
   const res = await fetch(`${API_BASE}/api/session`, {
     method: "POST",
-    headers: await authHeaders(),
+    headers: { "Content-Type": "application/json", ...(await authHeaders()) },
+    body: JSON.stringify({ topic: topic ?? null }),
   });
   if (!res.ok) throw new Error(`POST /api/session ${res.status}`);
   const { session_id } = (await res.json()) as { session_id: string };

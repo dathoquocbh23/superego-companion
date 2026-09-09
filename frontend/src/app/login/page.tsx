@@ -76,7 +76,15 @@ export default function LoginPage() {
     const { error } =
       mode === "in"
         ? await sb.auth.signInWithPassword({ email, password })
-        : await sb.auth.signUp({ email, password });
+        : await sb.auth.signUp({
+            email,
+            password,
+            // Link xác nhận trong email phải quay về đúng domain người dùng
+            // đang mở (localhost khi dev, domain thật khi deploy) thay vì Site
+            // URL cố định trong dashboard. Đích là /login: trang này tự nuốt
+            // token trên URL rồi đẩy tiếp vào /chat.
+            options: { emailRedirectTo: `${window.location.origin}/login` },
+          });
     setBusy(false);
     if (error) {
       setMsg(error.message);
@@ -103,7 +111,7 @@ export default function LoginPage() {
                 onClick={pingBackend}
                 title="Đánh thức máy chủ cho phản hồi nhanh hơn"
               />
-              <span className="text-[15px] font-semibold tracking-tight">Đồng hành</span>
+              <span className="text-[15px] font-semibold tracking-tight">Góc Hiểu Mình</span>
             </div>
 
           </div>
@@ -247,7 +255,7 @@ function SidePanel() {
     <aside className="relative hidden w-[44%] max-w-lg shrink-0 flex-col justify-between overflow-hidden border-r border-[var(--border)] bg-[linear-gradient(160deg,var(--accent-soft),#f6f2ff_55%,#ffffff)] p-9 lg:flex">
       <div className="flex items-center gap-2.5">
         <BrandMark className="size-8" />
-        <span className="text-[15px] font-semibold tracking-tight">Đồng hành</span>
+        <span className="text-[15px] font-semibold tracking-tight">Góc Hiểu Mình</span>
       </div>
 
       <div>

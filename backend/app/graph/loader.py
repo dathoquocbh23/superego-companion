@@ -129,8 +129,10 @@ class GraphService:
         # 24 gốc + 7 tầng đời sống (07/09/2026: 4 trigger + 3 affect cơ bản).
         if len(ev) != 31:
             errors.append(f"cần 31 evidence node, đang có {len(ev)}")
-        if len(ct) != 18:
-            errors.append(f"cần 18 content node, đang có {len(ct)}")
+        # 18 gốc + 8 mục lý thuyết trích 09/09/2026 (docx/13 §11): mục 3, 4, 6, 7
+        # của docx siêu tôi · 2 mục của docx nhận diện · 2 mục của docx tìm hỗ trợ.
+        if len(ct) != 26:
+            errors.append(f"cần 26 content node, đang có {len(ct)}")
 
         for e in self.edges:
             if e.from_ not in ids:

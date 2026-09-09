@@ -72,6 +72,9 @@ async def submit_assessment(payload: AssessmentSubmit) -> AssessmentResult:
     store = get_store()
     overlay = await store.get(payload.session_id)
     overlay.has_taken_assessment = True
+    overlay.assessment_band_label = band["label"]
+    overlay.assessment_headline = band["headline"]
+    overlay.assessment_average = average
     for qid, val in scored.items():
         node_id = items[qid]["node_id"]
         conf = LIKERT_CONFIDENCE.get(int(val), 0.0)

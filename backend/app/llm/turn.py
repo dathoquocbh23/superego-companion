@@ -29,6 +29,7 @@ from pydantic import BaseModel, Field, ValidationError
 from app.config import settings
 from app.gate.decide import BRIDGE, CLARIFY, ORIENT, REFLECT, SUPPORT, GateDecision
 from app.gate.directive import build_directive, chon_dang_cau_hoi
+from app.graph.likert import likert_text_by_node
 from app.graph.loader import GraphService
 from app.overlay.model import Evidence, EvidenceSource, Overlay
 from app.safety.crisis import check_crisis
@@ -154,6 +155,46 @@ _REPLY_CYCLE = """
   `closing` (một câu hỏi xác nhận). Hệ thống dựng thẻ từ hai khoá đó."""
 
 
+def _khoi_bai_test(overlay: Overlay) -> str:
+    """Kết quả bài Likert, dạng chữ, để nhét vào 00_CORE_PERSONA.
+
+    Bug 09/09/2026: chỗ này từng chỉ trả "có" / "chưa". Mô hình biết CÓ một bài
+    test mà không biết bài đó ra cái gì, nên lượt đầu sau bài test nó hỏi ngược
+    "bạn đã đánh giá những gì vậy?" — người vừa trả lời xong 10 câu bị bắt kể
+    lại chính 10 câu đó. Đúng nghĩa quên sạch.
+
+    Mọi chữ trả về đều NGUYÊN VĂN assessment.yaml (band label, headline, phát
+    biểu Likert) — không có câu nào do mô hình hay do đây tự nghĩ.
+
+    CHỈ liệt kê câu họ chọn "Hoàn toàn đúng" (confidence 0.80). Mức 4 = 0.65,
+    dưới ngưỡng 0.70 — xem docx/03 §3.1: "khá đúng" nghĩa là CHƯA CHẮC, đưa vào
+    đây là biến một cú tick thành lời tự thú.
+    """
+    if not overlay.has_taken_assessment:
+        return "chưa làm"
+
+    dong = ["RỒI"]
+    if overlay.assessment_band_label:
+        muc = f'mức "{overlay.assessment_band_label}"'
+        if overlay.assessment_average is not None:
+            muc += f" (trung bình {overlay.assessment_average}/5)"
+        dong.append(muc)
+    dau = " — ".join(dong) + "."
+
+    phat_bieu = likert_text_by_node()
+    manh = [
+        phat_bieu[nid]
+        for nid, e in overlay.evidence.items()
+        if e.source == EvidenceSource.LIKERT and e.confidence >= 0.80 and nid in phat_bieu
+    ]
+    if not manh:
+        return dau + " Không câu nào họ chọn ở mức cao nhất."
+
+    return dau + ' Những câu họ chọn "Hoàn toàn đúng":\n' + "\n".join(
+        f"  • {c}" for c in manh
+    )
+
+
 def build_turn_prompt(
     *,
     skills: SkillLoader,
@@ -177,7 +218,7 @@ def build_turn_prompt(
 
     chung = dict(
         TURN_COUNT=overlay.turn_count,
-        HAS_TAKEN_ASSESSMENT="có" if overlay.has_taken_assessment else "chưa",
+        HAS_TAKEN_ASSESSMENT=_khoi_bai_test(overlay),
         MEMORY_QUOTES=_memory_quotes_block(overlay, graph),
         NODE_CATALOG=node_catalog(graph),
         CHIPS_SPEC=(
@@ -263,12 +304,16 @@ def build_turn_prompt(
         return TurnPrompt("15_BRIDGE", system, user_message, 500, 0.3)
 
     if decision.gate == SUPPORT:
-        coping = graph.node(decision.coping_node) if decision.coping_node else None
-        body = graph.content_body(decision.coping_node) if decision.coping_node else None
+        # Chế độ chủ đề phát thẻ KHÁI NIỆM (không có coping_node), nên lấy tiêu
+        # đề từ concept — nếu không mô hình được bảo là sắp giới thiệu "một gợi
+        # ý nhỏ" trong khi thứ sắp hiện ra là một thẻ lý thuyết.
+        node_id = decision.coping_node or decision.concept_node
+        node = graph.node(node_id) if node_id else None
+        body = graph.content_body(node_id) if node_id else None
         system = skills.build(
             "14_SUPPORT",
             VERBATIMS=_verbatim_list(overlay),
-            COPING_TITLE=(body or {}).get("title") or (coping.label if coping else "một gợi ý nhỏ"),
+            COPING_TITLE=(body or {}).get("title") or (node.label if node else "một gợi ý nhỏ"),
             RECENT_TURNS=recent, **chung,
         )
         return TurnPrompt("14_SUPPORT", system, user_message, 400, 0.6)

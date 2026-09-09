@@ -25,14 +25,20 @@ function coerceType(raw: string): MessageType {
  * Sở hữu state một phiên chat: danh sách message + gửi lượt tiếp.
  * Chuyển WebSocket → SSE (docx/07 §5). Chip = gửi NGUYÊN VĂN text như một lượt bình thường.
  */
-export function useChatSession(sessionId: string, initial: ChatMessage[] = []) {
+export function useChatSession(
+  sessionId: string,
+  initial: ChatMessage[] = [],
+  topic: string | null = null,
+) {
   const [messages, setMessages] = useState<ChatMessage[]>(initial);
   const [awaitingReply, setAwaitingReply] = useState(false);
   const [crisisShown, setCrisisShown] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
 
   const send = useCallback(
-    async (rawInput: string) => {
+    // `topicOverride`: bấm thẻ chủ đề thì setState chưa kịp vào closure của
+    // send() ở cùng một tick, nên lượt đó phải mang chủ đề đi theo bằng tay.
+    async (rawInput: string, topicOverride?: string | null) => {
       const text = rawInput.trim();
       if (!text || awaitingReply) return;
 
@@ -50,7 +56,13 @@ export function useChatSession(sessionId: string, initial: ChatMessage[] = []) {
         const res = await fetch(`${API_BASE}/api/chat/stream`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ session_id: sessionId, message: text }),
+          // `topic` gửi kèm MỖI lượt, không chỉ lúc mở phiên (docx/13 §5.4):
+          // đổi chủ đề giữa chừng thì không phải bỏ cả cuộc trò chuyện.
+          body: JSON.stringify({
+            session_id: sessionId,
+            message: text,
+            topic: topicOverride ?? topic,
+          }),
           signal: ac.signal,
         });
         if (!res.ok || !res.body) throw new Error(`chat/stream ${res.status}`);
@@ -132,7 +144,7 @@ export function useChatSession(sessionId: string, initial: ChatMessage[] = []) {
         abortRef.current = null;
       }
     },
-    [awaitingReply, sessionId],
+    [awaitingReply, sessionId, topic],
   );
 
   return { messages, awaitingReply, crisisShown, send };

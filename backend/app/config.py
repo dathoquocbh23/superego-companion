@@ -48,6 +48,7 @@ class Settings(BaseSettings):
     content_dir: Path = BACKEND_ROOT / "data" / "content"
     crisis_card_path: Path = BACKEND_ROOT / "data" / "crisis_card.md"
     assessment_path: Path = BACKEND_ROOT / "data" / "assessment.yaml"
+    topics_path: Path = BACKEND_ROOT / "data" / "topics.yaml"
     skills_dir: Path = BACKEND_ROOT / "app" / "skills"
 
     # --- Ngưỡng (docx/03 §3, docx/11 phần D) ---

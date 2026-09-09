@@ -102,8 +102,15 @@ CHIP_CONFIRM_NO = "✗ "
 CHIP_CONFIRM_PARTIAL = "~ "
 CHIP_ASK = "? "
 CHIP_DECLINE = "— "
+# docx/03 §7 luật 12 — chip TÌM HIỂU của chế độ chủ đề. CỐ Ý là tiền tố RIÊNG,
+# không tái dùng CHIP_ASK ("? "): prefix đó đang mang nghĩa "chip nội dung
+# người dùng chọn để TRẢ LỜI", còn chip này là người dùng HỎI bot về khái niệm.
+# Trộn hai thứ thì detect_chip() không phân biệt được, và gate sẽ đối xử với
+# một câu hỏi kiến thức như một câu trả lời — hỏng cả hai đường.
+CHIP_LEARN = "◦ "
 CHIP_PREFIXES: tuple[str, ...] = (
-    CHIP_CONFIRM_YES, CHIP_CONFIRM_NO, CHIP_CONFIRM_PARTIAL, CHIP_ASK, CHIP_DECLINE,
+    CHIP_CONFIRM_YES, CHIP_CONFIRM_NO, CHIP_CONFIRM_PARTIAL,
+    CHIP_ASK, CHIP_DECLINE, CHIP_LEARN,
 )
 
 # Câu an toàn thay thế khi post-check chặn chẩn đoán (docx/04 §6.1)

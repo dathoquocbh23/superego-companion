@@ -13,6 +13,7 @@ from typing import Any
 
 from app.config import settings
 from app.graph.loader import GraphService
+from app.graph.topics import get_topics
 from app.overlay.model import EvidenceSource, Overlay
 from app.safety.crisis import SafetyResult
 from app.safety.chips import ChipSignal
@@ -195,6 +196,11 @@ def highest_information_gain_node(graph: GraphService, overlay: Overlay) -> str 
             -on_hot_cycle,
             -low,
             cur,
+            # docx/03 §4.1b — node thuộc tài liệu của chủ đề đang mở được ưu
+            # tiên. KHOÁ PHỤ, không phải bộ lọc: node ngoài chủ đề vẫn được
+            # chọn khi nó là thứ duy nhất còn lại. Chủ đề là cửa vào, không
+            # phải nhà tù.
+            get_topics().uu_tien(overlay.topic_id, node),
             rank.get(node.type, 9),
             nguoc_dong,
             node.likert_item if node.likert_item is not None else 99,
@@ -208,14 +214,79 @@ def highest_information_gain_node(graph: GraphService, overlay: Overlay) -> str 
 
 
 # ---------------------------------------------------------------------------
+# CHẾ ĐỘ CHỦ ĐỀ — docx/13 §5.5. Hai hàm dưới THUẦN: chúng chỉ quyết định, việc
+# ghi `luot_tim_hieu` / `topic_opened` nằm ở runner, cùng chỗ với turn_count.
+# ---------------------------------------------------------------------------
+def _the_theo_node(graph: GraphService, node_id: str, reason: str) -> GateDecision:
+    """Phát đúng MỘT thẻ nội dung; loại thẻ chọn theo type của node.
+
+        resource -> BRIDGE_CARD   ·   coping -> COPING_CARD   ·   còn lại -> KNOWLEDGE_CARD
+
+    Runner đọc concept_node / coping_node / resource_node để quyết message_type,
+    nên ở đây chỉ cần điền đúng ô.
+    """
+    node = graph.node(node_id)
+    if node is None:                      # topics.yaml đã validate ở startup;
+        return GateDecision(              # tới đây được là graph vừa đổi runtime
+            gate=CLARIFY, reason="topic_node_missing"
+        )
+    if node.type == "resource":
+        return GateDecision(
+            gate=BRIDGE, reason=reason, resource_node=node_id, target_nodes=[node_id],
+        )
+    if node.type == "coping":
+        return GateDecision(
+            gate=SUPPORT, reason=reason, coping_node=node_id, target_nodes=[node_id],
+        )
+    return GateDecision(
+        gate=SUPPORT, reason=reason, concept_node=node_id, target_nodes=[node_id],
+    )
+
+
+def _gate_hoc_kien_thuc(graph: GraphService, overlay: Overlay, text: str) -> GateDecision:
+    """Người dùng bấm chip TÌM HIỂU → phát đúng thẻ mà chip đó hứa."""
+    node_id = get_topics().serves_for(overlay.topic_id, text)
+    if node_id is None:
+        # Chip lạ (topics.yaml đổi giữa phiên, hoặc người dùng tự gõ tiền tố).
+        # KHÔNG bịa thẻ — hỏi lại như một lượt bình thường.
+        return GateDecision(gate=CLARIFY, reason="topic_learn_khong_ro")
+    return _the_theo_node(graph, node_id, "topic_learn")
+
+
+def _gate_mo_chu_de(graph: GraphService, overlay: Overlay) -> GateDecision | None:
+    """Thẻ mở đầu của chủ đề vừa chọn. None = chủ đề này không mở bằng thẻ."""
+    topic = get_topics().get(overlay.topic_id)
+    if topic is None or not topic.enabled or not topic.opening:
+        return None
+    if topic.mo_bang_bai_test:
+        # Chủ đề "Nhận diện" mở bằng bài Likert 10 câu — frontend nhúng form,
+        # không có lượt LLM nào ở đây.
+        return None
+    return _the_theo_node(graph, topic.opening, "topic_opening")
+
+
+# ---------------------------------------------------------------------------
 def decide_gate(
     graph: GraphService,
     overlay: Overlay,
     safety: SafetyResult,
     chip: ChipSignal | None,
 ) -> GateDecision:
-    # ── 0. CHIP (ý định đã biết chắc) ─────────────────────────────────
+    # ── 0. AN TOÀN — TRƯỚC MỌI THỨ, KỂ CẢ CHIP ────────────────────────
+    #     Chuyển lên đầu 09/09/2026 (docx/03 §5). Trước đó nhánh chip chạy
+    #     trước: người dùng gõ tay một chuỗi bắt đầu bằng tiền tố chip rồi kể
+    #     ý định tự hại thì gate trả CLARIFY và tầng khủng hoảng bị chip che.
+    #     Hiếm, nhưng đây đúng là loại lỗi không được phép có.
+    if safety.forces_escalate:
+        return GateDecision(gate=ESCALATE, reason=f"safety_tier_{safety.tier}")
+
+    # ── 0b. CHIP (ý định đã biết chắc) ────────────────────────────────
     if chip is not None:
+        # docx/13 — chip TÌM HIỂU: người dùng hỏi bot về một khái niệm. Xử ở
+        # đây chứ KHÔNG để rơi xuống luồng chính, vì khi overlay đã đủ 3 node
+        # thì §4 REFLECT sẽ thắng và câu hỏi của họ bị nuốt mất.
+        if chip.chip_type == "LEARN":
+            return _gate_hoc_kien_thuc(graph, overlay, chip.clean_text)
         if chip.chip_type == "CONFIRM_NO":
             return GateDecision(
                 gate=CLARIFY, reason="chip_confirm_no",
@@ -232,9 +303,7 @@ def decide_gate(
             return GateDecision(gate=CLARIFY, reason="chip_decline")
         # CONFIRM_YES / ASK rơi xuống luồng chính (overlay đã cập nhật ở step trước)
 
-    # ── 1. AN TOÀN ───────────────────────────────────────────────────
-    if safety.forces_escalate:
-        return GateDecision(gate=ESCALATE, reason=f"safety_tier_{safety.tier}")
+    # ── 1. AN TOÀN — đã xử ở §0 ──────────────────────────────────────
 
     # ── 2. BẮC CẦU ──────────────────────────────────────────────────
     impacts = _impact_count(graph, overlay)
@@ -295,12 +364,54 @@ def decide_gate(
         nid for nid, e in overlay.evidence.items()
         if e.confidence >= thr and e.source in (EvidenceSource.SELF_REPORT, EvidenceSource.LIKERT)
     ]
-    if not reflect_bi_khoa and len(strong) >= settings.min_nodes_for_reflect:  # D3
+    # B-2 (docx/03 §3.2) — mọi bằng chứng đạt ngưỡng đều đến từ bài Likert thì
+    # KHÔNG phản chiếu. Evidence LIKERT có verbatim="" (api/assessment.py: học
+    # sinh tick ô, không gõ chữ), mà REFLECT được dựng quanh việc đọc lại
+    # NGUYÊN VĂN lời họ. Phản chiếu lúc này = bot tự chế một câu nghe như đọc
+    # bảng hỏi. Rơi xuống CLARIFY để lấy lời thật trước đã.
+    chi_co_likert = bool(strong) and all(
+        overlay.evidence[nid].source == EvidenceSource.LIKERT for nid in strong
+    )
+    if (
+        not reflect_bi_khoa
+        and not chi_co_likert
+        and len(strong) >= settings.min_nodes_for_reflect  # D3
+    ):
         strong.sort(key=lambda x: overlay.confidence(x), reverse=True)
         return GateDecision(
             gate=REFLECT, reason="min_nodes_reached", mode="single",
             target_nodes=strong[:3],
         )
+
+    # ── 4a0. HỎI VÀO KẾT QUẢ BÀI TEST ────────────────────────────
+    #     Lượt đầu sau bài Likert. B-2 đã chặn REFLECT (evidence toàn LIKERT,
+    #     verbatim rỗng) nên nếu không có nhánh này thì rơi xuống §5 và
+    #     `highest_information_gain_node` nhắm một node BẤT KỲ còn thiếu thông
+    #     tin — bot hỏi một câu chẳng liên quan gì tới bài họ vừa làm.
+    #     Quan sát thật 09/09/2026: "bạn đã đánh giá những gì vậy?".
+    #
+    #     Nhắm vào câu họ chấm CAO NHẤT. Nội dung câu đó đi vào prompt qua
+    #     {HAS_TAKEN_ASSESSMENT} (llm/turn.py::_khoi_bai_test).
+    if overlay.has_taken_assessment and not overlay.assessment_debriefed:
+        manh_nhat = sorted(
+            (
+                nid for nid, e in overlay.evidence.items()
+                if e.source == EvidenceSource.LIKERT and e.confidence >= thr
+            ),
+            key=lambda n: (-overlay.confidence(n), n),
+        )
+        if manh_nhat:
+            return GateDecision(
+                gate=CLARIFY, reason="assessment_debrief", target_nodes=[manh_nhat[0]],
+            )
+
+    # ── 4a. MỞ CHỦ ĐỀ (docx/13) ──────────────────────────────────
+    #     Đặt SAU §4 có chủ đích: hội thoại đã đủ chín để phản chiếu thì CHUYỆN
+    #     CỦA HỌC SINH thắng bài giảng. Lượt đầu overlay rỗng nên không nhánh
+    #     nào ở trên nổ, nhánh này fire ngay khi vừa bấm thẻ chủ đề.
+    if overlay.topic_id and not overlay.topic_opened:
+        if (mo := _gate_mo_chu_de(graph, overlay)) is not None:
+            return mo
 
     # ── 4b. ĐỊNH HƯỚNG LẠI (van chống giậm chân) ─────────────────
     if _bi_giam_chan(overlay):
@@ -342,8 +453,14 @@ def _bi_giam_chan(overlay: Overlay) -> bool:
     # Vừa đưa menu xong thì thôi, đừng đưa hai lần liền.
     if overlay.gates_used and overlay.gates_used[-1] == ORIENT:
         return False
+    # D3 (docx/03 §5, docx/14 ⚠️ A-1) — TRỪ số lượt ở chế độ TÌM HIỂU. Chip
+    # TÌM HIỂU không mang cue nên overlay đứng yên, nhưng đó KHÔNG phải hội
+    # thoại chạy không tải: người dùng đang đọc đúng thứ họ vừa bấm hỏi. Không
+    # trừ thì ngay lượt 2 của chế độ chủ đề, bot đã bắn ORIENT và xin lỗi
+    # "mình đang hỏi hơi lòng vòng" giữa lúc mọi thứ vẫn bình thường.
+    luot_that = overlay.turn_count - overlay.luot_tim_hieu
     if not overlay.so_node_noi_duoc():
-        return overlay.turn_count >= ORIENT_MIN_TURN
+        return luot_that >= ORIENT_MIN_TURN
     gan_day = overlay.gates_used[-STALL_LIMIT:]
     ket_o_clarify = len(gan_day) == STALL_LIMIT and all(g == CLARIFY for g in gan_day)
     return ket_o_clarify and overlay.stall_streak >= STALL_LIMIT

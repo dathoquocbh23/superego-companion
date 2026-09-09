@@ -19,12 +19,23 @@ export function DisclaimerBanner({ variant = "bar" }: { variant?: "bar" | "attac
     return () => clearTimeout(t);
   }, []);
 
+  // Câu thu gọn nói sản phẩm LÀ cái gì trước, rồi mới tới giới hạn. Bản cũ là ba
+  // lời phủ định liên tiếp ("demo học thuật" / "chưa thẩm định" / "không thay
+  // thế") — học sinh đọc xong kết luận cả app không đáng tin, rồi bỏ qua luôn
+  // phần nội dung ĐÁNG tin nhất là các thẻ nguyên văn.
+  //
+  // Bản cũ còn ghi "nội dung tổng hợp từ WHO/NIMH/APA". Kiểm 08/09/2026: corpus
+  // CÓ trích (WHO ×8, NIMH ×10, APA ×2) nhưng gần như toàn bộ nằm trong RỐI LOẠN
+  // LO ÂU & TRẦM CẢM.docx — tài liệu chưa được trích thành content node nào. Tức
+  // là câu đó đang bảo chứng cho thứ bot chưa nói được. Nội dung bot thật sự phát
+  // ra là nguyên văn 5 docx của nhóm, nên ghi đúng như vậy: vừa thật hơn, vừa là
+  // điểm mạnh của đề tài, khỏi phải mượn tên WHO.
   const text = collapsed ? (
-    <>Sản phẩm demo học thuật — chưa qua thẩm định chuyên môn. Không thay thế tư vấn tâm lý.</>
+    <>Công cụ tìm hiểu kiến thức — không thay thế tư vấn tâm lý.</>
   ) : (
     <>
-      Sản phẩm demo học thuật — nội dung tổng hợp từ WHO/NIMH/APA, chưa qua thẩm định chuyên môn độc
-      lập. Không thay thế tư vấn tâm lý.
+      Công cụ tìm hiểu kiến thức — nội dung trích nguyên văn từ tài liệu nghiên cứu, chưa qua thẩm
+      định chuyên môn độc lập. Không thay thế tư vấn tâm lý.
     </>
   );
 

@@ -7,9 +7,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import assessment, chat, graph as graph_api, session
+from app.api import assessment, chat, graph as graph_api, session, topics as topics_api
 from app.config import settings
 from app.graph.loader import load_graph
+from app.graph.topics import load_topics
 from app.overlay.store import get_store
 from app.skills.loader import load_skills
 
@@ -21,11 +22,19 @@ logger = logging.getLogger("app")
 async def lifespan(_: FastAPI):
     # Graph validate fail → KHÔNG khởi động (chủ ý). docx/06 §6.
     graph = load_graph()
+    # topics.yaml validate theo graph — chip trỏ tới node không có thật thì
+    # KHÔNG cho app lên. Xem app/graph/topics.py.
+    topics = load_topics(graph)
     skills = load_skills()
     logger.info(
         "Graph v%s: %d evidence + %d content node, %d cycle. Skills: %s",
         graph.version, len(graph.evidence_node_ids), len(graph.content_node_ids),
         len(graph.cycles), ", ".join(skills.names()),
+    )
+    logger.info(
+        "Topics v%s: %d/%d chủ đề đang bật (%s)",
+        topics.version, len(topics.enabled()), len(topics.topics),
+        ", ".join(t.id for t in topics.enabled()),
     )
     llm_mode = (
         "OFFLINE (câu tĩnh)"
@@ -51,6 +60,7 @@ app.include_router(session.router)
 app.include_router(assessment.router)
 app.include_router(chat.router)
 app.include_router(graph_api.router)
+app.include_router(topics_api.router)
 
 
 @app.get("/health")

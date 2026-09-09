@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { AlertTriangle } from "lucide-react";
 
 import { PageShell } from "@/components/app-shell";
@@ -11,8 +11,15 @@ import { LikertForm } from "@/features/assessment/likert-form";
 import { ResultCard } from "@/features/assessment/result-card";
 import type { AssessmentResult, AssessmentSpec } from "@/lib/types";
 
-export default function AssessmentPage() {
+/**
+ * Bài Likert giờ là NỘI DUNG của chủ đề "Nhận diện trong đời sống học sinh"
+ * (docx/13 §3): cả 10 câu đều mang source_doc của đúng tài liệu đó. `?topic=`
+ * đi theo suốt luồng để lúc quay về chat, đoạn nói chuyện vẫn nằm trong đúng
+ * mảng tài liệu ấy thay vì rơi về chế độ không chủ đề.
+ */
+function AssessmentInner() {
   const router = useRouter();
+  const topic = useSearchParams().get("topic");
   const [spec, setSpec] = useState<AssessmentSpec | null>(null);
   const [result, setResult] = useState<AssessmentResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -51,7 +58,7 @@ export default function AssessmentPage() {
 
         {result ? (
           <div className="mt-4">
-            <ResultCard result={result} />
+            <ResultCard result={result} topic={topic} />
           </div>
         ) : spec ? (
           <>
@@ -65,7 +72,7 @@ export default function AssessmentPage() {
                 spec={spec}
                 submitting={submitting}
                 onSubmit={handleSubmit}
-                onSkip={() => router.push("/chat")}
+                onSkip={() => router.push(topic ? `/chat?topic=${encodeURIComponent(topic)}` : "/chat")}
               />
             </div>
           </>
@@ -78,5 +85,14 @@ export default function AssessmentPage() {
         </div>
       </main>
     </PageShell>
+  );
+}
+
+export default function AssessmentPage() {
+  // useSearchParams() bắt buộc nằm trong Suspense ở App Router.
+  return (
+    <Suspense fallback={<p className="p-6 text-sm text-[var(--muted)]">Đang tải…</p>}>
+      <AssessmentInner />
+    </Suspense>
   );
 }

@@ -16,9 +16,21 @@ const BAND_FILL: Record<AssessmentResult["band"], number> = {
  * Màn hình kết quả — LUÔN có nút vào chat (docx/07 §2.2).
  * Không bao giờ là điểm dừng, đặc biệt với band CAO.
  */
-export function ResultCard({ result }: { result: AssessmentResult }) {
+export function ResultCard({
+  result,
+  topic = null,
+}: {
+  result: AssessmentResult;
+  topic?: string | null;
+}) {
   const router = useRouter();
   const primary = result.next_actions[0] ?? { label: "Nói chuyện về kết quả này", href: "/chat?from=assessment" };
+  // Mang chủ đề về theo (docx/13 §5.7). href từ backend đã có sẵn query nên nối
+  // bằng "&"; không có thì Next vẫn hiểu, nhưng dựng bằng URLSearchParams cho
+  // chắc thay vì đoán dấu phân cách.
+  const href = topic
+    ? `${primary.href}${primary.href.includes("?") ? "&" : "?"}topic=${encodeURIComponent(topic)}`
+    : primary.href;
 
   return (
     <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
@@ -40,7 +52,7 @@ export function ResultCard({ result }: { result: AssessmentResult }) {
 
       <button
         type="button"
-        onClick={() => router.push(primary.href)}
+        onClick={() => router.push(href)}
         className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] py-3 text-[15px] font-semibold text-white"
       >
         {primary.label}

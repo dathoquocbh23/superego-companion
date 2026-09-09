@@ -80,6 +80,15 @@ class Overlay(BaseModel):
     gates_used: list[str] = Field(default_factory=list)
     bridge_offered: bool = False
     has_taken_assessment: bool = False
+    # Kết quả bài Likert, giữ để MỌI lượt sau còn nhắc lại được (bug 09/09/2026:
+    # trước đây chỉ có cờ boolean nên bot quên sạch bài test ngay lượt kế tiếp).
+    # Cả hai đều là chữ NGUYÊN VĂN của assessment.yaml.
+    assessment_band_label: str | None = None
+    assessment_headline: str | None = None
+    assessment_average: float | None = None
+    # Đã hỏi vào kết quả bài test chưa. Một lần thôi: hỏi mãi về cùng một câu
+    # Likert là kiểu giậm chân khó chịu nhất, vì nó có vẻ như bot đang truy bài.
+    assessment_debriefed: bool = False
     crisis_shown: bool = False
     # node bị né tạm thời sau CHIP_DECLINE: node_id -> lượt được phép hỏi lại
     suppressed_nodes: dict[str, int] = Field(default_factory=dict)
@@ -89,6 +98,20 @@ class Overlay(BaseModel):
     # suốt: hệ thống không có cách nào tự biết mình đang chạy không tải.
     evidence_size_prev: int = 0
     stall_streak: int = 0
+    # ── Chế độ chủ đề (docx/13, 09/09/2026) ───────────────────────────
+    # `topic_id` None = vào bằng ô nhập, không qua thẻ chủ đề nào.
+    topic_id: str | None = None
+    topic_opened: bool = False        # đã phát thẻ mở đầu của chủ đề chưa
+    # Số lượt ở chế độ TÌM HIỂU (mở chủ đề + bấm chip kiến thức). Trừ ra khi
+    # xét giậm chân: chip TÌM HIỂU không mang cue nên overlay đứng yên, nhưng
+    # đó KHÔNG phải hội thoại chết máy — người dùng đang đọc đúng thứ họ vừa
+    # bấm hỏi. Không trừ thì tới lượt 2 bot đã xin lỗi "mình hỏi hơi lòng
+    # vòng". Xem docx/03 §5 `bi_giam_chan()` và docx/14 ⚠️ A-1.
+    luot_tim_hieu: int = 0
+    # Thẻ nội dung đã phát trong phiên này, theo thứ tự. Dùng để XOAY chip TÌM
+    # HIỂU: chủ đề có tới 6 chip mà mỗi lượt chỉ hiện được 3, nên chip chưa đọc
+    # phải lên trước. Xem pipeline/quick_reply.py.
+    the_da_xem: list[str] = Field(default_factory=list)
     # docx/11 §E5 — lượt sớm nhất được phép REFLECT lại sau một "Đúng một phần".
     reflect_locked_until: int = 0
     # docx/11 D7 — dáng câu hỏi của vài lượt gần nhất, để không hỏi lại một kiểu.

@@ -22,12 +22,16 @@ import re
 from app.config import settings
 from app.gate.decide import BRIDGE, CLARIFY, ORIENT, REFLECT, SUPPORT, GateDecision
 from app.graph.loader import GraphService
+from app.graph.topics import get_topics
 from app.overlay.model import Overlay
 from app.safety import phrases
 from app.safety.normalize import normalize_vi
 
 ESCAPE_CLARIFY = phrases.CHIP_DECLINE + "Mình chưa muốn nói về chuyện này"
 ESCAPE_GENERIC = phrases.CHIP_DECLINE + "Không hẳn vậy"
+# Chip thoát riêng cho chế độ chủ đề: ở đây người dùng chưa kể gì cả nên
+# "Mình chưa muốn nói về chuyện này" là hỏi một câu chưa ai hỏi.
+ESCAPE_DOC_THOI = phrases.CHIP_DECLINE + "Mình chỉ đọc thôi"
 
 # §E3 — trần chip nội dung. Tổng luôn = n_nội_dung + 1 chip thoát.
 CHIP_NOI_DUNG_MIN = 2
@@ -140,6 +144,48 @@ def build_quick_replies(
     # CRISIS_CARD không kèm quick replies (docx/04 §7)
     if gate == "ESCALATE":
         return [], []
+
+    # ── CHẾ ĐỘ CHỦ ĐỀ (docx/13 §4) ────────────────────────────────────
+    # Công thức: 2–3 chip TÌM HIỂU + 1 chip BẮC CẦU + 1 chip thoát.
+    #
+    # Chip TÌM HIỂU mang tiền tố CHIP_LEARN → gate xử ở §0b, phát đúng thẻ đã
+    # hứa. Chip BẮC CẦU thì CỐ Ý KHÔNG có tiền tố: nó phải đi qua bước trích
+    # như một tin nhắn thường để overlay có cái bám vào — đây là chỗ chuyển từ
+    # chế độ bài giảng sang chế độ trò chuyện.
+    if decision.reason in ("topic_opening", "topic_learn"):
+        topic = get_topics().get(overlay.topic_id)
+        if topic is not None:
+            vua_phat = decision.concept_node or decision.coping_node or decision.resource_node
+            chips: list[str] = []
+            prov: list[dict] = []
+
+            # XOAY CHIP — chủ đề có tới 6 chip mà mỗi lượt chỉ hiện được 3, nên
+            # phải chọn. Luật: chip CHƯA ĐỌC lên trước, trong mỗi nhóm giữ
+            # nguyên thứ tự khai báo ở topics.yaml (sorted() ổn định). Đọc hết
+            # một vòng thì các chip cũ quay lại.
+            #
+            # CỐ Ý TẤT ĐỊNH, không random. Random có hai cái hại thật:
+            #   1. Chip người dùng vừa nhìn thấy có thể biến mất ở lượt sau,
+            #      trước cả khi họ kịp bấm — thứ họ định đọc thì mất, thứ đã
+            #      đọc lại hiện ra.
+            #   2. Demo và test mất tính lặp lại. Bộ test và kịch bản docx/14
+            #      không còn canh được cái gì.
+            # Cách này vẫn đạt đúng mục tiêu "chip đổi qua các lượt, và mọi mục
+            # lý thuyết đều tới lượt được bày ra", mà không mất hai thứ trên.
+            da_xem = set(overlay.the_da_xem)
+            ung_vien = sorted(
+                (c for c in topic.learn_chips if c.serves != vua_phat),
+                key=lambda c: c.serves in da_xem,
+            )
+            for c in ung_vien[: CHIP_NOI_DUNG_MAX - 1]:   # chừa 1 ô cho chip bắc cầu
+                chips.append(phrases.CHIP_LEARN + c.text)
+                prov.append(_prov(chips[-1], gate, vua_phat, c.serves, False))
+            if topic.bridge_chip:
+                chips.append(topic.bridge_chip)
+                prov.append(_prov(topic.bridge_chip, gate, vua_phat, None, False))
+            chips.append(ESCAPE_DOC_THOI)
+            prov.append(_prov(ESCAPE_DOC_THOI, gate, vua_phat, None, True))
+            return chips, prov
 
     # REFLECT → chip XÁC NHẬN, không phải chip lựa chọn: 2, hoặc 3 khi thẻ đủ
     # dài để "đúng một phần" là một câu trả lời thật (docx/11 §E5). Thẻ 4 dòng
