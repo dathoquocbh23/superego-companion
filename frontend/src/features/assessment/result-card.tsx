@@ -13,6 +13,46 @@ const BAND_FILL: Record<AssessmentResult["band"], number> = {
 };
 
 /**
+ * YAML dùng xuống dòng để nội dung dễ đọc trong mã nguồn. Khi hiển thị, các
+ * dòng đơn vẫn thuộc cùng một đoạn; chỉ dòng trống mới bắt đầu đoạn mới.
+ * Những dòng có dấu “•” được giữ thành danh sách để các band thấp không bị
+ * dồn toàn bộ gợi ý vào một câu.
+ */
+function ResultText({ text }: { text: string }) {
+  const blocks = text.trim().split(/\n\s*\n/);
+
+  return (
+    <div className="mt-4 space-y-3 text-[15px] leading-relaxed">
+      {blocks.map((block, blockIndex) => {
+        const lines = block
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean);
+        const firstBullet = lines.findIndex((line) => line.startsWith("•"));
+
+        if (firstBullet === -1) {
+          return <p key={blockIndex}>{lines.join(" ")}</p>;
+        }
+
+        const introduction = lines.slice(0, firstBullet).join(" ");
+        const bullets = lines.slice(firstBullet).map((line) => line.replace(/^•\s*/, ""));
+
+        return (
+          <div key={blockIndex}>
+            {introduction && <p>{introduction}</p>}
+            <ul className="mt-1.5 list-disc space-y-1 pl-5">
+              {bullets.map((bullet, bulletIndex) => (
+                <li key={bulletIndex}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
  * Màn hình kết quả — LUÔN có nút vào chat (docx/07 §2.2).
  * Không bao giờ là điểm dừng, đặc biệt với band CAO.
  */
@@ -43,7 +83,7 @@ export function ResultCard({
       <p className="mt-1.5 text-[15px] font-semibold">{result.band_label}</p>
       <p className="text-sm text-[var(--muted)]">{result.headline}</p>
 
-      <p className="mt-4 text-[15px] leading-relaxed whitespace-pre-wrap">{result.result_text}</p>
+      <ResultText text={result.result_text} />
 
       <div className="mt-4 flex items-start gap-2 rounded-lg bg-[var(--amber-bg)] px-3 py-2 text-[var(--amber-ink)]">
         <AlertTriangle className="mt-0.5 size-4 shrink-0" aria-hidden />

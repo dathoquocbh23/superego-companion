@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Góc Hiểu Mình",
+  title: "Psycheguard",
   description:
     "Trợ lý đồng hành về cảm xúc cho học sinh THPT — nhận diện xu hướng tự phê phán quá mức. Sản phẩm demo học thuật.",
 };
